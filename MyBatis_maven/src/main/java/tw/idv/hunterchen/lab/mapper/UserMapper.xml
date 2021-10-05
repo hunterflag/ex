@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="tw.idv.hunterchen.lab.mapper.UserMapper">
+	<select id="selectOneById" parameterType="int" resultType="User">
+		select * from `user` where id = #{id}
+    </select>
+    <insert id="insert" >
+    	INSERT INTO user (name) values (#{name})
+    	<selectKey keyColumn="name" keyProperty="name" resultType="int" order="AFTER">
+    		SELECT last_insert_id()
+    	</selectKey>
+     </insert>
+    
+</mapper>
