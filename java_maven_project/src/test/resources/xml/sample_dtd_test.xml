@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE 根元素 SYSTEM "dtd/sample.dtd" >
+<root>
+	<subLvl1>這裡就隨便字串</subLvl1>
+	<!-- 
+	<subLvl1>這裡就隨便字串</subLvl1>
+	 -->
+	
+</root>
+
+

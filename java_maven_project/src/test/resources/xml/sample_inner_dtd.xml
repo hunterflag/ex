@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE root [
+	<!ELEMENT rootTag ANY> 
+	<!ELEMENT chooseOneTag (subTagLvl1 | subTagLvl2)>
+	<!ELEMENT multiTag (subTagLvl1 | subTagLvl2)*>
+	<!ELEMENT orderTag (subTagLvl1, subTagLvl2)>
+	<!ELEMENT subTagLvl1 (#PCDATA | subLvl11)*>
+	<!ELEMENT subTagLvl2 (#PCDATA)>
+	<!ELEMENT subTagLvl11 (#PCDATA)>
+	<!ELEMENT emptyTag EMPTY>
+]>
+
+<rootTag>
+	<chooseOneTag>
+		<subTagLvl1>
+			這裡就隨便字串
+			<subLvl11>這裡就隨便字串</subLvl11>
+		</subTagLvl1> 
+	</chooseOneTag>
+	<chooseOneTag>
+		<subTagLvl2>
+			這裡就隨便字串
+		</subTagLvl2> 
+	</chooseOneTag>
+	<multiTag>
+		<subTagLvl1>
+			這裡就隨便字串
+		</subTagLvl1> 
+	</multiTag>
+
+	<emptyTag/>
+	<emptyTag></emptyTag>
+	<!-- 
+	<emptyTag>空元素時, 這裡不能有內容</emptyTag>
+	 -->
+</rootTag>
+

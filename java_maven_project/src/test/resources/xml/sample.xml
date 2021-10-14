@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE root SYSTEM "/dtd/sample.dtd">
+<!-- malformed vs well-form 
+	0.大小寫不同
+	1.頭尾對稱
+	2.逐層級疊套
+	
+-->
+
+<rootTag></rootTag>

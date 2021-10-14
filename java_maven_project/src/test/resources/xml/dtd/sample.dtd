@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT root (subLvl1 | subLvl2)*>
+<!ELEMENT subLvl1 (#PCDATA | subLvl11)*>
+<!ELEMENT subLvl2 (#PCDATA)>
+<!ELEMENT subLvl11 (#PCDATA)>
+
+<!-- 元素的種類, 依值區分 
+	<!ELEMENT root (#PCDATA)>
+	<!ELEMENT 元素名稱 (#PCDATA)>
+	<!ELEMENT 元素名稱 EMPTY>
+	<!ELEMENT 元素名稱 EMPTY>
+	<!ELEMENT 元素名稱 ANY>
+	<!ELEMENT 元素名稱 (子元素組合)>
+-->
