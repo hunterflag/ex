@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="manifest" href="/manifest.json" />
 <link rel="stylesheet" type="text/css" href="../../css/common.css" />
 <style type="text/css">
 	div {
@@ -14,13 +15,16 @@
 		border-color : #FF0000;
 	}
 </style>
-<script type="text/javascript"></script>
+<script type="text/javascript" src="../../js/common.js" />
+<script type="text/javascript">showMessageWithSerialMessatge("Head tag");</script>
 <title>舊首頁index.jsp</title>
 </head>
-<body>
+<body onload="init()">
 	<div>
 	<table border="3px">
 	index.jsp in Context root ("/")
+	<td><a href="./user/sign_up">使用者註冊</a>
+	<td><a href="./sample/sample_css">CSS展示範例</a>
 	<td><A href="home">新網址</A></td>
 	<td><A href="./home">相對新網址</A>
 	<td><A href="/home">絕對新網址</A>

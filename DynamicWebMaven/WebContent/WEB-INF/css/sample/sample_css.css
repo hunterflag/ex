@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+div div {
+	background-color: #ffcccc;
+	animation-delay: 0s;
+	animation-duration: 0s;
+	animation-duration: 0s;
+	
+}
+
+/* transition 過場
+	transition-property: 屬性名稱;  
+	transition-delay: 延遲秒數;
+	transition-duration: 變化秒數; 過場秒數＝延遲秒數+變化秒數 
+	transition-timing-function: linear;	過場方式(採用的運算函數)
+	ref: https://developer.mozilla.org/zh-TW/docs/Web/CSS/transition-timing-function
+*/	
+.img_normal{
+	width: 25%;
+	transition-property: width;  
+	transition-delay: 0s;
+	transition-duration: 4s;
+	transition-timing-function: linear;
+}
+.img_normal:hover{
+	width: 50%;
+	transition-property: width;  
+	transition-delay: 0s;
+	transition-duration: 4s;
+	transition-timing-function: linear;
+}
+div div:hover {
+	background-color: #ff9999;
+}
+
+* {
+	border-width: 1px;
+	border-style: dashed;
+	background-color: #ccffcc;
+}
+
+div{
+	background-color: #ccccff;
+}
+
+div:hover {
+	background-color: #9999ff;
+}
+
+
+*:hover{
+	background-color: #ffffff;	
+}
+/*
+*/
