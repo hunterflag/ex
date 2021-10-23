@@ -1,0 +1,10 @@
+@charset "UTF-8";
+@import "../common.css";
+.normal_text{
+	font-size: 12px;	
+}
+
+.normal_text:hover {
+	font-size: 24px;
+	transition-delay	
+}

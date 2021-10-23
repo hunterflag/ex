@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+/* transition 過場
+	過場屬性名稱: 終點值;
+	transition-property: 屬性名稱;  
+	transition-delay: 延遲秒數;
+	transition-duration: 變化秒數; 過場秒數＝延遲秒數+變化秒數 
+	transition-timing-function: linear;	過場方式(採用的運算函數)
+	ref: https://developer.mozilla.org/zh-TW/docs/Web/CSS/transition-timing-function
+	注意：
+	1.過場屬性可以有多過嗎？ 可以, 以空格分, 但其他參數都會一樣; 
+	1.1.可改用分別定義style, 同時擁有多個style來解決?但行為不如預期, 不清楚轉場參數的組合規則 
+	2.過場屬性的變化可能會因組合、或融合而影響到其他元素  
+*/	
+.transition_single_1{
+	font-size: 1em;
+	transition-property: font-size;  
+	transition-delay: 0s;
+	transition-duration: 4s;
+	transition-timing-function: linear;
+}
+.transition_single_1:hover{
+	font-size: 3em;
+	transition-property: font-size;  
+	transition-delay: 0s;
+	transition-duration: 4s;
+	transition-timing-function: linear;
+}
+
+.transition_single_2{
+	background-color: #ff0000;
+	transition-property: background-color;  
+	transition-delay: 0s;
+	transition-duration: 2s;
+	transition-timing-function: linear;
+}
+.transition_single_2:hover{
+	background-color: #00ff00;
+	transition-property: background-color;  
+	transition-delay: 0s;
+	transition-duration: 2s;
+	transition-timing-function: linear;
+}
+
+.transition_multiple{
+	font-size: 1em;
+	background-color: #ff0000;
+	transition-property: font-size background-color;  
+	transition-delay: 0s;
+	transition-duration: 4s;
+	transition-timing-function: linear;
+}
+.transition_multiple:hover{
+	font-size: 3em;
+	background-color: #00ff00;
+	transition-property: font-size background-color;  
+	transition-delay: 0s;
+	transition-duration: 4s;
+	transition-timing-function: linear;
+}

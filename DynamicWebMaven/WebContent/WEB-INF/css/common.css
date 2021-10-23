@@ -1,6 +1,17 @@
 @charset "UTF-8";
 /*  
 */
+
+*{
+	border-width: 1px;
+	border-style: dotted;
+	background-color: ccccff;
+}
+
+a:hover{
+	background-color: #ffcccc;
+}
+
 body {
 	background-color: #DDFFDD;
 	margin: 80px;

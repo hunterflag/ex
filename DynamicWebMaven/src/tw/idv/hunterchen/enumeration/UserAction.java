@@ -1,4 +1,4 @@
-package tw.idv.hunterchen.web.enumeration;
+package tw.idv.hunterchen.enumeration;
 
 public enum UserAction {
 	SIGN_UP,
