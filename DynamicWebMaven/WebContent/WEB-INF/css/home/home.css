@@ -1,0 +1,7 @@
+@charset "UTF-8";
+@import "head.css"
+
+iframe.headBar {
+	height:	32;
+	width:	320; 
+}

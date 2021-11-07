@@ -11,7 +11,7 @@
 	<form action="/login/verify" >
 		<input type="hidden" name="pageName" value="./login/form.jsp" />
 		<table>
-			<thead style="bordercolor:#red;">測試用輸入資料</thead>
+			<thead style="bordercolor:#red;"></thead>
 			<tbody>
 				<tr><th>輸入項目</th>
 					<th>輸入值</th>

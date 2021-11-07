@@ -38,8 +38,8 @@
 </table>
 </div>
 <div>
-	<h4>h4</h1>
-	<h4 style="font-size:12pt;">h4 12pt</h1>
+	<h4>h4</h4>
+	<h4 style="font-size:12pt;">h4 12pt</h4>
 	<p style="font-size:12pt;">p 12pt</p>
 </div>
 </body>

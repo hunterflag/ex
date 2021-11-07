@@ -4,8 +4,13 @@
 
 <mapper namespace="tw.idv.hunterchen.lab.mapper.UserMapper">
 	<select id="selectOneById" parameterType="int" resultType="User">
-		select * from `user` where id = #{id}
+		select id, name, created_time, modified_time from `user` where id = #{id}
     </select>
+    
+    <select id="selectAllByName" parameterType="String" resultType="" >
+    	SELECT * FROM `user` WHERE name = #{name}
+    </select>
+    
     <insert id="insert" >
     	INSERT INTO user (name) values (#{name})
     	<selectKey keyColumn="name" keyProperty="name" resultType="int" order="AFTER">

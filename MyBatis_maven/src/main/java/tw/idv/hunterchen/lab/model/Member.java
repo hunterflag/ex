@@ -1,9 +1,16 @@
 package tw.idv.hunterchen.lab.model;
 
 public class Member {
+	// field
 	private Integer serialNo;
 	private String account;
-	private String password;
+	private String password = "1111";
+	
+	// constructor
+	public Member() {
+		// TODO Auto-generated constructor stub
+	}
+	// setter() & getter()
 	public Integer getSerialNo() {
 		return serialNo;
 	}

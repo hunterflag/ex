@@ -2,29 +2,39 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<settings>
+		<setting name="logImpl" value="LOG4J" />
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+	
 	<typeAliases>
-		<typeAlias alias="Member" type="tw.idv.hunterchen.lab.model.Member" />
-		<typeAlias alias="User" type="tw.idv.hunterchen.lab.model.User" />
+		<typeAlias alias="Member" 	type="tw.idv.hunterchen.lab.model.Member" />
+		<typeAlias alias="User" 	type="tw.idv.hunterchen.lab.model.User" />
+		<package name="tw.idv.hunterchen.lab.model" />
 	</typeAliases>
+	
 	<environments default="development">
 		<environment id="development">
-			<transactionManager type="JDBC" />
+			<transactionManager type="JDBC">
+				<property name="" value=""/>	
+			</transactionManager>
 			<dataSource type="POOLED">
-				<property name="driver" value="com.mysql.cj.jdbc.Driver" />
-				<property name="url"
-					value="jdbc:mysql://192.168.100.195:3306/labDB" />
-				<property name="username" value="hunter" />
-				<property name="password" value="hunter" />
+				<property name="driver" 	value="com.mysql.cj.jdbc.Driver" />
+				<property name="url"		value="jdbc:mysql://192.168.100.195:3306/labDB" />
+				<property name="username" 	value="hunter" />
+				<property name="password" 	value="hunter" />
 			</dataSource>
 		</environment>
 	</environments>
 
 	<mappers>
-		<!-- // power by http://www.gitbook.net -->
+		<mapper resource="tw/idv/hunterchen/lab/mapper/CountryMapper.xml" />
 		<mapper resource="tw/idv/hunterchen/lab/mapper/MemberMapper.xml" />
+		<!-- // power by http://www.gitbook.net -->
 		<!--  
 		<mapper resource="tw/idv/hunterchen/lab/mapper/UserMapper.xml" />
 		-->
+		<package name="tw.idv.hunterchen.lab.mapper" />
 		<package name="tw.idv.hunterchen.lab.dao" />
 	</mappers>
 </configuration>

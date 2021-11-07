@@ -16,7 +16,7 @@ import tw.idv.hunterchen.utility.DebugTool;
 public class UserController {
 	@RequestMapping("/{action}")
 	public String sample(@PathVariable("action") String action, HttpServletRequest request, Model model) {
-		String result="user/"+action;
+		String result="/user/"+action;
 		DebugTool.showMessageWithSerialNo(result);
 		
 		return result;
