@@ -6,12 +6,49 @@ import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
 import junit.framework.Assert;
+import tw.idv.hunterchen.lab.model.SysRole;
 import tw.idv.hunterchen.lab.model.SysUser;
 
 @SuppressWarnings("deprecation")
-public class SysUserMapperTest2 extends BaseMapperTest{
+public class SysUserMapperSelectTest3 extends BaseMapperTest{
 		
-    	@Test
+	@Test
+	public void testSelectRoleByUserId2() {
+		// 1.先取得 SqlSession
+		SqlSession sqlSession = getSqlSession();
+		try {
+			//2.取得映射器
+			SysUserMapper sysUserMapper = sqlSession.getMapper(SysUserMapper.class);
+			
+			//3.執行Sql述句、取得結果
+			List<SysRole> sysRoleList = sysUserMapper.selectRolesByUserId2((long) 1);
+			//4.檢驗
+			Assert.assertNotNull(sysRoleList);
+			
+		} finally {
+			sqlSession.close();
+		}
+	}
+
+	@Test
+	public void testSelectRoleByUserId() {
+		// 1.先取得 SqlSession
+		SqlSession sqlSession = getSqlSession();
+		try {
+			//2.取得映射器
+			SysUserMapper sysUserMapper = sqlSession.getMapper(SysUserMapper.class);
+			
+			//3.執行Sql述句、取得結果
+			List<SysRole> sysRoleList = sysUserMapper.selectRolesByUserId((long) 1);
+			//4.檢驗
+			Assert.assertNotNull(sysRoleList);
+			
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	@Test
 	public void testSelectById() {
 		// 1.先取得 SqlSession
 		SqlSession sqlSession = getSqlSession();

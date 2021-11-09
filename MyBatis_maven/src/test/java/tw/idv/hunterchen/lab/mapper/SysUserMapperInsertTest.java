@@ -10,7 +10,7 @@ import junit.framework.Assert;
 import tw.idv.hunterchen.lab.model.SysUser;
 
 @SuppressWarnings("deprecation")
-public class SysUserMapperTest4 extends BaseMapperTest{
+public class SysUserMapperInsertTest extends BaseMapperTest{
 		
 	@Test
 	public void testInsert3() {

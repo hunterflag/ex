@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import tw.idv.hunterchen.lab.model.SysUser;
 
-public class SysUserMapperTest extends BaseMapperTest{
+public class SysUserMapperSelectTest extends BaseMapperTest{
 		
 	@Test
 	public void testSelectAll() {

@@ -13,4 +13,7 @@ public interface SysUserMapper {
 	int insert(SysUser sysUser);
 	int insert2(SysUser sysUser);
 	int insert3(SysUser sysUser);
+	int updateById(SysUser sysUser);
+	int deleteById(Long id);
+	
 }
