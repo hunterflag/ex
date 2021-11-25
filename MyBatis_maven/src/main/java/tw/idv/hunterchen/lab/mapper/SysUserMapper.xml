@@ -125,4 +125,40 @@
 		WHERE id = #{id}
 	</update>
 	
+	<select id="selectRolesByUserIdAndRoleEnabled" resultType="tw.idv.hunterchen.lab.model.SysRole">
+		SELECT
+			  r.id
+			, r.role_name 		roleName
+			, r.enabled
+			, r.create_by		createBy
+			, r.create_time		createTime
+		FROM sys_user u
+			INNER JOIN sys_user_role ur ON ur.user_id = u.id
+			INNER JOIN sys_role r ON r.id = ur.role_id
+		<!-- 
+		WHERE u.id = #{userId} 
+			AND r.enabled = #{enabled}
+		 -->
+		<!-- 
+		WHERE u.id = #{arg0} 
+			AND r.enabled = #{arg1}
+		 -->
+		WHERE u.id = #{param1} 
+			AND r.enabled = #{param2}
+	</select>
+
+	<select id="selectRolesByUserIdAndRoleEnabled1" resultType="tw.idv.hunterchen.lab.model.SysRole">
+		SELECT
+			  r.id
+			, r.role_name 		roleName
+			, r.enabled
+			, r.create_by		createBy
+			, r.create_time		createTime
+		FROM sys_user u
+			INNER JOIN sys_user_role ur ON ur.user_id = u.id
+			INNER JOIN sys_role r ON r.id = ur.role_id
+		WHERE u.id = #{userId} 
+			AND r.enabled = #{enabled}
+	</select>
+	
 </mapper>
