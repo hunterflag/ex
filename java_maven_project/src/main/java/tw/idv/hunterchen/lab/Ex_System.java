@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-public class ExProperties {
+public class Ex_System {
 
 	public static void main(String[] args) {
 		int len=40;
@@ -15,13 +15,13 @@ public class ExProperties {
 		Map<String, String> map = System.getenv();
 		Set<String> keySet = map.keySet();
 
-		//取出環境變數名稱、逐一取值(法1)
+		//取出環境變數名稱、逐一取值.法1
 		for(String key : keySet) {
 			counter++;
 			System.out.printf("%d, %"+ len+ "s :\t %s \n", counter, key, map.get(key));
 		}
 		
-		//取出環境變數名稱、逐一取值(法1)
+		//取出環境變數名稱、逐一取值.法2
 		counter=0;
 		Iterator<String> ite = keySet.iterator();
 		while(ite.hasNext()) {
