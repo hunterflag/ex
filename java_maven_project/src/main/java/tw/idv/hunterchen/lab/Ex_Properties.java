@@ -15,6 +15,7 @@ public class Ex_Properties {
 		properties.load(fis);
 		
 		System.out.println(properties.getProperty("demo.chinese"));
+		//
 	}
 
 }
