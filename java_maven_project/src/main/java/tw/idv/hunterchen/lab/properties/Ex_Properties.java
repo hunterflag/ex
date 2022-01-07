@@ -10,26 +10,25 @@ public class Ex_Properties {
 
 	public static void main(String[] args) throws IOException {
 		
-		
-		/* ResourceBundle 的路徑寫法
-		 * 1.不能寫副檔名 (.properties)
-		 * 2.相對於classpath
-		 */
-//		ResourceBundle resource = ResourceBundle.getBundle("tw/idv/hunterchen/lab/Ex");
-		ResourceBundle resource = ResourceBundle.getBundle("tw/idv/hunterchen/lab/properties/message");
-		System.out.println( resource.getString("demo.string"));
-		
-		
-		/*
 		//		File f = new File("Ex_Properties.properties");
-		File f = new File("/tw/idv/hunterchen/lab/Ex.properties");
+//		File f = new File("\\tw\\idv\\hunterchen\\lab\\properties\\Ex_Properties.properties");
+//		File f = new File("/dev.source//test/src/main/resources/tw/idv/hunterchen/lab/properties/Ex_Properties.properties");
+//		File f = new File("/tw/idv/hunterchen/lab/properties/Ex_Properties.properties");
+//		File f = new File("tw/idv/hunterchen/lab/properties/Ex_Properties.properties");
+
+		/*
+		 * File的檔案位置是 System Path
+		 */
+//		File f = new File("d:/temp/Ex_Properties.properties");
+//		File f = new File("/temp/Ex_Properties.properties");
+		File f = new File("D:/dev.source/lab/project/lab/java_maven_project/src/main/resources/tw/idv/hunterchen/lab/properties/Ex_Properties.properties");
+
 		FileInputStream fis = new FileInputStream(f);
 //		BufferedReader bufferedReader = new BufferedReader(new FileReader());
 		Properties properties = new Properties();
 		properties.load(fis);
 		
 		System.out.println(properties.getProperty("demo.chinese"));
-		*/
 	}
 
 }

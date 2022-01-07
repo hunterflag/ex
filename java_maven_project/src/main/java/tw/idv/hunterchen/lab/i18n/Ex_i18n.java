@@ -10,16 +10,16 @@ public class Ex_i18n {
 	public static void main(String[] args) throws IOException {
 		// 準備 .properties 檔
 		// 設定要使用的區域
-		Locale locale = new Locale("en", "US");
-		System.out.println(locale.getDisplayLanguage() + locale.getCountry());
+//		Locale locale = new Locale("en", "US");
+//		System.out.println(locale.getDisplayLanguage() + locale.getCountry());
 
 		/* ResourceBundle 的路徑寫法
 		 * 1.不能寫副檔名 (.properties)
 		 * 2.相對於classpath root; 不是 class所在的 path
 		 */
 //		ResourceBundle resource = ResourceBundle.getBundle("message");	// 這是 classpath root, 不是 class所在的 path
-//		ResourceBundle resource = ResourceBundle.getBundle("tw/idv/hunterchen/lab/i18n/message");
-		ResourceBundle resource = ResourceBundle.getBundle("tw/idv/hunterchen/lab/i18n/message", locale);
+		ResourceBundle resource = ResourceBundle.getBundle("tw/idv/hunterchen/lab/i18n/message");
+//		ResourceBundle resource = ResourceBundle.getBundle("tw/idv/hunterchen/lab/i18n/message", locale);
 		
 		System.out.println( resource.getString("demo.language"));
 
