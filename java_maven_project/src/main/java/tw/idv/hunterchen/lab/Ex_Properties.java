@@ -17,5 +17,5 @@ public class Ex_Properties {
 		System.out.println(properties.getProperty("demo.chinese"));
 		
 	}
-
+}
 

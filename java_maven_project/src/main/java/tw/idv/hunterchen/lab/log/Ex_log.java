@@ -27,28 +27,30 @@ public class Ex_log {
 	
 	public boolean level_log() {
 		Logger logger = Logger.getLogger("LoggingDemo");
+		logger.setLevel(Level.ALL);		//顯示所有等級的資訊
+//		logger.setLevel(Level.INFO);
+	  	
 		//顯示所有等級的資訊
-		logger.setLevel(Level.ALL);
 		ConsoleHandler consoleHandler = new ConsoleHandler();
-	  	//顯示所有等級的資訊
 		consoleHandler.setLevel(Level.ALL);
+//		consoleHandler.setLevel(Level.WARNING);
 		//設定Handler為!ConsoleHandler
 		logger.addHandler(consoleHandler); 
 		
-		logger.severe("嚴重資訊");
-		logger.warning("警示資訊");
-		logger.info("一般資訊");
-		logger.config("設定方面的資訊");
-		logger.fine("細微的資訊");
-		logger.finer("更細微的資訊");
-		logger.finest("最細微的資訊");
+		logger.severe("server級.嚴重資訊");
+		logger.warning("warning級.警示資訊");
+		logger.info("info級.一般資訊");
+		logger.config("config級.設定方面的資訊");
+		logger.fine("fine級.細微的資訊");
+		logger.finer("finer級.更細微的資訊");
+		logger.finest("finest級.最細微的資訊");
 		
 		return true;
  	}
 		
 	public static void main(String[] args) {
 		Ex_log log = new Ex_log();
-		log.default_log();
+//		log.default_log();
 		log.level_log();
 	}
 
