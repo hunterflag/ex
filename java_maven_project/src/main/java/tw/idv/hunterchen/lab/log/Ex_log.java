@@ -45,11 +45,22 @@ public class Ex_log {
 		
 		return true;
  	}
+	
+	public void bubbleUp() {
+		Logger logP = Logger.getLogger("t.p");
+		Logger logC = Logger.getLogger("t.p.c");
+		
+		logC.info("C bubbleUp To P");
+		logP.info("C bubbleUp To P");
+		//TODO 上傳是甚麼意思?
+	}
 		
 	public static void main(String[] args) {
 		Ex_log log = new Ex_log();
-		log.default_log();
-		log.level_log();
+//		log.default_log();
+//		log.level_log();
+		
+		log.bubbleUp();
 	}
 
 }
