@@ -27,7 +27,11 @@ public class Ex_System {
 		while(ite.hasNext()) {
 			counter++;
 			keyName = ite.next();
-			System.out.printf("%d, %"+ len+ "s :\t %s \n", counter, keyName, map.get(keyName));
+			System.out.printf("%d, %"+ len+ "s :\t %s \n"
+					, counter
+					, keyName
+					, map.get(keyName)
+				);
 			
 		}
 		

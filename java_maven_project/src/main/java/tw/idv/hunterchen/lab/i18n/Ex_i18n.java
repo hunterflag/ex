@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
-
+import tw.idv.hunterchen.utility.ShowTool;
 public class Ex_i18n {
-
+	
 	public static void main(String[] args) throws IOException {
 		// 準備 .properties 檔
 		// 設定要使用的區域
@@ -20,6 +20,9 @@ public class Ex_i18n {
 //		ResourceBundle resource = ResourceBundle.getBundle("message");	// 這是 classpath root, 不是 class所在的 path
 		ResourceBundle resource = ResourceBundle.getBundle("tw/idv/hunterchen/lab/i18n/message");
 //		ResourceBundle resource = ResourceBundle.getBundle("tw/idv/hunterchen/lab/i18n/message", locale);
+		//目前的Local
+		Locale defaultLocale = Locale.getDefault();
+		ShowTool.showAllFields(defaultLocale);
 		
 		System.out.println( resource.getString("demo.language"));
 
