@@ -5,10 +5,22 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 import java.util.logging.Logger;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 public class ShowTool_Junit { 
 	Logger logger = Logger.getLogger("dd");
+	@Before
+	public void beforeEveryTest() {
+		System.out.println("====start====");
+	}
+	
+	@After
+	public void afterEveryTest() {
+		System.out.println("====after====");
+	}
+	
 	@Test
 	public void showAllField_junit() {
 //		assertTrue(ShowTool.showAllFields(123L));
@@ -18,5 +30,10 @@ public class ShowTool_Junit {
 		assertTrue(ShowTool.showAllFields(file));
 
 //		assertTrue(ShowTool.showAllFields(file));
+	}
+	
+	@Test
+	public void showSystem_Junit() {
+		ShowTool.showSystem();
 	}
 }

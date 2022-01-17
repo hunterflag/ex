@@ -3,6 +3,7 @@ package tw.idv.hunterchen.utility;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
+import java.util.Properties;
 
 public class ShowTool {
 	/**
@@ -39,7 +40,6 @@ public class ShowTool {
 						, method.getName()
 						, getParamStringOfMethod(method)
 						);
-				
 			}
 
 			System.out.printf("==== class: %s ==== end ....\n"
@@ -67,5 +67,11 @@ public class ShowTool {
 			}
 		}
 		return result;
+	}
+	
+	public static void showSystem() {
+		Properties properties = System.getProperties();
+		String userDir = properties.getProperty("user.dir");
+		System.out.println(userDir);
 	}
 }

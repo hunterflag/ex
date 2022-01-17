@@ -1,12 +1,22 @@
 package tw.idv.hunterchen.lab;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
 public class Ex_System {
 
+	public static void showCurrency() {
+			Path path = Paths.get("");
+			String absPath = path.toAbsolutePath().toString();
+			System.out.println(absPath);
+	}
+
 	public static void main(String[] args) {
+		showCurrency();
+		
 		int len=40;
 		String keyName = "";
 		int counter=0;
@@ -18,7 +28,7 @@ public class Ex_System {
 		//取出環境變數名稱、逐一取值.法1
 		for(String key : keySet) {
 			counter++;
-			System.out.printf("%d, %"+ len+ "s :\t %s \n", counter, key, map.get(key));
+			System.out.printf("%2d, %"+ len+ "s :\t %s \n", counter, key, map.get(key));
 		}
 		
 		//取出環境變數名稱、逐一取值.法2
@@ -27,7 +37,7 @@ public class Ex_System {
 		while(ite.hasNext()) {
 			counter++;
 			keyName = ite.next();
-			System.out.printf("%d, %"+ len+ "s :\t %s \n"
+			System.out.printf("%2d, %"+ len+ "s :\t %s \n"
 					, counter
 					, keyName
 					, map.get(keyName)
