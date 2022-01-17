@@ -86,6 +86,7 @@ public class Ex_System {
 			
 		}
 		
+		//1.c.依key排序
 		SortedMap sortedMap = new TreeMap(properties);
 		Set keySet = sortedMap.keySet();
 		Iterator iterator = keySet.iterator();
