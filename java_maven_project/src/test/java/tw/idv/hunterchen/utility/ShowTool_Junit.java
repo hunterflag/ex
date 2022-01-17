@@ -26,9 +26,11 @@ public class ShowTool_Junit {
 //		assertTrue(ShowTool.showAllFields(123L));
 //		assertTrue(ShowTool.showAllFields(logger));
 		
-		File file = new File("");
-		assertTrue(ShowTool.showAllFields(file));
+//		File file = new File("");
+//		assertTrue(ShowTool.showAllFields(file));
 
+
+		
 //		assertTrue(ShowTool.showAllFields(file));
 	}
 	
