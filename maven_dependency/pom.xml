@@ -1,0 +1,25 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>tw.idv.hunterchen.maven</groupId>
+	<artifactId>dependencies</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<json.version>20180813</json.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- https://mvnrepository.com/artifact/org.json/json -->
+			<dependency>
+				<groupId>org.json</groupId>
+				<artifactId>json</artifactId>
+				<version>${json.version}</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+</project>
