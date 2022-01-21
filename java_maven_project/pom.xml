@@ -7,12 +7,14 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<dependencies>
+		<!-- 
 		<dependency>
 			<groupId>tw.idv.hunterchen.maven</groupId>
 			<artifactId>dependencies</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>pom</type>
 		</dependency>
+		 -->
 		<!-- https://mvnrepository.com/artifact/org.json/json -->
 		<dependency>
 			<groupId>org.json</groupId>
