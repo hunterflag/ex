@@ -74,4 +74,21 @@ public class ShowTool {
 		String userDir = properties.getProperty("user.dir");
 		System.out.println(userDir);
 	}
+	
+	//TODO: 自動取得引數名稱
+	public static void showMessages(String... messages) {
+		if ((messages!=null) && (messages.length>0)) {
+			System.out.printf("===>");
+			for (int i=0; i<messages.length; i++) {
+				System.out.printf(": %s", messages[i]);
+			}
+			System.out.printf("%n");
+		}
+	}
+	
+	/*	XXX: 不同型別的不定數參數
+	public static void showMessages(Object...objects ) {
+		
+	}
+	*/
 }

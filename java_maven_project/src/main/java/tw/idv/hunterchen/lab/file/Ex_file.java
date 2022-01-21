@@ -17,7 +17,31 @@ public class Ex_file {
 	 */
 	@SuppressWarnings("resource")
 	public static void main(String[] args) throws IOException {
-		File file = new File("/Users/chenhuanzhang/temp/exFile.txt");
+//		String fileName="/Users/chenhuanzhang/temp/exFile.txt";
+		
+//		String fileName="d:/temp/files/temp.txt";
+//		String folderName="d:/temp/files/temp.txt";
+		String folderName="d:/temp/files";
+		
+		File folder = new File(folderName);
+		if (folder.isDirectory()) {
+			System.out.println(folder.getName() + " is a Directory!" );
+		}else{
+			System.out.println(folder.getName() + " is a file!" );
+			
+		};
+		String[] fileList = folder.list();
+		int fileCounter = fileList.length;
+		
+		if (fileCounter != 0) {
+			for (int i=0; i<fileCounter; i++) {
+				System.out.printf("%d:%s%n", i, fileList[i]);
+			}
+		}else {
+			System.out.println("no file");
+		}
+		/*
+		File file = new File(fileName);
 			try {
 				FileInputStream fileInputStream = new FileInputStream(file);
 				System.out.println("file real size (Bytes): "+fileInputStream.available());
@@ -32,6 +56,7 @@ public class Ex_file {
 					fileInputStream.close();
 				}
 			}
+		*/
 //		showFields(file);
 //		showMethods(file);
 		
