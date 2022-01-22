@@ -1,0 +1,10 @@
+{
+	"name": "Hunter",
+	"age": 18,
+	"address": {
+		"city": "Taipei",
+		"district": "DaAn"
+	},
+	"mobile": "0912345678",
+	"birthday": "2020-02-18"
+}
