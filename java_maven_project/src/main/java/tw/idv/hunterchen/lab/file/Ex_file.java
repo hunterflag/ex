@@ -35,7 +35,7 @@ public class Ex_file {
 		String pathName="d:/temp/files/temp.sample.txt";
 //		String folderName="d:/temp/files/temp.txt";
 //		String pathName="d:/temp/files";
-//		String pathName = "d:/temp/files";
+//		String pathName = "d:/temp/files";ㄔㄛˉ
 		File path = new File(pathName);
 
 		ShowTool.showMessages("pathName  ", String.valueOf(pathName), "原始名稱");
