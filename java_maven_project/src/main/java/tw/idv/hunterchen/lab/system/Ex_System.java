@@ -2,6 +2,7 @@ package tw.idv.hunterchen.lab.system;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DecimalFormat;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.Map;
@@ -9,6 +10,8 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
+
+import tw.idv.hunterchen.utility.ShowTool;
 
 public class Ex_System {
 	private int len=40;
@@ -106,21 +109,38 @@ public class Ex_System {
 	
 	}
 	
+	public void showTime() throws InterruptedException {
+		Long msTime0=System.currentTimeMillis();
+		Thread.sleep(1000);
+		Long msTime1=System.currentTimeMillis();
+		Long nanoTime0=System.nanoTime();
+		Thread.sleep(1000);
+		Long nanoTime1=System.nanoTime();
+		
+		ShowTool.showMessages("currentTimeMillis()", String.valueOf(new DecimalFormat().format(msTime0)));
+		ShowTool.showMessages("currentTimeMillis()", String.valueOf(new DecimalFormat().format(msTime1)));
+		ShowTool.showMessages("diff msTime", String.valueOf(new DecimalFormat().format(msTime1-msTime0)));
+		ShowTool.showMessages("nanoTime()", String.valueOf(new DecimalFormat().format(System.nanoTime())));
+		ShowTool.showMessages("nanoTime()", String.valueOf(new DecimalFormat().format(System.nanoTime())));
+		ShowTool.showMessages("diff nanoTime", String.valueOf(new DecimalFormat().format(nanoTime1-nanoTime0)));
+	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		Ex_System system = new Ex_System();
-	
-		system.showCurrency();
-		system.showEnvironmentVariables();
-		system.showSystemProperties();
+		
+
+		system.showTime();
+//		system.showCurrency();
+//		system.showEnvironmentVariables();
+//		system.showSystemProperties();
 		
 		
 		
 		// 系統內建
-		System.out.println(System.getProperty("user.name"));
-		System.out.println(System.getProperty("java.home"));
-		System.out.println(System.getProperty("os.name"));
-		System.out.println(System.getProperty("os.version"));
+//		System.out.println(System.getProperty("user.name"));
+//		System.out.println(System.getProperty("java.home"));
+//		System.out.println(System.getProperty("os.name"));
+//		System.out.println(System.getProperty("os.version"));
 
 	}
 
