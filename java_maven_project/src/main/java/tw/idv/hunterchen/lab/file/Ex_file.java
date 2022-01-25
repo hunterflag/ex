@@ -41,17 +41,16 @@ public class Ex_file {
 		 * ShowTool.showMessages(root.getName()); }
 		 */
 		
+		String osName=System.getProperty("os.name");
 		String strDiv = GenString.divider(16);
 		String pathName = "/";
 
-		ShowTool.showMessages(strDiv, "依 OS 決定的分隔字元資訊", strDiv);
+		ShowTool.showMessages(strDiv, "作業系統是 "+osName, "其分隔字元為", strDiv);
 		ShowTool.showMessages("路徑的分隔字元(字串形式)", "pathSeparator", "'"+File.pathSeparator+"'");
 		ShowTool.showMessages("路徑的分隔字元", "pathSeparatorChar", "'"+String.valueOf(File.pathSeparatorChar)+"'");
 		ShowTool.showMessages("名稱的分隔字元(字串形式)", "Separator", File.separator);
 		ShowTool.showMessages("名稱的分隔字元", "SeparatorChar", String.valueOf(File.separatorChar));
 
-		String osName=System.getProperty("os.name");
-		ShowTool.showMessages(strDiv, "依 "+osName+" 決定測試路徑檔案", strDiv);
 		switch (osName) {
 			case "Mac OS X":
 				pathName = "/Users/chenhuanzhang/temp/newDir2";
@@ -66,24 +65,23 @@ public class Ex_file {
 //				pathName = "temp/";	// 不是 / 開頭, 就是相對路徑
 //				pathName = "/Users/chenhuanzhang/temp/exFile.txt";
 				break;
-			case "Windows":
-				pathName = "d:/temp/files/temp.sample.txt";
+			case "Windows 10":
+				pathName = "d:/temp/files/../files/temp.sample.txt";
 				// pathName="d:/temp/files/temp.txt";
 				// pathName="d:/temp/files";
 				// pathName = "d:/temp/files";
 				break;
 			default:
 		}
+		ShowTool.showMessages(strDiv, "原始路徑名稱", "pathName", String.valueOf(pathName), strDiv);
+		
 		File path = new File(pathName);
-		
-		
-		ShowTool.showMessages(strDiv, "path 本身的資訊", strDiv);
-		ShowTool.showMessages("原始路徑名稱", "pathName", String.valueOf(pathName));
-		ShowTool.showMessages("原始名稱是否為絕對路徑?", "isAbsolute()", String.valueOf(path.isAbsolute()));
-		ShowTool.showMessages("最後(右邊)１個pathName", "getName()", String.valueOf(path.getName()));
+		ShowTool.showMessages(strDiv, "原始路徑 轉換成 File(抽象路徑檔名)後, 名稱分隔號會與 OS 相同", strDiv);
 		//VS 看不出差異
 		ShowTool.showMessages("原始名稱的路徑", "toString() ", String.valueOf(path.toString()));
 		ShowTool.showMessages("原始名稱的路徑", "toPath()   ", String.valueOf(path.toPath()));
+		ShowTool.showMessages("原始名稱是否為絕對路徑?", "isAbsolute()", String.valueOf(path.isAbsolute()));
+		ShowTool.showMessages("最後(右邊)１個pathName", "getName()", String.valueOf(path.getName()));
 		//VS 看不出差異
 		ShowTool.showMessages("原始名稱上的父層路徑", "getParent()     ", String.valueOf(path.getParent()));
 		ShowTool.showMessages("原始名稱上的父層路徑", "getParentFile() ", String.valueOf(path.getParentFile()));
@@ -91,13 +89,15 @@ public class Ex_file {
 		//VS 看不出差異
 		ShowTool.showMessages("系統絕對路徑檔案", "getAbsoluteFile()", String.valueOf(path.getAbsoluteFile()));
 		ShowTool.showMessages("抽象絕對路徑檔案", "getAbsolutePath()", String.valueOf(path.getAbsolutePath()));
-		//VS 看不出差異
-		ShowTool.showMessages("抽象絕對路徑檔案", "getCanonicalFile()", String.valueOf(path.getCanonicalFile()));
-		ShowTool.showMessages("抽象絕對路徑檔案", "getCanonicalFile()", String.valueOf(path.getCanonicalFile()));
+		ShowTool.showMessages("路徑檔案", "getPath()", String.valueOf(path.getPath()));
+		
 		//VS 看不出差異
 		ShowTool.showMessages("絕對路徑轉換成URI路徑", "toURI()", String.valueOf(path.toURI()));
 		ShowTool.showMessages("絕對路徑轉換成URL路徑", "toURL()", String.valueOf(path.toURL()));
 
+		ShowTool.showMessages(strDiv, "原始路徑 轉換成 標準/精簡/絕對/抽象路徑", strDiv);
+		ShowTool.showMessages("系統標準/精簡路徑檔案", "getCanonicalFile()", String.valueOf(path.getCanonicalFile()));
+		ShowTool.showMessages("抽象標準/精簡路徑檔案", "getCanonicalPath()", String.valueOf(path.getCanonicalPath()));
 		/*
 		 */
 		ShowTool.showMessages("hashCode() ", Integer.toHexString(path.hashCode()));
@@ -166,8 +166,8 @@ public class Ex_file {
 				}
 
 			}
-			;
 
+			
 			/*
 			 * File file = new File(fileName);
 			 */

@@ -130,17 +130,17 @@ public class Ex_System {
 		
 
 		system.showTime();
-//		system.showCurrency();
-//		system.showEnvironmentVariables();
-//		system.showSystemProperties();
+		system.showCurrency();
+		system.showEnvironmentVariables();
+		system.showSystemProperties();
 		
 		
 		
 		// 系統內建
-//		System.out.println(System.getProperty("user.name"));
-//		System.out.println(System.getProperty("java.home"));
-//		System.out.println(System.getProperty("os.name"));
-//		System.out.println(System.getProperty("os.version"));
+		System.out.println(System.getProperty("user.name"));
+		System.out.println(System.getProperty("java.home"));
+		System.out.println(System.getProperty("os.name"));
+		System.out.println(System.getProperty("os.version"));
 
 	}
 
