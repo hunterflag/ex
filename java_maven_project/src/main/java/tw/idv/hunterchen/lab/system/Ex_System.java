@@ -2,7 +2,9 @@ package tw.idv.hunterchen.lab.system;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Date;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.Map;
@@ -110,19 +112,33 @@ public class Ex_System {
 	}
 	
 	public void showTime() throws InterruptedException {
-		Long msTime0=System.currentTimeMillis();
-		Thread.sleep(1000);
-		Long msTime1=System.currentTimeMillis();
-		Long nanoTime0=System.nanoTime();
-		Thread.sleep(1000);
-		Long nanoTime1=System.nanoTime();
+		Long startTime=0L;
+		Long endTime=0L;
+		Long diffTime=0L;
 		
-		ShowTool.showMessages("currentTimeMillis()", String.valueOf(new DecimalFormat().format(msTime0)));
-		ShowTool.showMessages("currentTimeMillis()", String.valueOf(new DecimalFormat().format(msTime1)));
-		ShowTool.showMessages("diff msTime", String.valueOf(new DecimalFormat().format(msTime1-msTime0)));
+		startTime=System.currentTimeMillis();
+		Thread.sleep(1000);
+		endTime=System.currentTimeMillis();
+		diffTime=endTime-startTime;
+		ShowTool.showMessages("currentTimeMillis()", String.valueOf(new DecimalFormat().format(startTime)));
+		ShowTool.showMessages("currentTimeMillis()", String.valueOf(new DecimalFormat().format(endTime)));
+		ShowTool.showMessages("diff msTime", String.valueOf(new DecimalFormat().format(diffTime)));
+		
+		startTime=System.nanoTime();
+		Thread.sleep(1000);
+		endTime=System.nanoTime();
+		diffTime=endTime-startTime;
 		ShowTool.showMessages("nanoTime()", String.valueOf(new DecimalFormat().format(System.nanoTime())));
 		ShowTool.showMessages("nanoTime()", String.valueOf(new DecimalFormat().format(System.nanoTime())));
-		ShowTool.showMessages("diff nanoTime", String.valueOf(new DecimalFormat().format(nanoTime1-nanoTime0)));
+		ShowTool.showMessages("diff nanoTime", String.valueOf(new DecimalFormat().format(diffTime)));
+
+		ShowTool.showMessages("java.sql.Timestamp", String.valueOf(new java.sql.Timestamp(startTime)));
+		ShowTool.showMessages("java.sql.Time", String.valueOf(new java.sql.Time(startTime)));
+		ShowTool.showMessages("java.sql.Date", String.valueOf(new java.sql.Date(startTime)));
+		ShowTool.showMessages("java.util.Date", String.valueOf(new java.util.Date(startTime)));
+		ShowTool.showMessages("java.util.Date", String.valueOf(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS").format(new java.util.Date(startTime))));
+		
+		
 	}
 	
 	public static void main(String[] args) throws InterruptedException {
@@ -130,17 +146,17 @@ public class Ex_System {
 		
 
 		system.showTime();
-		system.showCurrency();
-		system.showEnvironmentVariables();
-		system.showSystemProperties();
+//		system.showCurrency();
+//		system.showEnvironmentVariables();
 		
 		
 		
 		// 系統內建
-		System.out.println(System.getProperty("user.name"));
-		System.out.println(System.getProperty("java.home"));
-		System.out.println(System.getProperty("os.name"));
-		System.out.println(System.getProperty("os.version"));
+//		system.showSystemProperties();
+//		System.out.println(System.getProperty("user.name"));
+//		System.out.println(System.getProperty("java.home"));
+//		System.out.println(System.getProperty("os.name"));
+//		System.out.println(System.getProperty("os.version"));
 
 	}
 

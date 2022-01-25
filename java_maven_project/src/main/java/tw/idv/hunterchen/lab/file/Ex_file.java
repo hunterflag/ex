@@ -53,8 +53,9 @@ public class Ex_file {
 
 		switch (osName) {
 			case "Mac OS X":
-				pathName = "/Users/chenhuanzhang/temp/newDir2";
-				pathName = "/Users/chenhuanzhang/temp/newDir2/ddd";
+//				pathName = "/Users/chenhuanzhang/temp/newDir2";
+//				pathName = "/Users/chenhuanzhang/temp/newDir2/ddd";
+				pathName = "/Users/chenhuanzhang/temp/../temp/zLab";
 //				pathName = "/Users/chenhuanzhang/temp/zLab";
 //				pathName = "/Users/chenhuanzhang/temp/";
 //				pathName = "/Users/chenhuanzhang/";
@@ -64,8 +65,13 @@ public class Ex_file {
 //				pathName = "./temp/";	// 不是 / 開頭, 就是相對路徑
 //				pathName = "temp/";	// 不是 / 開頭, 就是相對路徑
 //				pathName = "/Users/chenhuanzhang/temp/exFile.txt";
+				//在mac中, \ 不會自動轉換成 /
+//				pathName = "\\Users\\chenhuanzhang\\temp\\..\\temp\\zLab";
+//				pathName = "\\Users\\chenhuanzhang\\temp\\zLab";
+//				pathName = "/Users\\chenhuanzhang\\temp\\zLab";
 				break;
 			case "Windows 10":
+				//在Windowsc中, / 會自動轉換成 \
 				pathName = "d:/temp/files/../files/temp.sample.txt";
 				// pathName="d:/temp/files/temp.txt";
 				// pathName="d:/temp/files";
