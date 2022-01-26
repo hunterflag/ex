@@ -1,5 +1,7 @@
 package tw.idv.hunterchen.lab.system;
 
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Date;
@@ -13,16 +15,31 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+import tw.idv.hunterchen.utility.GenString;
 import tw.idv.hunterchen.utility.ShowTool;
 
 public class Ex_System {
 	private int len=40;
 	private int counter=0;
+	
+	//取得當前路徑
+	public String getCurrentPath() {
+		String result="";
+		//法.a
+		result=System.getProperty("user.dir");
+		
+		//法.b
+//		result=Paths.get("").toAbsolutePath().toString();
+		//法.c
+//		try {
+//			result = new File(".").getCanonicalPath();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
-	public void showCurrency() {
-			Path path = Paths.get("");
-			String absPath = path.toAbsolutePath().toString();
-			System.out.println(absPath);
+		return result;
+		
 	}
 	
 	public void showEnvironmentVariables() {
@@ -116,6 +133,7 @@ public class Ex_System {
 		Long endTime=0L;
 		Long diffTime=0L;
 		
+		ShowTool.showMessages(GenString.divider(40));
 		startTime=System.currentTimeMillis();
 		Thread.sleep(1000);
 		endTime=System.currentTimeMillis();
@@ -124,29 +142,36 @@ public class Ex_System {
 		ShowTool.showMessages("currentTimeMillis()", String.valueOf(new DecimalFormat().format(endTime)));
 		ShowTool.showMessages("diff msTime", String.valueOf(new DecimalFormat().format(diffTime)));
 		
-		startTime=System.nanoTime();
-		Thread.sleep(1000);
-		endTime=System.nanoTime();
-		diffTime=endTime-startTime;
-		ShowTool.showMessages("nanoTime()", String.valueOf(new DecimalFormat().format(System.nanoTime())));
-		ShowTool.showMessages("nanoTime()", String.valueOf(new DecimalFormat().format(System.nanoTime())));
-		ShowTool.showMessages("diff nanoTime", String.valueOf(new DecimalFormat().format(diffTime)));
-
+		ShowTool.showMessages(GenString.divider(40));
 		ShowTool.showMessages("java.sql.Timestamp", String.valueOf(new java.sql.Timestamp(startTime)));
 		ShowTool.showMessages("java.sql.Time", String.valueOf(new java.sql.Time(startTime)));
 		ShowTool.showMessages("java.sql.Date", String.valueOf(new java.sql.Date(startTime)));
 		ShowTool.showMessages("java.util.Date", String.valueOf(new java.util.Date(startTime)));
 		ShowTool.showMessages("java.util.Date", String.valueOf(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS").format(new java.util.Date(startTime))));
 		
-		
+		ShowTool.showMessages(GenString.divider(40));
+		startTime=System.nanoTime();
+		Thread.sleep(1000);
+		endTime=System.nanoTime();
+		diffTime=endTime-startTime;
+		ShowTool.showMessages("nanoTime()", String.valueOf(new DecimalFormat().format(startTime)));
+		ShowTool.showMessages("nanoTime()", String.valueOf(new DecimalFormat().format(endTime)));
+		ShowTool.showMessages("diff nanoTime", String.valueOf(new DecimalFormat().format(diffTime)));
+
+		ShowTool.showMessages(GenString.divider(40));
+		ShowTool.showMessages("java.sql.Timestamp", String.valueOf(new java.sql.Timestamp(startTime)));
+		ShowTool.showMessages("java.sql.Time", String.valueOf(new java.sql.Time(startTime)));
+		ShowTool.showMessages("java.sql.Date", String.valueOf(new java.sql.Date(startTime)));
+		ShowTool.showMessages("java.util.Date", String.valueOf(new java.util.Date(startTime)));
+		ShowTool.showMessages("java.util.Date", String.valueOf(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS").format(new java.util.Date(startTime))));
 	}
 	
 	public static void main(String[] args) throws InterruptedException {
 		Ex_System system = new Ex_System();
 		
 
-		system.showTime();
-//		system.showCurrency();
+//		system.showTime();
+		ShowTool.showMessages("currentPath", system.getCurrentPath());
 //		system.showEnvironmentVariables();
 		
 		

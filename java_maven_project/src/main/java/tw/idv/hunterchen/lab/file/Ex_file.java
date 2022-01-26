@@ -25,7 +25,7 @@ public class Ex_file {
 	 */
 	@SuppressWarnings("resource")
 	public static void main(String[] args) throws IOException {
-
+		showCurrentPath();
 		/* File: 
 		 * 1.『檔案/資料夾名稱』在JVM中的代表物件, 是『名稱』的抽象代表, 
 		 * 2. 到底是檔案、或資料夾, 需要以此名稱去查詢, 
@@ -182,16 +182,29 @@ public class Ex_file {
 		}
 
 	}
+	
 
-	public static void showFields(Object object) {
+	public static void showCurrentPath() {
+		try {
+			ShowTool.showMessages("currentPath", new File(".").getCanonicalPath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public static void showAllMembers(Object object) {
+		showAllFields(object);
+		showAllMethods(object);
+	}
+	
+	public static void showAllFields(Object object) {
 		Field[] declaredFields = object.getClass().getDeclaredFields();
-
 		for (Field field : declaredFields) {
 			System.out.println(field.getName());
 		}
 	}
 
-	public static void showMethods(Object object) {
+	public static void showAllMethods(Object object) {
 		Method[] declaredMethods = object.getClass().getDeclaredMethods();
 		for (Method method : declaredMethods) {
 			System.out.println(method.getName() + "()");
