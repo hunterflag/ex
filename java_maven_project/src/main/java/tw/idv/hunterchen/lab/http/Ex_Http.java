@@ -79,7 +79,8 @@ public class Ex_Http {
 		return responseContext;
 	}
 	public static void main(String[] args) {
-		ShowTool.showMessages(httpGet("http://www.google.com"));
+//		ShowTool.showMessages(httpGet("http://www.google.com"));
+		ShowTool.showMessages(httpGet("https://api.nlsc.gov.tw/other/ListTown1/I"));
 	}
 
 }
