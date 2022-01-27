@@ -6,7 +6,19 @@
 		<typeAlias alias="Member" type="tw.idv.hunterchen.lab.model.Member" />
 		<typeAlias alias="User" type="tw.idv.hunterchen.lab.model.User" />
 	</typeAliases>
-	<environments default="development">
+	<environments default="localhostMySQL">
+		
+		<environment id="localhostMySQL">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.cj.jdbc.Driver" />
+				<property name="url"
+					value="jdbc:mysql://localhost:3306/labDB" />
+				<property name="username" value="developer" />
+				<property name="password" value="developer" />
+			</dataSource>
+		</environment>
+		
 		<environment id="development">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">

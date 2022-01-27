@@ -4,6 +4,7 @@ public class Member {
 	private Integer serialNo;
 	private String account;
 	private String password;
+	
 	public Integer getSerialNo() {
 		return serialNo;
 	}
