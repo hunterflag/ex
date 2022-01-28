@@ -10,7 +10,7 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 
-import tw.idv.hunterchen.utility.GenString;
+import tw.idv.hunterchen.utility.StringTool;
 import tw.idv.hunterchen.utility.ShowTool;
 
 import java.util.Date;
@@ -42,7 +42,7 @@ public class Ex_file {
 		 */
 		
 		String osName=System.getProperty("os.name");
-		String strDiv = GenString.divider(16);
+		String strDiv = StringTool.genDivider(16);
 		String pathName = "/";
 
 		ShowTool.showMessages(strDiv, "作業系統是 "+osName, "其分隔字元為", strDiv);

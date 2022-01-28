@@ -15,7 +15,7 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import tw.idv.hunterchen.utility.GenString;
+import tw.idv.hunterchen.utility.StringTool;
 import tw.idv.hunterchen.utility.ShowTool;
 
 public class Ex_System {
@@ -133,7 +133,7 @@ public class Ex_System {
 		Long endTime=0L;
 		Long diffTime=0L;
 		
-		ShowTool.showMessages(GenString.divider(40));
+		ShowTool.showMessages(StringTool.genDivider(40));
 		startTime=System.currentTimeMillis();
 		Thread.sleep(1000);
 		endTime=System.currentTimeMillis();
@@ -142,14 +142,14 @@ public class Ex_System {
 		ShowTool.showMessages("currentTimeMillis()", String.valueOf(new DecimalFormat().format(endTime)));
 		ShowTool.showMessages("diff msTime", String.valueOf(new DecimalFormat().format(diffTime)));
 		
-		ShowTool.showMessages(GenString.divider(40));
+		ShowTool.showMessages(StringTool.genDivider(40));
 		ShowTool.showMessages("java.sql.Timestamp", String.valueOf(new java.sql.Timestamp(startTime)));
 		ShowTool.showMessages("java.sql.Time", String.valueOf(new java.sql.Time(startTime)));
 		ShowTool.showMessages("java.sql.Date", String.valueOf(new java.sql.Date(startTime)));
 		ShowTool.showMessages("java.util.Date", String.valueOf(new java.util.Date(startTime)));
 		ShowTool.showMessages("java.util.Date", String.valueOf(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS").format(new java.util.Date(startTime))));
 		
-		ShowTool.showMessages(GenString.divider(40));
+		ShowTool.showMessages(StringTool.genDivider(40));
 		startTime=System.nanoTime();
 		Thread.sleep(1000);
 		endTime=System.nanoTime();
@@ -158,7 +158,7 @@ public class Ex_System {
 		ShowTool.showMessages("nanoTime()", String.valueOf(new DecimalFormat().format(endTime)));
 		ShowTool.showMessages("diff nanoTime", String.valueOf(new DecimalFormat().format(diffTime)));
 
-		ShowTool.showMessages(GenString.divider(40));
+		ShowTool.showMessages(StringTool.genDivider(40));
 		ShowTool.showMessages("java.sql.Timestamp", String.valueOf(new java.sql.Timestamp(startTime)));
 		ShowTool.showMessages("java.sql.Time", String.valueOf(new java.sql.Time(startTime)));
 		ShowTool.showMessages("java.sql.Date", String.valueOf(new java.sql.Date(startTime)));

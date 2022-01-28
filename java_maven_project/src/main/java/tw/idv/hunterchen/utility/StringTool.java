@@ -1,6 +1,6 @@
 package tw.idv.hunterchen.utility;
 
-public class GenString {
+public class StringTool {
 	/**
 	 * 用來產生1組分隔字串, 預設是 "<======>"
 	 * @param header 當作分隔字串的頭部, 必須、且只使用1次, 預設為 "<"
@@ -9,16 +9,7 @@ public class GenString {
 	 * @param length 分隔字串的總長度, 預設為 8
 	 * @return
 	 */
-	public static String divider() {
-		return divider(null, null, null, null);
-	}
-	public static String divider(Integer length) {
-		return divider(null, null, null, length);
-	}
-	public static String divider(String header, String body, String tailer) {
-		return divider(header, body, tailer, null);
-	}
-	public static String divider(String header, String body, String tailer, Integer length) {
+	public static String genDivider(String header, String body, String tailer, Integer length) {
 		String defaultHeader="<";
 		String defaultBody="=";
 		String defaultTailer=">";
@@ -34,7 +25,7 @@ public class GenString {
 		 * 2. 在外層的三元運算子可能會得到 length
 		 * 3. 但此時的 length 還是 null (尚未經過 assign)
 		 * 4. 所以, 最後 assign 就是 null囉!
-		 * */
+		 */
 		length = (length == null) ? defaultLength : length ;
 		length = (length < minLength) ? minLength : length; 
 
@@ -57,4 +48,29 @@ public class GenString {
 			
 		return result;
 	}
+	public static String genDivider(String header, String body, String tailer) {
+		return genDivider(header, body, tailer, null);
+	}
+	public static String genDivider(Integer length) {
+		return genDivider(null, null, null, length);
+	}
+	public static String genDivider() {
+		return genDivider(null, null, null, null);
+	}
+	public static String genDivider(String string, Integer length) {
+		String result="";
+		if (string == null || string.length()<=0) {
+			 result = genDivider(length);
+		}else {
+			String header = string.substring(0, 1); 
+			String tailer = string.substring(string.length()-1);
+			String body = string.substring(1, string.length()-1);
+			result = genDivider(header, body, tailer, length);
+		}
+		return result;
+	}
+	public static String genDivider(String string) {
+		return genDivider(string, string.length());
+	}
+	
 }

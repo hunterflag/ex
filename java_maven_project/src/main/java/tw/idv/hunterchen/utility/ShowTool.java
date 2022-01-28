@@ -12,13 +12,15 @@ public class ShowTool {
 	 * @return
 	 * 
 	 */
+	private static String mDivider = StringTool.genDivider("<=MBH=>");
+	
 	public static boolean showAllFields(Object obj) {
 		boolean isSuccess = true;
 		try {
-			System.out.printf("==== class: %s ==== start ....\n"
-					, obj.getClass()
+			ShowTool.showMessages(mDivider
+					, obj.getClass().getName()
 					, obj.toString()
-					);
+					, mDivider);
 			
 			System.out.printf("-------- fields -----------\n");
 			Field[] fields = obj.getClass().getDeclaredFields();
