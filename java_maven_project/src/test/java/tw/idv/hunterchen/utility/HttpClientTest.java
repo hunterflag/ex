@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class HttpClient_Junit {
+public class HttpClientTest {
 	Logger logger = Logger.getLogger("dd");
 	@Test
 	public void isSSL_test() {

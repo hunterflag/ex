@@ -9,7 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ShowTool_Junit { 
+public class ShowToolTest { 
 	Logger logger = Logger.getLogger("dd");
 	@Before
 	public void beforeEveryTest() {

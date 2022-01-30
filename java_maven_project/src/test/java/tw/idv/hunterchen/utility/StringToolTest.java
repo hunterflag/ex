@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-public class StringTool_Junit {
+public class StringToolTest {
 	@Test
 	public void divider_test() {
 		//指定長度

@@ -1,4 +1,4 @@
-package tw.idv.hunterchen.utility;
+package tw.idv.hunterchen.template.junit;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
@@ -12,34 +12,31 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class SftpClient_JUnit { 
+import tw.idv.hunterchen.utility.ShowTool;
+import tw.idv.hunterchen.utility.StringTool;
+
+public class TemplateTest { 
 	Logger logger = Logger.getLogger(this.getClass().getName());
 	static final String mDivider = StringTool.genDivider();
 	
-	@BeforeClass
-	public static void beforeClass() {
-		ShowTool.showMessages(mDivider, "before class...", mDivider);
-		//TODO
-		ShowTool.showMessages(mDivider, "class start...", mDivider);
-	}
 	@Test
 	public void xxx_ut() {
-		ShowTool.showMessages(mDivider, "test start...", mDivider);
+		ShowTool.showMessages("----test ----");
 //		assertEquals("expect", "result");
 		assertNotEquals("expect", "result");
 		assertTrue(true);
 		assertFalse(false);
-		ShowTool.showMessages(mDivider, "test end", mDivider);
 	}
 	
 	@Test
 	public void showSystem_ut() {
+		ShowTool.showMessages("----test ----");
 		ShowTool.showSystem();
 	}
 	
 	@Before
 	public void beforeEveryTest() {
-		ShowTool.showMessages(mDivider, "before test...", mDivider);
+		ShowTool.showMessages(mDivider, "...before test", mDivider);
 	}
 	
 	@After
@@ -47,10 +44,19 @@ public class SftpClient_JUnit {
 		ShowTool.showMessages(mDivider, "after test...", mDivider);
 	}
 
+	/*
+	 * @xxxClass 必須是 static
+	 * 漏了, editor不會有任何問題, 但 initial會失敗, 導致 jUnit 失敗 
+	 */
+	@BeforeClass
+	public static void beforeClass() {
+		//TODO
+		ShowTool.showMessages(mDivider, "...before class", mDivider);
+	}
 	
 	@AfterClass
 	public static void afterClass() {
-		ShowTool.showMessages(mDivider, "class end and after class...", mDivider);
-		ShowTool.showMessages(mDivider, "after class", mDivider);
+		ShowTool.showMessages(mDivider, "after class...", mDivider);
+		//TODO
 	}
 }
