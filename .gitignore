@@ -33,3 +33,4 @@ out
 # ignore log files
 *.log
 
+/build/

@@ -1,5 +1,6 @@
 package tw.idv.hunterchen.utility;
 
+
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
@@ -8,6 +9,7 @@ import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 
 public class ShowToolTest { 
 	Logger logger = Logger.getLogger("dd");

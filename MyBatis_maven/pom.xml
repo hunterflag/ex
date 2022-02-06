@@ -5,6 +5,7 @@
 	<groupId>tw.idv.hunterchen.lab.persistence</groupId>
 	<artifactId>mybatis</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
 	<properties>
 		<MySQL.version>8.0.21</MySQL.version>
@@ -25,4 +26,5 @@
 			<version>${MyBatis.version}</version>
 		</dependency>
 	</dependencies>
+	
 </project>

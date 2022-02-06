@@ -14,6 +14,12 @@ public class ShowTool {
 	 */
 	private static String mDivider = StringTool.genDivider("<=MBH=>");
 	
+	public static boolean showAllMembers(Object obj) {
+		return ( showAllFields(obj)
+				&& showAllMethods(obj)
+				);
+	}
+
 	public static boolean showAllFields(Object obj) {
 		boolean isSuccess = true;
 		try {
@@ -21,26 +27,12 @@ public class ShowTool {
 					, obj.getClass().getName()
 					, obj.toString()
 					, mDivider);
-			
-			System.out.printf("-------- fields -----------\n");
+			ShowTool.showMessages(mDivider, "fields", mDivider );
 			Field[] fields = obj.getClass().getDeclaredFields();
 			for(Field field : fields) {
 				field.setAccessible(true);
-				System.out.printf("%s : %s\n"
-						, field.getName()
+				ShowTool.showMessages(field.getName()
 						, String.valueOf(field.get(obj))
-						);
-				
-			}
-
-			System.out.printf("-------- methods -----------\n");
-			Method[] methods = obj.getClass().getDeclaredMethods();
-			for(Method method : methods) {
-				method.setAccessible(true);
-				System.out.printf("%s %s(%s)\n"
-						, method.getReturnType().getSimpleName()
-						, method.getName()
-						, getParamStringOfMethod(method)
 						);
 			}
 
@@ -55,6 +47,39 @@ public class ShowTool {
 			return isSuccess;			
 		}
 	}
+	
+	public static boolean showAllMethods(Object obj) {
+		boolean isSuccess = true;
+		try {
+			ShowTool.showMessages(mDivider
+					, obj.getClass().getName()
+					, obj.toString()
+					, mDivider);
+			
+			System.out.printf("-------- methods -----------\n");
+			Method[] methods = obj.getClass().getDeclaredMethods();
+			for(Method method : methods) {
+				method.setAccessible(true);
+				System.out.printf("%s %s(%s)\n"
+						, method.getReturnType().getSimpleName()
+						, method.getName()
+						, getParamStringOfMethod(method)
+						);
+			}
+			
+			System.out.printf("==== class: %s ==== end ....\n"
+					, obj.getClass()
+					, obj.toString()
+					);
+		}catch(Exception ex) {
+			isSuccess=false;
+			ex.printStackTrace();
+		}finally{
+			return isSuccess;			
+		}
+	}
+	
+	
 
 	private static String getParamStringOfMethod(Method method) {
 		String result="";
