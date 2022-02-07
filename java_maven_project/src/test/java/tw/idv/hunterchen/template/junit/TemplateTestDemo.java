@@ -15,18 +15,23 @@ import org.junit.Test;
 import tw.idv.hunterchen.utility.ShowTool;
 import tw.idv.hunterchen.utility.StringTool;
 
-public class TemplateTest { 
+public class TemplateTestDemo { 
 	Logger logger = Logger.getLogger(this.getClass().getName());
 	static final String mDivider = StringTool.genDivider();
 	
 	@Test
-	public void testXXX() {
+	public void xxx_ut() {
 		ShowTool.showMessages("----test ----");
+//		assertEquals("expect", "result");
+		assertNotEquals("expect", "result");
+		assertTrue(true);
+		assertFalse(false);
 	}
 	
 	@Test
-	public void testShowSystem() {
+	public void showSystem_ut() {
 		ShowTool.showMessages("----test ----");
+		ShowTool.showSystem();
 	}
 	
 	@Before
@@ -45,11 +50,13 @@ public class TemplateTest {
 	 */
 	@BeforeClass
 	public static void beforeClass() {
+		//TODO
 		ShowTool.showMessages(mDivider, "...before class", mDivider);
 	}
 	
 	@AfterClass
 	public static void afterClass() {
 		ShowTool.showMessages(mDivider, "after class...", mDivider);
+		//TODO
 	}
 }
