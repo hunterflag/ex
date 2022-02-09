@@ -16,7 +16,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 import tw.idv.hunterchen.utility.StringTool;
-import tw.idv.hunterchen.utility.ShowTool;
+import tw.idv.hunterchen.utility.DevTool;
 
 public class Ex_System {
 	private int len=40;
@@ -133,37 +133,37 @@ public class Ex_System {
 		Long endTime=0L;
 		Long diffTime=0L;
 		
-		ShowTool.showMessages(StringTool.genDivider(40));
+		DevTool.showMessages(StringTool.genDivider(40));
 		startTime=System.currentTimeMillis();
 		Thread.sleep(1000);
 		endTime=System.currentTimeMillis();
 		diffTime=endTime-startTime;
-		ShowTool.showMessages("currentTimeMillis()", String.valueOf(new DecimalFormat().format(startTime)));
-		ShowTool.showMessages("currentTimeMillis()", String.valueOf(new DecimalFormat().format(endTime)));
-		ShowTool.showMessages("diff msTime", String.valueOf(new DecimalFormat().format(diffTime)));
+		DevTool.showMessages("currentTimeMillis()", String.valueOf(new DecimalFormat().format(startTime)));
+		DevTool.showMessages("currentTimeMillis()", String.valueOf(new DecimalFormat().format(endTime)));
+		DevTool.showMessages("diff msTime", String.valueOf(new DecimalFormat().format(diffTime)));
 		
-		ShowTool.showMessages(StringTool.genDivider(40));
-		ShowTool.showMessages("java.sql.Timestamp", String.valueOf(new java.sql.Timestamp(startTime)));
-		ShowTool.showMessages("java.sql.Time", String.valueOf(new java.sql.Time(startTime)));
-		ShowTool.showMessages("java.sql.Date", String.valueOf(new java.sql.Date(startTime)));
-		ShowTool.showMessages("java.util.Date", String.valueOf(new java.util.Date(startTime)));
-		ShowTool.showMessages("java.util.Date", String.valueOf(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS").format(new java.util.Date(startTime))));
+		DevTool.showMessages(StringTool.genDivider(40));
+		DevTool.showMessages("java.sql.Timestamp", String.valueOf(new java.sql.Timestamp(startTime)));
+		DevTool.showMessages("java.sql.Time", String.valueOf(new java.sql.Time(startTime)));
+		DevTool.showMessages("java.sql.Date", String.valueOf(new java.sql.Date(startTime)));
+		DevTool.showMessages("java.util.Date", String.valueOf(new java.util.Date(startTime)));
+		DevTool.showMessages("java.util.Date", String.valueOf(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS").format(new java.util.Date(startTime))));
 		
-		ShowTool.showMessages(StringTool.genDivider(40));
+		DevTool.showMessages(StringTool.genDivider(40));
 		startTime=System.nanoTime();
 		Thread.sleep(1000);
 		endTime=System.nanoTime();
 		diffTime=endTime-startTime;
-		ShowTool.showMessages("nanoTime()", String.valueOf(new DecimalFormat().format(startTime)));
-		ShowTool.showMessages("nanoTime()", String.valueOf(new DecimalFormat().format(endTime)));
-		ShowTool.showMessages("diff nanoTime", String.valueOf(new DecimalFormat().format(diffTime)));
+		DevTool.showMessages("nanoTime()", String.valueOf(new DecimalFormat().format(startTime)));
+		DevTool.showMessages("nanoTime()", String.valueOf(new DecimalFormat().format(endTime)));
+		DevTool.showMessages("diff nanoTime", String.valueOf(new DecimalFormat().format(diffTime)));
 
-		ShowTool.showMessages(StringTool.genDivider(40));
-		ShowTool.showMessages("java.sql.Timestamp", String.valueOf(new java.sql.Timestamp(startTime)));
-		ShowTool.showMessages("java.sql.Time", String.valueOf(new java.sql.Time(startTime)));
-		ShowTool.showMessages("java.sql.Date", String.valueOf(new java.sql.Date(startTime)));
-		ShowTool.showMessages("java.util.Date", String.valueOf(new java.util.Date(startTime)));
-		ShowTool.showMessages("java.util.Date", String.valueOf(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS").format(new java.util.Date(startTime))));
+		DevTool.showMessages(StringTool.genDivider(40));
+		DevTool.showMessages("java.sql.Timestamp", String.valueOf(new java.sql.Timestamp(startTime)));
+		DevTool.showMessages("java.sql.Time", String.valueOf(new java.sql.Time(startTime)));
+		DevTool.showMessages("java.sql.Date", String.valueOf(new java.sql.Date(startTime)));
+		DevTool.showMessages("java.util.Date", String.valueOf(new java.util.Date(startTime)));
+		DevTool.showMessages("java.util.Date", String.valueOf(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS").format(new java.util.Date(startTime))));
 	}
 	
 	public static void main(String[] args) throws InterruptedException {
@@ -171,7 +171,7 @@ public class Ex_System {
 		
 
 //		system.showTime();
-		ShowTool.showMessages("currentPath", system.getCurrentPath());
+		DevTool.showMessages("currentPath", system.getCurrentPath());
 //		system.showEnvironmentVariables();
 		
 		

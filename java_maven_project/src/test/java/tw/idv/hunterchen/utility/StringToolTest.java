@@ -40,7 +40,7 @@ public class StringToolTest {
 		assertEquals("aa12312312312bb", StringTool.genDivider("aa", "123", "bb", 15));
 		assertEquals("aa12121212121bb", StringTool.genDivider("aa", "12", "bb", 15));
 		
-		ShowTool.showMessages(StringTool.genDivider("+MBH+", 10));
+		DevTool.showMessages(StringTool.genDivider("+MBH+", 10));
 		assertEquals("+MBHMBHMB+", StringTool.genDivider("+MBH+", 10));
 		assertEquals("+MBH+", StringTool.genDivider("+MBH+"));
 	}

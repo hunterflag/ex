@@ -12,7 +12,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import tw.idv.hunterchen.utility.ShowTool;
+import tw.idv.hunterchen.utility.DevTool;
 import tw.idv.hunterchen.utility.StringTool;
 
 public class TemplateTest { 
@@ -21,22 +21,22 @@ public class TemplateTest {
 	
 	@Test
 	public void testXXX() {
-		ShowTool.showMessages("----test ----");
+		DevTool.showMessages("----test ----");
 	}
 	
 	@Test
 	public void testShowSystem() {
-		ShowTool.showMessages("----test ----");
+		DevTool.showMessages("----test ----");
 	}
 	
 	@Before
 	public void beforeEveryTest() {
-		ShowTool.showMessages(mDivider, "...before test", mDivider);
+		DevTool.showMessages(mDivider, "...before test", mDivider);
 	}
 	
 	@After
 	public void afterEveryTest() {
-		ShowTool.showMessages(mDivider, "after test...", mDivider);
+		DevTool.showMessages(mDivider, "after test...", mDivider);
 	}
 
 	/*
@@ -45,11 +45,11 @@ public class TemplateTest {
 	 */
 	@BeforeClass
 	public static void beforeClass() {
-		ShowTool.showMessages(mDivider, "...before class", mDivider);
+		DevTool.showMessages(mDivider, "...before class", mDivider);
 	}
 	
 	@AfterClass
 	public static void afterClass() {
-		ShowTool.showMessages(mDivider, "after class...", mDivider);
+		DevTool.showMessages(mDivider, "after class...", mDivider);
 	}
 }

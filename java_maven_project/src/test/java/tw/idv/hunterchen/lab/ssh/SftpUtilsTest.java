@@ -7,7 +7,7 @@ import java.util.Vector;
 
 import org.junit.Test;
 
-import tw.idv.hunterchen.utility.ShowTool;
+import tw.idv.hunterchen.utility.DevTool;
 
 public class SftpUtilsTest {
 	
@@ -24,7 +24,7 @@ public class SftpUtilsTest {
 			sftpUtils.connect();
 			Vector files = sftpUtils.listFiles(sftpPath);
 			for (int i=0; i<files.size(); i++) {
-				ShowTool.showMessages(files.get(i).toString());
+				DevTool.showMessages(files.get(i).toString());
 				
 			}
 			

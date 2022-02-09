@@ -10,7 +10,7 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
-import tw.idv.hunterchen.utility.ShowTool;
+import tw.idv.hunterchen.utility.DevTool;
 
 public class Ex_Dom4j {
 	private String basePath="/Users/chenhuanzhang/dev/source/java/ex/java_maven_project/target/classes/";
@@ -53,7 +53,7 @@ public class Ex_Dom4j {
 		//法.a
 		int index=0;
 		for (Attribute attribute : attributes) {
-			ShowTool.showMessages("屬性", ""+index++, attribute.getName(), attribute.getStringValue(), attribute.getText());
+			DevTool.showMessages("屬性", ""+index++, attribute.getName(), attribute.getStringValue(), attribute.getText());
 		}
 		//法.b
 //		for(int i=0; i<attributes.size(); i++) {

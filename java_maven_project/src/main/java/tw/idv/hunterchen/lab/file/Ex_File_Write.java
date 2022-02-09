@@ -10,7 +10,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.List;
 
-import tw.idv.hunterchen.utility.ShowTool;
+import tw.idv.hunterchen.utility.DevTool;
 
 public class Ex_File_Write {
 	private static String defaultFileName = "d:\\temp\\files\\out.txt";
@@ -24,12 +24,12 @@ public class Ex_File_Write {
 		try {
 			do {
 				if (!file.exists()) {
-					ShowTool.showMessages(fileName, "不存在, 將建立新檔...");
+					DevTool.showMessages(fileName, "不存在, 將建立新檔...");
 					file.createNewFile();
 				}
 				if (file.isDirectory()) {
 					fileName = file.getParent() + "\\D_" + file.getName();
-					ShowTool.showMessages(file.getCanonicalPath(), "是資料夾, 檔名自動更改為", fileName);
+					DevTool.showMessages(file.getCanonicalPath(), "是資料夾, 檔名自動更改為", fileName);
 					file = new File(fileName);
 				}
 			} while (!(file.exists() && file.isFile()));
@@ -42,7 +42,7 @@ public class Ex_File_Write {
 //				bufferedWriter.newLine();
 			bufferedWriter.flush();
 			bufferedWriter.close();
-			ShowTool.showMessages("將", lineText, "加入", fileName, "中...");
+			DevTool.showMessages("將", lineText, "加入", fileName, "中...");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

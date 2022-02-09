@@ -5,7 +5,11 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.Properties;
 
-public class ShowTool {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class DevTool {
+//	private static final Logger logger = LoggerFactory.getLogger(DevTool.class);
 	/**
 	 * 
 	 * @param obj
@@ -23,15 +27,15 @@ public class ShowTool {
 	public static boolean showAllFields(Object obj) {
 		boolean isSuccess = true;
 		try {
-			ShowTool.showMessages(mDivider
+			DevTool.showMessages(mDivider
 					, obj.getClass().getName()
 					, obj.toString()
 					, mDivider);
-			ShowTool.showMessages(mDivider, "fields", mDivider );
+			DevTool.showMessages(mDivider, "fields", mDivider );
 			Field[] fields = obj.getClass().getDeclaredFields();
 			for(Field field : fields) {
 				field.setAccessible(true);
-				ShowTool.showMessages(field.getName()
+				DevTool.showMessages(field.getName()
 						, String.valueOf(field.get(obj))
 						);
 			}
@@ -51,7 +55,7 @@ public class ShowTool {
 	public static boolean showAllMethods(Object obj) {
 		boolean isSuccess = true;
 		try {
-			ShowTool.showMessages(mDivider
+			DevTool.showMessages(mDivider
 					, obj.getClass().getName()
 					, obj.toString()
 					, mDivider);
@@ -105,7 +109,7 @@ public class ShowTool {
 	//TODO: 自動取得引數名稱
 	public static void showMessages(String... messages) {
 		if ((messages!=null) && (messages.length>0)) {
-			System.out.printf("===>");
+			System.out.printf("<=MBH=>");
 			for (int i=0; i<messages.length; i++) {
 				System.out.printf(": %s", messages[i]);
 			}

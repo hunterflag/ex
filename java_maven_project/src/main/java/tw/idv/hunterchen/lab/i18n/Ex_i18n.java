@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
-import tw.idv.hunterchen.utility.ShowTool;
+import tw.idv.hunterchen.utility.DevTool;
 public class Ex_i18n {
 	
 	public static void main(String[] args) throws IOException {
@@ -22,7 +22,7 @@ public class Ex_i18n {
 //		ResourceBundle resource = ResourceBundle.getBundle("tw/idv/hunterchen/lab/i18n/message", locale);
 		//目前的Local
 		Locale defaultLocale = Locale.getDefault();
-		ShowTool.showAllFields(defaultLocale);
+		DevTool.showAllFields(defaultLocale);
 		
 		System.out.println( resource.getString("demo.language"));
 

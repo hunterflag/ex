@@ -5,21 +5,23 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SftpClientTest { 
-//	Logger logger = Logger.getLogger(this.getClass().getName());
+	private static final Logger logger = LoggerFactory.getLogger(SftpClientTest.class);
 	static final String mDivider = StringTool.genDivider();
 
-	private SftpClient client = new SftpClient();
+	private SftpClients client = new SftpClientImpl();
 	
 	@Test
 	public void xxx_ut() {
-		ShowTool.showMessages("----test ----");
-		ShowTool.showMessages("connect...");
+		DevTool.showMessages("----test ----");
+		DevTool.showMessages("connect...");
 		client.connect();
-		ShowTool.showMessages("connect complete, and disconnect...");
+		DevTool.showMessages("connect complete, and disconnect...");
 		client.disconnect();
-		ShowTool.showMessages("disconnect");
+		DevTool.showMessages("disconnect");
 		
 	}
 	

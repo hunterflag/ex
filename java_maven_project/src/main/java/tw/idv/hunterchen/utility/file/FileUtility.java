@@ -2,7 +2,7 @@ package tw.idv.hunterchen.utility.file;
 
 import java.io.File;
 
-import tw.idv.hunterchen.utility.ShowTool;
+import tw.idv.hunterchen.utility.DevTool;
 
 public class FileUtility {
 	public static String getMainName(String fileName) {
@@ -31,14 +31,14 @@ public class FileUtility {
 			File srcFile = new File(source);
 			File destFile = new File(destination);
 			if (!srcFile.exists()) {
-				ShowTool.showMessages(srcFile.getCanonicalPath(), "不存在");
+				DevTool.showMessages(srcFile.getCanonicalPath(), "不存在");
 				result = false;
 			} else {
 				result = srcFile.renameTo(destFile);
 				if (result) {
-					ShowTool.showMessages("renameOrmove?", "成功");
+					DevTool.showMessages("renameOrmove?", "成功");
 				}else {
-					ShowTool.showMessages("renameOrmove?", "失敗");
+					DevTool.showMessages("renameOrmove?", "失敗");
 				}
 			}
 		} catch (Exception e) {

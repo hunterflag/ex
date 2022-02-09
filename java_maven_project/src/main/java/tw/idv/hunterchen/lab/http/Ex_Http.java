@@ -10,7 +10,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.nio.Buffer;
 
-import tw.idv.hunterchen.utility.ShowTool;
+import tw.idv.hunterchen.utility.DevTool;
 
 public class Ex_Http {
 	final static String defaultHttpUrl = "http://tw.yahoo.com";
@@ -48,7 +48,7 @@ public class Ex_Http {
 					responseContext = stringBuffer.toString();
 					break;
 				default:
-					ShowTool.showMessages("尚未安排處理", ""+responseCode, responseMessage);
+					DevTool.showMessages("尚未安排處理", ""+responseCode, responseMessage);
 			}
 			
 		} catch (MalformedURLException e) {
@@ -80,7 +80,7 @@ public class Ex_Http {
 	}
 	public static void main(String[] args) {
 //		ShowTool.showMessages(httpGet("http://www.google.com"));
-		ShowTool.showMessages(httpGet("https://api.nlsc.gov.tw/other/ListTown1/I"));
+		DevTool.showMessages(httpGet("https://api.nlsc.gov.tw/other/ListTown1/I"));
 	}
 
 }

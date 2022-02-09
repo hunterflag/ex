@@ -3,12 +3,16 @@ package tw.idv.hunterchen.lab.properties;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
 public class Ex_Properties {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, URISyntaxException {
 		
 		//		File f = new File("Ex_Properties.properties");
 //		File f = new File("\\tw\\idv\\hunterchen\\lab\\properties\\Ex_Properties.properties");
@@ -21,6 +25,8 @@ public class Ex_Properties {
 		 */
 //		File f = new File("d:/temp/Ex_Properties.properties");
 //		File f = new File("/temp/Ex_Properties.properties");
+		Path path = Paths.get(new URI("Ex_Properties.properties"));
+//		path.
 		File f = new File("D:/dev.source/lab/project/lab/java_maven_project/src/main/resources/tw/idv/hunterchen/lab/properties/Ex_Properties.properties");
 
 		FileInputStream fis = new FileInputStream(f);

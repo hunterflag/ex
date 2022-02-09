@@ -12,7 +12,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import tw.idv.hunterchen.utility.ShowTool;
+import tw.idv.hunterchen.utility.DevTool;
 import tw.idv.hunterchen.utility.StringTool;
 
 public class TemplateTestDemo { 
@@ -21,7 +21,7 @@ public class TemplateTestDemo {
 	
 	@Test
 	public void xxx_ut() {
-		ShowTool.showMessages("----test ----");
+		DevTool.showMessages("----test ----");
 //		assertEquals("expect", "result");
 		assertNotEquals("expect", "result");
 		assertTrue(true);
@@ -30,18 +30,18 @@ public class TemplateTestDemo {
 	
 	@Test
 	public void showSystem_ut() {
-		ShowTool.showMessages("----test ----");
-		ShowTool.showSystem();
+		DevTool.showMessages("----test ----");
+		DevTool.showSystem();
 	}
 	
 	@Before
 	public void beforeEveryTest() {
-		ShowTool.showMessages(mDivider, "...before test", mDivider);
+		DevTool.showMessages(mDivider, "...before test", mDivider);
 	}
 	
 	@After
 	public void afterEveryTest() {
-		ShowTool.showMessages(mDivider, "after test...", mDivider);
+		DevTool.showMessages(mDivider, "after test...", mDivider);
 	}
 
 	/*
@@ -51,12 +51,12 @@ public class TemplateTestDemo {
 	@BeforeClass
 	public static void beforeClass() {
 		//TODO
-		ShowTool.showMessages(mDivider, "...before class", mDivider);
+		DevTool.showMessages(mDivider, "...before class", mDivider);
 	}
 	
 	@AfterClass
 	public static void afterClass() {
-		ShowTool.showMessages(mDivider, "after class...", mDivider);
+		DevTool.showMessages(mDivider, "after class...", mDivider);
 		//TODO
 	}
 }

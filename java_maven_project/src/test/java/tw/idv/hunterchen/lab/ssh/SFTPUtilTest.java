@@ -10,7 +10,7 @@ public class SFTPUtilTest {
 	String username = "developer";
 	String password = "developer";
 
-	SFTPUtil sftpUtil = new SFTPUtil(username, password, host, port);
+	SftpUtil sftpUtil = new SftpUtil(username, password, host, port);
 	@Test
 	public void testLogin() {
 		sftpUtil.login();;

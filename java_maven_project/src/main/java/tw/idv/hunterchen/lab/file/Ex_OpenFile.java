@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import com.alibaba.fastjson.JSONObject;
 
-import tw.idv.hunterchen.utility.ShowTool;
+import tw.idv.hunterchen.utility.DevTool;
 
 public class Ex_OpenFile {
 
@@ -20,7 +20,7 @@ public class Ex_OpenFile {
 			while((input = bufferedReader.readLine()) != null) {
 				jsonStr += input.trim();
 			}
-			ShowTool.showMessages(jsonStr);
+			DevTool.showMessages(jsonStr);
 		}
 			
 	}

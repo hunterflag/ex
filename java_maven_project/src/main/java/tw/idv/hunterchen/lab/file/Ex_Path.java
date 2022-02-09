@@ -13,7 +13,7 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 
 import tw.idv.hunterchen.utility.StringTool;
-import tw.idv.hunterchen.utility.ShowTool;
+import tw.idv.hunterchen.utility.DevTool;
 
 import java.util.Date;
 
@@ -47,11 +47,11 @@ public class Ex_Path {
 		String strDiv = StringTool.genDivider(16);
 		String pathName = "/";
 
-		ShowTool.showMessages(strDiv, "作業系統是 "+osName, "其分隔字元為", strDiv);
-		ShowTool.showMessages("路徑的分隔字元(字串形式)", "pathSeparator", "'"+File.pathSeparator+"'");
-		ShowTool.showMessages("路徑的分隔字元", "pathSeparatorChar", "'"+String.valueOf(File.pathSeparatorChar)+"'");
-		ShowTool.showMessages("名稱的分隔字元(字串形式)", "Separator", File.separator);
-		ShowTool.showMessages("名稱的分隔字元", "SeparatorChar", String.valueOf(File.separatorChar));
+		DevTool.showMessages(strDiv, "作業系統是 "+osName, "其分隔字元為", strDiv);
+		DevTool.showMessages("路徑的分隔字元(字串形式)", "pathSeparator", "'"+File.pathSeparator+"'");
+		DevTool.showMessages("路徑的分隔字元", "pathSeparatorChar", "'"+String.valueOf(File.pathSeparatorChar)+"'");
+		DevTool.showMessages("名稱的分隔字元(字串形式)", "Separator", File.separator);
+		DevTool.showMessages("名稱的分隔字元", "SeparatorChar", String.valueOf(File.separatorChar));
 
 		switch (osName) {
 			case "Mac OS X":
@@ -82,14 +82,15 @@ public class Ex_Path {
 			default:
 		}
 		Path path = Paths.get(pathName);
-		ShowTool.showMessages(strDiv, "原始路徑名稱", "pathName", path.toString(), strDiv);
-		ShowTool.showMessages("原始名稱是否為絕對路徑?", "isAbsolute()", String.valueOf(path.isAbsolute()));
+		Paths.
+		DevTool.showMessages(strDiv, "原始路徑名稱", "pathName", path.toString(), strDiv);
+		DevTool.showMessages("原始名稱是否為絕對路徑?", "isAbsolute()", String.valueOf(path.isAbsolute()));
 		
-		ShowTool.showMessages(strDiv, "原始路徑 轉換成 File(抽象路徑檔名)後, 名稱分隔號會與 OS 相同", strDiv);
+		DevTool.showMessages(strDiv, "原始路徑 轉換成 File(抽象路徑檔名)後, 名稱分隔號會與 OS 相同", strDiv);
 		//VS 看不出差異
-		ShowTool.showMessages("原始名稱的路徑", "toString() ", path.toString());
-		ShowTool.showMessages("原始名稱的路徑", "toFile()   ", String.valueOf(path.toFile()));
-		ShowTool.showMessages("路徑", "getFileSystem()   ", String.valueOf(path.getFileSystem()));
+		DevTool.showMessages("原始名稱的路徑", "toString() ", path.toString());
+		DevTool.showMessages("原始名稱的路徑", "toFile()   ", String.valueOf(path.toFile()));
+		DevTool.showMessages("路徑", "getFileSystem()   ", String.valueOf(path.getFileSystem()));
 		/*
 		ShowTool.showMessages("最後(右邊)１個pathName", "getName()", String.valueOf(path.getName()));
 		//VS 看不出差異
@@ -187,7 +188,7 @@ public class Ex_Path {
 	
 
 	public static void showCurrentPath() {
-		ShowTool.showMessages("currentPath", Paths.get(".").toAbsolutePath().toString());
+		DevTool.showMessages("目前路徑", Paths.get(".").toAbsolutePath().toString());
 	}
 	
 	public static void showAllMembers(Object object) {

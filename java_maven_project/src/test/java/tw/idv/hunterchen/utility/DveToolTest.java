@@ -11,16 +11,16 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-public class ShowToolTest { 
-	Logger logger = Logger.getLogger("dd");
+public class DveToolTest {
+	private static final Logger logger = Logger.getLogger("dd");
 	@Before
 	public void beforeEveryTest() {
-		System.out.println("====start====");
+		logger.info("====start====");
 	}
 	
 	@After
 	public void afterEveryTest() {
-		System.out.println("====after====");
+		DevTool.showMessages("====after====");
 	}
 	
 	@Test
@@ -29,7 +29,7 @@ public class ShowToolTest {
 //		assertTrue(ShowTool.showAllFields(logger));
 		
 		File file = new File("");
-		assertTrue(ShowTool.showAllFields(file));
+		assertTrue(DevTool.showAllFields(file));
 
 
 		
@@ -38,6 +38,6 @@ public class ShowToolTest {
 	
 	@Test
 	public void showSystem_Junit() {
-		ShowTool.showSystem();
+		DevTool.showSystem();
 	}
 }
