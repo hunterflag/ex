@@ -9,19 +9,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class DevTool {
-//	private static final Logger logger = LoggerFactory.getLogger(DevTool.class);
+	private static final Logger logger = LoggerFactory.getLogger(DevTool.class);
 	/**
-	 * 
 	 * @param obj
 	 * @return
-	 * 
 	 */
-	private static String mDivider = StringTool.genDivider("<=MBH=>");
+	private static String mDivider = StringTool.genDivider();
 	
 	public static boolean showAllMembers(Object obj) {
-		return ( showAllFields(obj)
-				&& showAllMethods(obj)
-				);
+		return (	showAllFields(obj)
+			     && showAllMethods(obj)
+			   );
 	}
 
 	public static boolean showAllFields(Object obj) {

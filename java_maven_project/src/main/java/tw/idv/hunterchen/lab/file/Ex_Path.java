@@ -82,7 +82,6 @@ public class Ex_Path {
 			default:
 		}
 		Path path = Paths.get(pathName);
-		Paths.
 		DevTool.showMessages(strDiv, "原始路徑名稱", "pathName", path.toString(), strDiv);
 		DevTool.showMessages("原始名稱是否為絕對路徑?", "isAbsolute()", String.valueOf(path.isAbsolute()));
 		
