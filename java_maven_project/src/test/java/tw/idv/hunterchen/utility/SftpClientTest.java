@@ -12,15 +12,40 @@ public class SftpClientTest {
 	private static final Logger logger = LoggerFactory.getLogger(SftpClientTest.class);
 	static final String mDivider = StringTool.genDivider();
 
-	private SftpClients client = new SftpClientImpl();
 	
 	@Test
-	public void xxx_ut() {
+	public void testAtHomeLan() {
+		String host;
+		String username;
+		String password;
+		int port;
+		switch (DevTool.getOsName()) {
+			case "MacOS":
+				host = "192.168.100.195";
+				username = "pi";
+				password = "hunter1234";
+				port = 22;
+				break;
+			case "Windows":
+				host = "127.0.0.1";
+				username = "developer";
+				password = "developer";
+				port = 22;
+				break;
+			default:
+				host = "127.0.0.1";
+				username = "developer";
+				password = "developer";
+				port = 22;
+		}
+		
+		SftpClient sftpClient = new  SftpClient(host, username, password, port);
+
 		DevTool.showMessages("----test ----");
 		DevTool.showMessages("connect...");
-		client.connect();
+		sftpClient.connect();
 		DevTool.showMessages("connect complete, and disconnect...");
-		client.disconnect();
+		sftpClient.disconnect();
 		DevTool.showMessages("disconnect");
 		
 	}

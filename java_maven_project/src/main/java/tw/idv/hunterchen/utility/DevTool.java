@@ -120,4 +120,25 @@ public class DevTool {
 		
 	}
 	*/
+	
+	public static String getOsName() {
+		String result=null;
+		String osName = System.getProperty("os.name");
+		DevTool.showMessages(osName);
+		switch (osName) {
+			case "Mac OS X":
+				result = "MacOS"; break;
+			case "Windows":
+				result = "Windows"; break;
+			case "linux":
+				result = "Linux"; break;
+			default:
+				result = "Unknown"; break;
+		}
+		return result;
+	}
+
+	public static void main(String[] arg) {
+		showMessages(getOsName());
+	}
 }

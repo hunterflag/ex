@@ -16,7 +16,8 @@ public class SftpUtilsTest {
 //		sftpUtils.connect();
 //		sftpUtils.disconnect();
 		SftpUtils sftpUtils = null;
-		String localPath = "D:\\temp\\sftp";		// 本地存放地址
+		String localPath;				// 本地存放地址
+		localPath = "D:\\temp\\sftp";		// 本地存放地址
 		String sftpPath = "/";					// Sftp下載路徑
 		List<String> filePathList = new ArrayList<String>();
 		try {

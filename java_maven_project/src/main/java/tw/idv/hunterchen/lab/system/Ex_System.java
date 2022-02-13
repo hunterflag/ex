@@ -43,6 +43,8 @@ public class Ex_System {
 	}
 	
 	public void showEnvironmentVariables() {
+		DevTool.showMessages("系統環境變數", StringTool.genDivider(40));
+		
 		String keyName = "";
 		
 		//1.取出全部環境變數、值
@@ -79,11 +81,14 @@ public class Ex_System {
 	}//end of method()
 	
 	public void showSystemProperties() {
+
 		Properties properties = System.getProperties();
 		
 		//1.遍歷
-		//1.a.法
+		/*1.a.法
+		 * 
 		counter=0;
+		DevTool.showMessages("系統內建特性(依原排序)", StringTool.genDivider(40));
 		for (String key : properties.stringPropertyNames()) {
 			counter++;
 			System.out.printf("%2d, %-"+ len+ "s :\t %s \n"
@@ -92,8 +97,10 @@ public class Ex_System {
 					, properties.getProperty(key)
 					);
 		}
+		 */
 		
-		//1.b.法
+		/* 1.b.法
+		 * 
 		Enumeration<Object> keys = properties.keys();
 		counter=0;
 		while (keys.hasMoreElements()) {
@@ -105,10 +112,11 @@ public class Ex_System {
 					, key
 					, value
 					);
-			
 		}
+		 */
 		
 		//1.c.依key排序
+		DevTool.showMessages("系統內建特性(依key字母排序)", StringTool.genDivider(40));
 		SortedMap sortedMap = new TreeMap(properties);
 		Set keySet = sortedMap.keySet();
 		Iterator iterator = keySet.iterator();
@@ -133,32 +141,33 @@ public class Ex_System {
 		Long endTime=0L;
 		Long diffTime=0L;
 		
-		DevTool.showMessages(StringTool.genDivider(40));
+		DevTool.showMessages("取得當前日期、時間(系統、毫秒)", StringTool.genDivider(40));
 		startTime=System.currentTimeMillis();
 		Thread.sleep(1000);
 		endTime=System.currentTimeMillis();
 		diffTime=endTime-startTime;
+		DevTool.showMessages("1970-01-01 ms");
 		DevTool.showMessages("currentTimeMillis()", String.valueOf(new DecimalFormat().format(startTime)));
 		DevTool.showMessages("currentTimeMillis()", String.valueOf(new DecimalFormat().format(endTime)));
-		DevTool.showMessages("diff msTime", String.valueOf(new DecimalFormat().format(diffTime)));
+		DevTool.showMessages("秒差(ms)", String.valueOf(new DecimalFormat().format(diffTime)));
 		
-		DevTool.showMessages(StringTool.genDivider(40));
+		DevTool.showMessages("取得當前日期、時間(人類)", StringTool.genDivider(40));
 		DevTool.showMessages("java.sql.Timestamp", String.valueOf(new java.sql.Timestamp(startTime)));
 		DevTool.showMessages("java.sql.Time", String.valueOf(new java.sql.Time(startTime)));
 		DevTool.showMessages("java.sql.Date", String.valueOf(new java.sql.Date(startTime)));
 		DevTool.showMessages("java.util.Date", String.valueOf(new java.util.Date(startTime)));
 		DevTool.showMessages("java.util.Date", String.valueOf(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS").format(new java.util.Date(startTime))));
 		
-		DevTool.showMessages(StringTool.genDivider(40));
+		DevTool.showMessages("取得當前日期、時間(系統、奈秒)", StringTool.genDivider(40));
 		startTime=System.nanoTime();
 		Thread.sleep(1000);
 		endTime=System.nanoTime();
 		diffTime=endTime-startTime;
 		DevTool.showMessages("nanoTime()", String.valueOf(new DecimalFormat().format(startTime)));
 		DevTool.showMessages("nanoTime()", String.valueOf(new DecimalFormat().format(endTime)));
-		DevTool.showMessages("diff nanoTime", String.valueOf(new DecimalFormat().format(diffTime)));
+		DevTool.showMessages("秒差(ns)", String.valueOf(new DecimalFormat().format(diffTime)));
 
-		DevTool.showMessages(StringTool.genDivider(40));
+		DevTool.showMessages("奈秒級用在科學的精密時間差, 不適合當作日期", StringTool.genDivider(40));
 		DevTool.showMessages("java.sql.Timestamp", String.valueOf(new java.sql.Timestamp(startTime)));
 		DevTool.showMessages("java.sql.Time", String.valueOf(new java.sql.Time(startTime)));
 		DevTool.showMessages("java.sql.Date", String.valueOf(new java.sql.Date(startTime)));
@@ -170,14 +179,15 @@ public class Ex_System {
 		Ex_System system = new Ex_System();
 		
 
-//		system.showTime();
+		system.showTime();
 		DevTool.showMessages("currentPath", system.getCurrentPath());
-//		system.showEnvironmentVariables();
+		DevTool.showMessages("currentPath", system.getCurrentPath());
+		system.showEnvironmentVariables();
 		
 		
 		
 		// 系統內建
-//		system.showSystemProperties();
+		system.showSystemProperties();
 //		System.out.println(System.getProperty("user.name"));
 //		System.out.println(System.getProperty("java.home"));
 //		System.out.println(System.getProperty("os.name"));
