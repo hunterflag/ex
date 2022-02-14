@@ -1,9 +1,5 @@
 package tw.idv.hunterchen.utility;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,24 +15,34 @@ public class SftpClientTest {
 		String username;
 		String password;
 		int port;
+		String remotePath;
+		String localPath;
+		
 		switch (DevTool.getOsName()) {
 			case "MacOS":
 				host = "192.168.100.195";
 				username = "pi";
 				password = "hunter1234";
 				port = 22;
+//				remotePath="~/temp/sftpServerRoot/";
+				remotePath="/home/pi/temp/sftpServerRoot/";
+				localPath="~/temp/sftpClientRoot/";
 				break;
 			case "Windows":
 				host = "127.0.0.1";
 				username = "developer";
 				password = "developer";
 				port = 22;
+				remotePath="/";
+				localPath="d:/temp/sftpClientRoot/";
 				break;
 			default:
 				host = "127.0.0.1";
 				username = "developer";
 				password = "developer";
 				port = 22;
+				remotePath="/";
+				localPath="d:/temp/sftpClientRoot/";
 		}
 		
 		SftpClient sftpClient = new  SftpClient(host, username, password, port);
@@ -44,6 +50,8 @@ public class SftpClientTest {
 		DevTool.showMessages("----test ----");
 		DevTool.showMessages("connect...");
 		sftpClient.connect();
+		sftpClient.ls(remotePath);
+		sftpClient.lsFileNames(remotePath);
 		DevTool.showMessages("connect complete, and disconnect...");
 		sftpClient.disconnect();
 		DevTool.showMessages("disconnect");

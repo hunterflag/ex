@@ -6,6 +6,7 @@
 		<typeAlias alias="Member" type="tw.idv.hunterchen.lab.model.Member" />
 		<typeAlias alias="User" type="tw.idv.hunterchen.lab.model.User" />
 	</typeAliases>
+	
 	<environments default="localhostMySQL">
 		
 		<environment id="localhostMySQL">
