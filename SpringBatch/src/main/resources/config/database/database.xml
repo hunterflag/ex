@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+							http://www.springframework.org/schema/jdbc    http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd">
+	<!-- database 連線設定 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url"			 value="jdbc:postgresql://127.0.0.1:5433/springTest" />
+		<property name="username" 		 value="postgres" />
+		<property name="password" 		 value="postgres" />
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.batch.support.transaction.ResourcelessTransactionManager" />
+
+	<jdbc:initialize-database data-source="dataSource">
+		<jdbc:script location="org/springframework/batch/core/schema-drop-postgresql.sql" />
+		<jdbc:script location="org/springframework/batch/core/schema-postgresql.sql" />
+	</jdbc:initialize-database>
+</beans>

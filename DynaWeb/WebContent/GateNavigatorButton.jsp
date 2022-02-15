@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Gate.入口</title>
+<title>導航鈕</title>
 </head>
 <body>
-	歡迎光臨
+	
 </body>
 </html>
