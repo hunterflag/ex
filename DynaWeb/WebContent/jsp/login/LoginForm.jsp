@@ -9,11 +9,11 @@
 <body>
 	<form action="./Login">
 		<table>
-			<th><td>欄位</td>
-				<td>值</td>
-				<td>說明</td></th>
+			<tr><th>欄位</th>
+				<th>值</th>
+				<th>說明</th></tr>
 			<tr><td>帳號:</td>
-				<td><input type="text" name="username" id="username" placeholder="輸入帳號" title="格式: [0-9]+" pattern="[0-9]+" required="required" x/></td>
+				<td><input type="text" name="username" id="username" placeholder="輸入帳號" title="格式: [0-9]+" pattern="[0-9]+" required="required" /></td>
 			<tr><td>密碼:</td>
 				<td><input type="password" name="password" id="password" placeholder="輸入密碼" title="輸入密碼" required/></td>
 				<td></td>
