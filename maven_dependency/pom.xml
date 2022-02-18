@@ -6,7 +6,19 @@
 	<artifactId>dependencies</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-
+	
+	<description>
+		<![CDATA[ 
+			${os.name}
+		]]>
+		1. pom.xml 檔內, 在 &lt;properties&gt; 中設定的名稱:${java.version}
+		2. pom.xml 檔內的逐層標籤名稱標籤:${project.version}、${project.build.plugins.plugin.groupId}
+		3. OS環境變數: ${env.PATH}
+		4. 用 System.getProperty("...") 可以取得的名稱: ${os.name}、${user.name}
+		5. settings.xml 檔內的標籤: ${settings.localRepository}
+		 
+	</description>
+	
 	<properties>
 		<!-- 依主題分組 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

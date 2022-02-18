@@ -15,7 +15,7 @@ public class Ex_Lombok {
 	private int id;
 	private String tag;
 	private Date created = new Date(System.currentTimeMillis());
-	
+
 	public void sayHi() {
 		log.info("Haaaa");
 	}
