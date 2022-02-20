@@ -1,11 +1,27 @@
+// 連線登入.帳密
+// 連線登入.憑證
+// 斷線登出
+// 目錄.建立
+// 目錄.刪除
+// 目錄.切換
+// 目錄.檢視清單
+// 下載.單一檔案
+// 下載.目錄下的全部檔案
+// 下載.目錄下、特定類型(字尾)的全部檔案
+// 下載.目錄(含子目錄)
+// 上傳.單一檔案
+// 上傳.目錄下的的全部檔案
+// 上傳.目錄下、特定類型(字尾)的全部檔案
+// 上傳.目錄(含子目錄)
+// 刪除檔案
+// 存在嗎？
+// 是檔案？
+
 package tw.idv.hunterchen.utility;
 
 import java.util.List;
 import java.util.Properties;
 import java.util.Vector;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelSftp;
@@ -15,9 +31,12 @@ import com.jcraft.jsch.Session;
 import com.jcraft.jsch.SftpATTRS;
 import com.jcraft.jsch.SftpException;
 
+import lombok.extern.slf4j.Slf4j;
+
 // https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/311339/
+@Slf4j
 public class SftpClient{
-	private static final Logger logger = LoggerFactory.getLogger(SftpClient.class);
+//	private static final Logger log = LoggerFactory.getLogger(SftpClient.class);
 	private String 	host 	 = "127.0.0.1";
 	private int 	port 	 = 22;
 	private String 	username = "developer";
@@ -28,6 +47,7 @@ public class SftpClient{
 
 	private Session sshSession = null;
 	private ChannelSftp channelSftp   = null;
+	private boolean hasConnected = false;
 
 
 	public SftpClient() {
@@ -35,6 +55,7 @@ public class SftpClient{
 
 	//法.a.使用帳密
 	public SftpClient(String host, String username, String password, int port) {
+		log.info("\n\thost:{}\n\tusername:{}\n\tpassword:{}\n\tport:{}", host, username, password, port);
 		this.host = host;
 		this.username = username;
 		this.password = password;
@@ -42,6 +63,7 @@ public class SftpClient{
 	}
 	// 建構式不能呼叫建構式! 但方法可以呼叫同名方法
 	public SftpClient(String host, String username, String password) {
+		log.info("\n\thost:{}\n\tusername:{}\n\tpassword:{}\n\tport:{}", host, username, password, port);
 		this.host = host;
 		this.username = username;
 		this.password = password;
@@ -64,45 +86,38 @@ public class SftpClient{
 	*/
 
 	//建立 ssh連線、建立SFTP連線伺服器
-	public void connect() {
+	public boolean connect() {
+		hasConnected = false;
 		try {
-			JSch jsch = new JSch();
-			sshSession = jsch.getSession(username, host, port);
-				logger.info("Session created.");
-			sshSession.setPassword(password);
-	
+			
+			JSch jsch = new JSch();								
+			// 首先要取得連線(不然怎麼通訊, 此時只能驗證而已)
+			sshSession = jsch.getSession(username, host, port);	
+			// 取得連線之後, 才能驗證密碼、進行設定
+			sshSession.setPassword(password);					
 			Properties sshConfig = new Properties();
 			sshConfig.put("StrictHostKeyChecking", "no");
 			sshSession.setConfig(sshConfig);
-			
+			// 通過驗證, 正式建立ssh連線
 			sshSession.connect();
-				logger.info("Session connected.");
+			log.info("SSH Session connected.");
 			
-			//在 ssh連線 建立 sftp通道
+			//在 ssh連線 上, 建立 sftp通道 (依關鍵字開啟各種用途通道)
 			Channel channel = sshSession.openChannel("sftp");
 			channel.connect();
-				logger.info("Opening Channel.");
+				log.info("Opening Channel.");
 			channelSftp = (ChannelSftp) channel;
-				logger.info("Connected to " + host + ".");
+				log.info("Connected to " + host + ".");
+			hasConnected = true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return hasConnected;
 	}
 	// 取得當前目錄路徑名稱
 	public String getremotePath() {
 		return remoteCurrentDir;
 	}
-	// 建立目錄
-	// 移除目錄
-	// 切換目錄
-	// 下載指定路徑的檔案
-	// 下載指定目錄下的的全部檔案
-	// 下載指定目錄(含以下的全部檔案)
-	// 上傳指定路徑的檔案
-	// 上傳指定目錄下的的全部檔案
-	// 上傳指定目錄(含以下的全部檔案)
-	// 刪除檔案
-	
 	// 取得指定目錄下的檔案清單
 	public List<String> lsFileNames(String directory){
 		List<String> result = null;
@@ -141,13 +156,13 @@ public class SftpClient{
 		if (this.sshSession != null) {
 			if (this.sshSession.isConnected()) {
 				this.sshSession.disconnect();
-				logger.info("sshSession is closed already");
+				log.info("sshSession is closed already");
 			}
 		}
 		if (this.channelSftp != null) {
 			if (this.channelSftp.isConnected()) {
 				this.channelSftp.disconnect();
-					logger.info("sftp is closed already");
+					log.info("sftp is closed already");
 			}
 		}else {
 	
