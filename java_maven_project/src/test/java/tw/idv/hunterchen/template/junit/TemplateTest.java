@@ -1,26 +1,23 @@
 package tw.idv.hunterchen.template.junit;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.util.logging.Logger;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import tw.idv.hunterchen.utility.DevTool;
 import tw.idv.hunterchen.utility.StringTool;
 
 public class TemplateTest { 
-	Logger logger = Logger.getLogger(this.getClass().getName());
+	Logger log = LoggerFactory.getLogger(TemplateTest.class);
 	static final String mDivider = StringTool.genDivider();
 	
 	@Test
 	public void testXXX() {
+		log.info("AnyThing");
 		DevTool.showMessages("----test ----");
 	}
 	
