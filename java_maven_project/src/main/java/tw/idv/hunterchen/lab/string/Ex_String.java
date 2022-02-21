@@ -10,12 +10,12 @@ public class Ex_String {
 		String str="";
 		DevTool.showMessages("原字串" , str, "|");
 		DevTool.showMessages("isEmpty()", "是空的?" , String.valueOf(str.isEmpty()));
-		DevTool.showMessages("isBlank()", "是空白?" , String.valueOf(str.isBlank()));
+//		DevTool.showMessages("isBlank()", "是空白?" , String.valueOf(str.isBlank()));
 
 		str="tw.idv.hunterchen_txt";
 		DevTool.showMessages("原字串" , str, "|");
 		DevTool.showMessages("isEmpty()", "是空的?" , String.valueOf(str.isEmpty()));
-		DevTool.showMessages("isBlank()", "是空白?" , String.valueOf(str.isBlank()));
+//		DevTool.showMessages("isBlank()", "是空白?" , String.valueOf(str.isBlank()));
 		DevTool.showMessages("startsWith()", "以xxx開頭?" , 			 String.valueOf(str.startsWith("tw")));
 		DevTool.showMessages("startsWith()", "從第n位開始, 以xxx開頭?" , String.valueOf(str.startsWith("tw", 0)));
 		DevTool.showMessages("endsWith()", 	 "以xxx結尾?" , 			 String.valueOf(str.endsWith(".txt")));
