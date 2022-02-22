@@ -10,6 +10,7 @@ public class Ex_String {
 		String str="";
 		DevTool.showMessages("原字串" , str, "|");
 		DevTool.showMessages("isEmpty()", "是空的?" , String.valueOf(str.isEmpty()));
+		// Mac 無法使用? 是哪裡的版本差異? JRE?
 //		DevTool.showMessages("isBlank()", "是空白?" , String.valueOf(str.isBlank()));
 
 		str="tw.idv.hunterchen_txt";
