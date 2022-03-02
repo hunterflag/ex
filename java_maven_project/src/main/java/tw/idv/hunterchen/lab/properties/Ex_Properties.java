@@ -6,13 +6,24 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
 import java.util.Properties;
+import java.util.Set;
 
 import tw.idv.hunterchen.utility.DevTool;
 
 public class Ex_Properties {
-
+	
+	// 顯示所有的
+	public void showAllProperties(Properties props) {
+		Set<String> propertyNames = props.stringPropertyNames();
+		for (String name : propertyNames) {
+			DevTool.showMessages(name, props.getProperty(name, "NO VALUE"));
+		}
+	}
+	
 	public static void main(String[] args) throws IOException, URISyntaxException {
-
+		Ex_Properties ex_Properties = new Ex_Properties();	
+		Properties props = System.getProperties();
+		ex_Properties.showAllProperties(props);
 		// File f = new File("Ex_Properties.properties");
 //		File f = new File("\\tw\\idv\\hunterchen\\lab\\properties\\Ex_Properties.properties");
 //		File f = new File("/dev.source//test/src/main/resources/tw/idv/hunterchen/lab/properties/Ex_Properties.properties");
