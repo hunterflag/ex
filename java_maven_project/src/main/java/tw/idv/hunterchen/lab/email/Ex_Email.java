@@ -51,13 +51,12 @@ public class Ex_Email {
 		props.put("mail.transport.protocol", "smtp");		// 使用協議
 //		props.put("mail.smtp.auth", "true");				// 需要驗證機制: 預設不需要, 只用帳密驗證	 
 //		props.put("mail.smtp.starttls.enable", "true");		// 啟用starttls加密
-		props.put("mail.smtp.auth.login.disable", "true");		// 啟用starttls加密
-//		props.put("mail.smtp.auth.login.disable", "true");		// 啟用starttls加密
+		props.put("mail.smtp.auth.login.disable", "true");	// 啟用starttls加密
 		props.put("mail.debug", "true");					// 啟用除錯
 		PropertiesUtility.showAllProperties(props);
 		 
 		
-		// Get the Session object.
+		// 驗證帳密、並建立連線Get the Session object.
 		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication(username, password);

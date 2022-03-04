@@ -2,6 +2,13 @@ package tw.idv.hunterchen.utility.email;
 
 import org.junit.Test;
 
+/*
+ * 發信工具
+ * 與主機建立連線
+ * 發信.單人
+ * 發信.多人
+ * 發信.附件
+ */
 public class StmpClientTest {
 	@Test
 	public void test() {
