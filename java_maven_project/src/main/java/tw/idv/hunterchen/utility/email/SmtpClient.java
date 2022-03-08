@@ -1,5 +1,7 @@
 package tw.idv.hunterchen.utility.email;
 
+import javax.mail.Message;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,7 +28,7 @@ public class SmtpClient {
 		return true;
 	}
 
-	public boolean sendMail(MailDTO mail) {
+	public boolean sendMail(Message message) {
 		log.info(null);
 		try {
 
