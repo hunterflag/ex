@@ -1,5 +1,7 @@
 package tw.idv.hunterchen.lab.email;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -23,7 +25,11 @@ public class Ex_Gmail {
       // Assuming you are sending email through relay.jangosmtp.net
       String host = "smtp.gmail.com";
 
-      Properties props = new Properties();
+      Properties props;
+      props = new Properties();
+//      props = System.getProperties();
+
+      props.put("mail.debug", "true");
       props.put("mail.smtp.auth", "true");
       props.put("mail.smtp.starttls.enable", "true");
       props.put("mail.smtp.host", host);
@@ -49,7 +55,13 @@ public class Ex_Gmail {
          InternetAddress.parse(to));
 
          // Set Subject: header field
-         message.setSubject("Testing Subject");
+         Date now = new Date(); 
+         String subject = "Testing Subject: "
+//        		 + "[" + now.toGMTString() + "]"
+//        		 + "[" + now.toLocaleString() + "]"
+        		 + new SimpleDateFormat("[yyyy-MM-dd hh:mm:ss]").format(now)
+        		 ; 
+         message.setSubject(subject);
 
          // Now set the actual message
          message.setText("Hello, this is sample for to check send "
