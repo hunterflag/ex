@@ -19,7 +19,6 @@ public class Ex_Properties {
 			DevTool.showMessages(name, props.getProperty(name, "NO VALUE"));
 		}
 	}
-	
 	public static void main(String[] args) throws IOException, URISyntaxException {
 		Ex_Properties ex_Properties = new Ex_Properties();	
 		Properties props = System.getProperties();

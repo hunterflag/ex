@@ -17,6 +17,7 @@ public class Ex_PathAndPaths {
 
 		DevTool.showMessages(StringTool.genDivider("|=>", 10)
 				, "使用 Paths 建立 Path .a.路徑字串法"
+//				, String.valueOf(path = Paths.get("src"))
 //				, String.valueOf(path = Paths.get("."))
 				, String.valueOf(path = Paths.get(".").toAbsolutePath())
 //				, String.valueOf(path = Paths.get("d:", "temp"))
@@ -54,13 +55,20 @@ public class Ex_PathAndPaths {
 	}
 	
 	private static void showPath(Path path) {
+		int nameCount;
 		DevTool.showMessages(StringTool.genDivider("---", 20));
-		DevTool.showMessages("原始 Path", path.toString());
-		DevTool.showMessages("自動搭配OS使用分隔符號",	"toString()"	, path.toString());
+		DevTool.showMessages("提供的原始 path", path.toString());
+		DevTool.showMessages("原始路徑中的層數",	"getNameCount()", String.valueOf(nameCount = path.getNameCount()));
 		DevTool.showMessages("是絕對路徑?",			"isAbsolute()"  , String.valueOf(path.isAbsolute()));
-		DevTool.showMessages("最後(右)的 Path", 		"getFileName()" , String.valueOf(path.getFileName()));
-		DevTool.showMessages("從根算到當前Path的層數",	"getNameCount()", String.valueOf(path.getNameCount()));
-		DevTool.showMessages("取得上層 Path",			"getParent()"   , String.valueOf(path.getParent().getFileName()));
+		DevTool.showMessages("絕對路徑path(相對路徑時為null)", path.toAbsolutePath().toString());
+		DevTool.showMessages("從根算到絕對路徑的層數",	"getNameCount()", String.valueOf(nameCount = path.getNameCount()));
+		DevTool.showMessages("取得根路徑",			"getRoot()"   , String.valueOf(path.getRoot()));
+		for (int i=0; i<nameCount; i++) {
+			DevTool.showMessages("取得絕對路徑中的第n個Path的名稱",			"getName("+i+")"   , String.valueOf(path.getName(i)));
+		}
+		DevTool.showMessages("最後一層(右)的 Path", 		"getFileName()" , String.valueOf(path.getFileName()));
+		DevTool.showMessages("取得父層 Path",			"getParent()"   , String.valueOf(path.getParent().getFileName()));
+		DevTool.showMessages("取得path所在之檔案系統物件",			"getFileSystem"   , String.valueOf(path.getFileSystem()));
 	}
 	
 	private static void showFiles(Path path) {
