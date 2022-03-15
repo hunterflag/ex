@@ -19,7 +19,11 @@ public class PropertiesUtility {
 		}
 	}
 	
-
+	/** 
+	 * @Param
+	 *  適用: 專案啟動用的參數, 只在專案啟用時讀取一次, 不會再變更; 一旦變更, 就須重新啟動時
+	 * 
+	 */
 	public static Properties getPropertiesFromClassPath(String file) {
 		Properties properties=null;
 		try {
@@ -31,7 +35,9 @@ public class PropertiesUtility {
 		}
 		return properties;
 	}
-
+	/**
+	 * 適用: 因人因事而異的資料檔, 每次都要重新讀取, 一旦變更, 不須重新啟動 
+	 */
 	public static Properties getPropertiesFromFilePath(String file) {
 		Properties properties=null;
 		try {

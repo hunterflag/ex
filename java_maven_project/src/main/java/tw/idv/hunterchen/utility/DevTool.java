@@ -17,6 +17,7 @@ public class DevTool {
 	private static String mDivider = StringTool.genDivider();
 	
 	public static boolean showAllMembers(Object obj) {
+		DevTool.showMessages("套件.類別全名", obj.getClass().getCanonicalName());
 		return (	showAllFields(obj)
 			     && showAllMethods(obj)
 			   );
