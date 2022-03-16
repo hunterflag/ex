@@ -16,13 +16,13 @@ public class TemplateTest {
 	static final String mDivider = StringTool.genDivider();
 	
 	@Test
-	public void testXXX() {
+	public void xxxTest() {
 		log.info("AnyThing");
 		DevTool.showMessages("----test ----");
 	}
 	
 	@Test
-	public void testShowSystem() {
+	public void showSystemTest() {
 		DevTool.showMessages("----test ----");
 	}
 	

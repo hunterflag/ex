@@ -1,6 +1,13 @@
 package tw.idv.hunterchen.utility.file;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
 
 import tw.idv.hunterchen.utility.DevTool;
 
@@ -24,7 +31,44 @@ public class FileUtility {
 		result = fileName.substring(pos + 1);
 		return result;
 	}
+	
+	public static boolean cleanFolder(String folder) {
+		boolean isClean = false;
+		folder = (folder!=null) ? folder : "";
+		Path path = Paths.get(folder);
+		if ( !folder.isBlank() && Files.exists(path) && Files.isDirectory(path) ) {
+			try {
+				Files.walkFileTree(path,
+					      new SimpleFileVisitor<Path>() {
+					         // 先去遍歷刪除檔案
+					         @Override
+					         public FileVisitResult visitFile(Path file,
+					                                  BasicFileAttributes attrs) throws IOException {
+					            Files.delete(file);
+					            System.out.printf("檔案被刪除 : %s%n", file);
+					            return FileVisitResult.CONTINUE;
+					         }
+					         // 再去遍歷刪除目錄
+					         @Override
+					         public FileVisitResult postVisitDirectory(Path dir,
+					                                         IOException exc) throws IOException {
+					            Files.delete(dir);
+					            System.out.printf("資料夾被刪除: %s%n", dir);
+					            return FileVisitResult.CONTINUE;
+					         }
 
+					      } //end of new()
+					   );
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			isClean = true;
+		}
+		return isClean;
+	}
+	
+	
 	public static boolean renameOrMove(String source, String destination) {
 		boolean result = true;
 		try {
