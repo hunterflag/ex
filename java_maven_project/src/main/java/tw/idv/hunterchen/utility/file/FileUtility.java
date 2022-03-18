@@ -32,7 +32,7 @@ public class FileUtility {
 		return result;
 	}
 	
-	public static boolean cleanFolder(String folder) {
+	public static boolean forceRemoveFolder(String folder) {
 		boolean isClean = false;
 		folder = (folder!=null) ? folder : "";
 		Path path = Paths.get(folder);
