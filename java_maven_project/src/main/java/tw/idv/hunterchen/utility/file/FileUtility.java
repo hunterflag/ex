@@ -32,11 +32,11 @@ public class FileUtility {
 		return result;
 	}
 	
-	public static boolean cleanFolder(String folder) {
+	public static boolean forceRemoveFolder(String folder) {
 		boolean isClean = false;
 		folder = (folder!=null) ? folder : "";
 		Path path = Paths.get(folder);
-		if ( !folder.isBlank() && Files.exists(path) && Files.isDirectory(path) ) {
+		if ( !folder.isEmpty() && Files.exists(path) && Files.isDirectory(path) ) {
 			try {
 				Files.walkFileTree(path,
 					      new SimpleFileVisitor<Path>() {

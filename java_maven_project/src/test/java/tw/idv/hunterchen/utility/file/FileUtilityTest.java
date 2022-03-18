@@ -36,10 +36,10 @@ public class FileUtilityTest {
 			e.printStackTrace();
 		}
 		
-		assertFalse(FileUtility.cleanFolder(null));
-		assertFalse(FileUtility.cleanFolder(""));
-		assertFalse(FileUtility.cleanFolder(basePath+"ddd"));
-		assertFalse(FileUtility.cleanFolder(basePath+"sample.json"));
+		assertFalse(FileUtility.forceRemoveFolder(null));
+		assertFalse(FileUtility.forceRemoveFolder(""));
+		assertFalse(FileUtility.forceRemoveFolder(basePath+"ddd"));
+		assertFalse(FileUtility.forceRemoveFolder(basePath+"sample.json"));
 //		assertTrue(FileUtility.cleanFolder(basePath));
 	}
 	
