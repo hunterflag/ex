@@ -15,7 +15,7 @@ import tw.idv.hunterchen.utility.DevTool;
 
 import java.util.Date;
 
-public class Ex_file {
+public class Ex_File {
 
 	private static FileInputStream fileInputStream;
 
@@ -81,36 +81,36 @@ public class Ex_file {
 		}
 		DevTool.showMessages(strDiv, "原始路徑名稱", "pathName", String.valueOf(pathName), strDiv);
 		
-		File path = new File(pathName);
+		File file = new File(pathName);
 		DevTool.showMessages(strDiv, "原始路徑 轉換成 File(抽象路徑檔名)後, 名稱分隔號會與 OS 相同", strDiv);
 		//VS 看不出差異
-		DevTool.showMessages("原始名稱的路徑", "toString() ", String.valueOf(path.toString()));
-		DevTool.showMessages("原始名稱的路徑", "toPath()   ", String.valueOf(path.toPath()));
-		DevTool.showMessages("原始名稱是否為絕對路徑?", "isAbsolute()", String.valueOf(path.isAbsolute()));
-		DevTool.showMessages("最後(右邊)１個pathName", "getName()", String.valueOf(path.getName()));
+		DevTool.showMessages("原始名稱的路徑", "toString() ", String.valueOf(file.toString()));
+		DevTool.showMessages("原始名稱的路徑", "toPath()   ", String.valueOf(file.toPath()));
+		DevTool.showMessages("原始名稱是否為絕對路徑?", "isAbsolute()", String.valueOf(file.isAbsolute()));
+		DevTool.showMessages("最後(右邊)１個pathName", "getName()", String.valueOf(file.getName()));
 		//VS 看不出差異
-		DevTool.showMessages("原始名稱上的父層路徑", "getParent()     ", String.valueOf(path.getParent()));
-		DevTool.showMessages("原始名稱上的父層路徑", "getParentFile() ", String.valueOf(path.getParentFile()));
+		DevTool.showMessages("原始名稱上的父層路徑", "getParent()     ", String.valueOf(file.getParent()));
+		DevTool.showMessages("原始名稱上的父層路徑", "getParentFile() ", String.valueOf(file.getParentFile()));
 		DevTool.showMessages(strDiv, "從原始名稱的相對路徑組合成絕對路徑", strDiv);
 		//VS 看不出差異
-		DevTool.showMessages("系統絕對路徑檔案", "getAbsoluteFile()", String.valueOf(path.getAbsoluteFile()));
-		DevTool.showMessages("抽象絕對路徑檔案", "getAbsolutePath()", String.valueOf(path.getAbsolutePath()));
-		DevTool.showMessages("路徑檔案", "getPath()", String.valueOf(path.getPath()));
+		DevTool.showMessages("系統絕對路徑檔案", "getAbsoluteFile()", String.valueOf(file.getAbsoluteFile()));
+		DevTool.showMessages("抽象絕對路徑檔案", "getAbsolutePath()", String.valueOf(file.getAbsolutePath()));
+		DevTool.showMessages("路徑檔案", "getPath()", String.valueOf(file.getPath()));
 		
 		//VS 看不出差異
-		DevTool.showMessages("絕對路徑轉換成URI路徑", "toURI()", String.valueOf(path.toURI()));
-		DevTool.showMessages("絕對路徑轉換成URL路徑", "toURL()", String.valueOf(path.toURL()));
+		DevTool.showMessages("絕對路徑轉換成URI路徑", "toURI()", String.valueOf(file.toURI()));
+		DevTool.showMessages("絕對路徑轉換成URL路徑", "toURL()", String.valueOf(file.toURL()));
 
 		DevTool.showMessages(strDiv, "原始路徑 轉換成 標準/精簡/絕對/抽象路徑", strDiv);
-		DevTool.showMessages("系統標準/精簡路徑檔案", "getCanonicalFile()", String.valueOf(path.getCanonicalFile()));
-		DevTool.showMessages("抽象標準/精簡路徑檔案", "getCanonicalPath()", String.valueOf(path.getCanonicalPath()));
+		DevTool.showMessages("系統標準/精簡路徑檔案", "getCanonicalFile()", String.valueOf(file.getCanonicalFile()));
+		DevTool.showMessages("抽象標準/精簡路徑檔案", "getCanonicalPath()", String.valueOf(file.getCanonicalPath()));
 		/*
 		 */
-		DevTool.showMessages("hashCode() ", Integer.toHexString(path.hashCode()));
-		DevTool.showMessages("抽象路徑的長度","length()", String.valueOf(path.length()));
-		DevTool.showMessages("絕對路徑的字元數", "getCanonicalPath()", String.valueOf( path.getCanonicalPath().length()));
+		DevTool.showMessages("hashCode() ", Integer.toHexString(file.hashCode()));
+		DevTool.showMessages("抽象路徑的長度","length()", String.valueOf(file.length()));
+		DevTool.showMessages("絕對路徑的字元數", "getCanonicalPath()", String.valueOf( file.getCanonicalPath().length()));
 		
-		if (!path.exists()) {
+		if (!file.exists()) {
 			DevTool.showMessages(strDiv, "指定路徑不存在時", strDiv);
 			/*
 			ShowTool.showMessages("mkdir()",
@@ -124,40 +124,40 @@ public class Ex_file {
 			DevTool.showMessages(strDiv, "指定路徑存在時", strDiv);
 
 			DevTool.showMessages(strDiv, "存在各種屬性", strDiv);
-			DevTool.showMessages("canExecute()", String.valueOf(path.canExecute()));
-			DevTool.showMessages("canRead()   ", String.valueOf(path.canRead()));
-			DevTool.showMessages("canWrite()  ", String.valueOf(path.canWrite()));
-			DevTool.showMessages("exists()    ", String.valueOf(path.exists()));
-			DevTool.showMessages("isHidden()  ", String.valueOf(path.isHidden()));
+			DevTool.showMessages("canExecute()", String.valueOf(file.canExecute()));
+			DevTool.showMessages("canRead()   ", String.valueOf(file.canRead()));
+			DevTool.showMessages("canWrite()  ", String.valueOf(file.canWrite()));
+			DevTool.showMessages("exists()    ", String.valueOf(file.exists()));
+			DevTool.showMessages("isHidden()  ", String.valueOf(file.isHidden()));
 			DevTool.showMessages("lastModified()",
-			String.valueOf(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(path.lastModified()))));
+			String.valueOf(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(file.lastModified()))));
 
 			DevTool.showMessages(strDiv, "所屬硬碟空間資訊", strDiv);
-			DevTool.showMessages("所屬硬碟全部總空間", "getTotalSpace() " , String.valueOf(NumberFormat.getInstance().format(path.getTotalSpace())));
-			DevTool.showMessages("所屬硬碟未使用空間", "getUsableSpace()" , String.valueOf(new DecimalFormat().format(path.getUsableSpace())));
-			DevTool.showMessages("所屬硬碟已使用空間", "                " , String.valueOf(NumberFormat.getInstance().format(path.getTotalSpace()-path.getUsableSpace())));
+			DevTool.showMessages("所屬硬碟全部總空間", "getTotalSpace() " , String.valueOf(NumberFormat.getInstance().format(file.getTotalSpace())));
+			DevTool.showMessages("所屬硬碟未使用空間", "getUsableSpace()" , String.valueOf(new DecimalFormat().format(file.getUsableSpace())));
+			DevTool.showMessages("所屬硬碟已使用空間", "                " , String.valueOf(NumberFormat.getInstance().format(file.getTotalSpace()-file.getUsableSpace())));
 
 			// 依檔案或資料夾分別顯示
-			if (path.isDirectory() && !(path.isFile())) {
-				DevTool.showMessages(strDiv, path.getName(), "為資料夾", strDiv);
+			if (file.isDirectory() && !(file.isFile())) {
+				DevTool.showMessages(strDiv, file.getName(), "為資料夾", strDiv);
 
 //			XXX FileFilter fileFilter = new FileFilter();
-				String[] fileList = path.list();
+				String[] fileList = file.list();
 				int fileCounter = fileList.length;
 
 				if (fileCounter != 0) {
-					DevTool.showMessages(strDiv, path.getName() + " 資料夾下有 "+fileCounter+" 個檔案或資料夾", strDiv);
+					DevTool.showMessages(strDiv, file.getName() + " 資料夾下有 "+fileCounter+" 個檔案或資料夾", strDiv);
 					for (int i = 0; i < fileCounter; i++) {
 						System.out.printf("%d:%s%n", i, fileList[i]);
 					}
 				} else {
-					DevTool.showMessages(strDiv, path.getName() + " 資料夾下沒有檔案", strDiv);
+					DevTool.showMessages(strDiv, file.getName() + " 資料夾下沒有檔案", strDiv);
 				}
 			} else {
-				DevTool.showMessages(strDiv, path.getName(), "為檔案", strDiv);
-				DevTool.showMessages("space. ", String.valueOf(path.getAbsoluteFile()), "絕對路徑檔案");
+				DevTool.showMessages(strDiv, file.getName(), "為檔案", strDiv);
+				DevTool.showMessages("space. ", String.valueOf(file.getAbsoluteFile()), "絕對路徑檔案");
 				try {
-					FileInputStream fileInputStream = new FileInputStream(path);
+					FileInputStream fileInputStream = new FileInputStream(file);
 					System.out.println("file real size (Bytes): " + fileInputStream.available());
 					// TODO read from file
 

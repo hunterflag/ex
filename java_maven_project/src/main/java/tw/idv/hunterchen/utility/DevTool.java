@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class DevTool {
-	private static final Logger logger = LoggerFactory.getLogger(DevTool.class);
 	/**
 	 * @param obj
 	 * @return
@@ -110,7 +109,7 @@ public class DevTool {
 		if ((messages!=null) && (messages.length>0)) {
 			System.out.printf("<=MBH=>");
 			for (int i=0; i<messages.length; i++) {
-				System.out.printf(": %s", messages[i]);
+				System.out.printf(": %-20s", messages[i]);
 			}
 			System.out.printf("%n");
 		}
