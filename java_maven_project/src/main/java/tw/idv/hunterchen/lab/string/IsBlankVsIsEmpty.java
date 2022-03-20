@@ -11,7 +11,7 @@ public class IsBlankVsIsEmpty {
 		String[] list={"", "  ", "anything", "\t"};
 		for (String string : list) {
 			DevTool.showMessages("["+string+"]", 
-						"isBlank()="+String.valueOf(string.isBlank()),
+//						"isBlank()="+String.valueOf(string.isBlank()),
 						""+string.length(), 
 						"isEmpty()="+String.valueOf(string.isEmpty())
 			); 

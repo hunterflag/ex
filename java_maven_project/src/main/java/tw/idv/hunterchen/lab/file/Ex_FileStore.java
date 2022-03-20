@@ -11,7 +11,10 @@ public class Ex_FileStore {
 		Iterable<FileStore> fileStores = Paths.get(".").toAbsolutePath().getFileSystem().getFileStores();
 		for(FileStore fileStore : fileStores) {
 			DevTool.showMessages(fileStore.name());
+			DevTool.showAllMembers(fileStore);
+			
 		}
 	}
 
 }
+ 

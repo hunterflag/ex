@@ -18,12 +18,11 @@ public class Ex_PathAndPaths {
 		DevTool.showMessages(StringTool.genDivider("|=>", 10)
 				, "使用 Paths 建立 Path .a.路徑字串法"
 //				, String.valueOf(path = Paths.get("src"))
-//				, String.valueOf(path = Paths.get("."))
-				, String.valueOf(path = Paths.get(".").toAbsolutePath())
+				, String.valueOf(path = Paths.get("."))
+//				, String.valueOf(path = Paths.get(".").toAbsolutePath())
 //				, String.valueOf(path = Paths.get("d:", "temp"))
 				);
 		showPath(path);
-		showFiles(path);
 //		path.getFileSystem().getFileStores();
 
 //		DevTool.showMessages(StringTool.genDivider("...", 20));
@@ -60,7 +59,7 @@ public class Ex_PathAndPaths {
 		DevTool.showMessages("提供的原始 path", path.toString());
 		DevTool.showMessages("原始路徑中的層數",	"getNameCount()", String.valueOf(nameCount = path.getNameCount()));
 		DevTool.showMessages("是絕對路徑?",			"isAbsolute()"  , String.valueOf(path.isAbsolute()));
-		DevTool.showMessages("絕對路徑path(相對路徑時為null)", path.toAbsolutePath().toString());
+		DevTool.showMessages("絕對路徑path(相對路徑時為null)", (path=path.toAbsolutePath()).toString());
 		DevTool.showMessages("從根算到絕對路徑的層數",	"getNameCount()", String.valueOf(nameCount = path.getNameCount()));
 		DevTool.showMessages("取得根路徑",			"getRoot()"   , String.valueOf(path.getRoot()));
 		for (int i=0; i<nameCount; i++) {
@@ -71,24 +70,6 @@ public class Ex_PathAndPaths {
 		DevTool.showMessages("取得path所在之檔案系統物件",			"getFileSystem"   , String.valueOf(path.getFileSystem()));
 	}
 	
-	private static void showFiles(Path path) {
-		DevTool.showMessages(StringTool.genDivider("---", 20));
-		DevTool.showMessages("存在嗎?", 	"exists()",		String.valueOf((Files.exists(path, LinkOption.NOFOLLOW_LINKS))));
-		DevTool.showMessages("不存在嗎?", "notExists()",	String.valueOf((Files.notExists(path, LinkOption.NOFOLLOW_LINKS))));
-		DevTool.showMessages("資料夾嗎?", 	"isDirectory()", 	String.valueOf((Files.isDirectory(path, LinkOption.NOFOLLOW_LINKS))));
-		DevTool.showMessages("是檔案嗎?", 	"isRegularFile()", 	String.valueOf((Files.isRegularFile(path, LinkOption.NOFOLLOW_LINKS))));
-		DevTool.showMessages("是link嗎?",	"isSymbolicLink()",	String.valueOf((Files.isSymbolicLink(path))));
-		DevTool.showMessages("可讀嗎?", 	"isReadable()", 	String.valueOf((Files.isReadable(path))));
-		DevTool.showMessages("可寫嗎?", 	"isWritable()", 	String.valueOf((Files.isWritable(path))));
-		DevTool.showMessages("可執行嗎?", "isExecutable()", 	String.valueOf((Files.isExecutable(path))));
-		try {
-			DevTool.showMessages("檔案大小(資料夾固定為4096)", String.valueOf(Files.size(path)));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-//		DevTool.showMessages("可執行嗎?", "isExecutable()", 	String.valueOf((Files.getFileStore(path).)));
-		
-	}
+	
 
 }

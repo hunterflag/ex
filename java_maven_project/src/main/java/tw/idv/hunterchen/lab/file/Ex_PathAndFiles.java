@@ -2,22 +2,18 @@ package tw.idv.hunterchen.lab.file;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
 
-import tw.idv.hunterchen.utility.StringTool;
 import tw.idv.hunterchen.utility.DevTool;
+import tw.idv.hunterchen.utility.StringTool;
 
-import java.util.Date;
-
-public class Ex_Path {
+public class Ex_PathAndFiles {
 
 	private static FileInputStream fileInputStream;
 
@@ -25,7 +21,7 @@ public class Ex_Path {
 	 * @param args
 	 * @throws IOException
 	 */
-	@SuppressWarnings("resource")
+//	@SuppressWarnings("resource")
 	public static void main(String[] args) throws IOException {
 		showCurrentPath();
 		/* File: 
@@ -88,8 +84,10 @@ public class Ex_Path {
 		DevTool.showMessages(strDiv, "原始路徑 轉換成 File(抽象路徑檔名)後, 名稱分隔號會與 OS 相同", strDiv);
 		//VS 看不出差異
 		DevTool.showMessages("原始名稱的路徑", "toString() ", path.toString());
-		DevTool.showMessages("原始名稱的路徑", "toFile()   ", String.valueOf(path.toFile()));
-		DevTool.showMessages("路徑", "getFileSystem()   ", String.valueOf(path.getFileSystem()));
+
+		DevTool.showMessages("轉換成 java.io.File", "toFile()   ", String.valueOf(path.toFile()));
+		DevTool.showMessages("取得檔案系統", "getFileSystem()   ", String.valueOf(path.getFileSystem()));
+		DevTool.showMessages("取得檔案系統", "getFileSystem()   ", String.valueOf(path.getFileSystem().getFileStores()));
 		/*
 		ShowTool.showMessages("最後(右邊)１個pathName", "getName()", String.valueOf(path.getName()));
 		//VS 看不出差異
@@ -184,7 +182,25 @@ public class Ex_Path {
 //		}
 	
 	}
-	
+	private static void showFiles(Path path) {
+		DevTool.showMessages(StringTool.genDivider("---", 20));
+		DevTool.showMessages("存在嗎?", 	"exists()",		String.valueOf((Files.exists(path, LinkOption.NOFOLLOW_LINKS))));
+		DevTool.showMessages("不存在嗎?", "notExists()",	String.valueOf((Files.notExists(path, LinkOption.NOFOLLOW_LINKS))));
+		DevTool.showMessages("資料夾嗎?", 	"isDirectory()", 	String.valueOf((Files.isDirectory(path, LinkOption.NOFOLLOW_LINKS))));
+		DevTool.showMessages("是檔案嗎?", 	"isRegularFile()", 	String.valueOf((Files.isRegularFile(path, LinkOption.NOFOLLOW_LINKS))));
+		DevTool.showMessages("是link嗎?",	"isSymbolicLink()",	String.valueOf((Files.isSymbolicLink(path))));
+		DevTool.showMessages("可讀嗎?", 	"isReadable()", 	String.valueOf((Files.isReadable(path))));
+		DevTool.showMessages("可寫嗎?", 	"isWritable()", 	String.valueOf((Files.isWritable(path))));
+		DevTool.showMessages("可執行嗎?", "isExecutable()", 	String.valueOf((Files.isExecutable(path))));
+		try {
+			DevTool.showMessages("檔案大小(資料夾固定為4096)", String.valueOf(Files.size(path)));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+//		DevTool.showMessages("可執行嗎?", "isExecutable()", 	String.valueOf((Files.getFileStore(path).)));
+		
+	}
 
 	public static void showCurrentPath() {
 		DevTool.showMessages("目前路徑", Paths.get(".").toAbsolutePath().toString());

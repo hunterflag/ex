@@ -43,6 +43,9 @@ public class Ex_FileSystemAndFileSystems {
 		DevTool.showMessages("已開啟?",		"isOpen()", 			String.valueOf(fileSystem.isOpen()));
 		DevTool.showMessages("唯讀嗎?",		"isReadOnly()", 		String.valueOf(fileSystem.isReadOnly()));
 		DevTool.showMessages("取出所有根path",	"getRootDirectories()", String.valueOf(fileSystem.getRootDirectories()));
+		DevTool.showMessages("","", fileSystem.getSeparator());
+		DevTool.showMessages("","", fileSystem.getPath(".").toAbsolutePath().toString());
+	
 	}
 	
 	private static void showFileStores(FileSystem fileSystem) {
