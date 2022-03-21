@@ -10,41 +10,29 @@ import java.nio.file.Paths;
 import tw.idv.hunterchen.utility.DevTool;
 import tw.idv.hunterchen.utility.StringTool;
 
-public class Ex_PathAndPaths {
+public class Ex_PathsAndPath {
 
 	public static void main(String[] args) throws URISyntaxException {
 		Path path = null;
 
+		// 使用 Paths, 以 String 建立 Path 的方法 x2:
+		
+		
+		
 		DevTool.showMessages(StringTool.genDivider("|=>", 10)
 				, "使用 Paths 建立 Path .a.路徑字串法"
-//				, String.valueOf(path = Paths.get("src"))
-				, String.valueOf(path = Paths.get("."))
+				// 法.a
+				, String.valueOf(path = Paths.get("."))						// 相對路徑: 專案資料夾
+//				, String.valueOf(path = Paths.get("src"))					
 //				, String.valueOf(path = Paths.get(".").toAbsolutePath())
-//				, String.valueOf(path = Paths.get("d:", "temp"))
+				// 法.b
+//				, String.valueOf(path = Paths.get("d:", "temp")) 			
 				);
 		showPath(path);
+		
+		// others	
 //		path.getFileSystem().getFileStores();
 
-//		DevTool.showMessages(StringTool.genDivider("...", 20));
-//		path = Paths.get("d:", "temp", "files", "sample.json");
-//		showPath(path);
-//		showFiles(path);
-//		
-//		DevTool.showMessages(StringTool.genDivider("...", 20));
-//		path = Paths.get("d:", "Program Files");
-//		showPath(path);
-//		showFiles(path);
-//		
-//		DevTool.showMessages(StringTool.genDivider("...", 20));
-//		path = Paths.get("d:", "hunter");
-//		showPath(path);
-//		showFiles(path);
-//		
-//		DevTool.showMessages(StringTool.genDivider("...", 20));
-//		path = Paths.get("c:", "Windows");
-//		showPath(path);
-//		showFiles(path);
-		
 //		DevTool.showMessages(divider, "使用 Paths 建立 Path .b.URI表示法");
 //		path = Paths.get(new URI("file://d:/temp/files"));
 //		showPath(path);

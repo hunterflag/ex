@@ -2,13 +2,18 @@ package tw.idv.hunterchen.lab.email;
 
 import java.util.Properties;
 
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
 import lombok.extern.slf4j.Slf4j;
 import tw.idv.hunterchen.utility.DevTool;
@@ -68,26 +73,35 @@ public class Ex_Email {
 		String from = "developer@127.0.0.21";
 		// 收信人Recipient's email ID needs to be mentioned.
 		String to = "tester@127.0.0.1";
-		// 準備發信內容
+		
 		try {
-			// Create a default MimeMessage objec我也愛你你你你
+						
+			String fileName = "d:/temp/files/sample.json";
+			DataSource dataSource = new FileDataSource(fileName);
+			MimeBodyPart messageMimeBodyPart = new MimeBodyPart();
+			messageMimeBodyPart.setText("FFFFFF"); // 此時無效?
+			
+			// 信件內容可有多個 part部分: 內容部分、附件部分
+			MimeBodyPart attachMimeBodyPart = new MimeBodyPart();
+			attachMimeBodyPart.setDataHandler(new DataHandler(dataSource));
+			attachMimeBodyPart.setFileName(fileName);
+			
+
+			// 要加入的附件檔
+			MimeMultipart mimeMultipart = new MimeMultipart();
+			mimeMultipart.addBodyPart(attachMimeBodyPart);
+			mimeMultipart.addBodyPart(messageMimeBodyPart);
+			
+			// 準備郵件.預設MIME 
 			Message message = new MimeMessage(session);
-
-			// Set From: header field of the header.
 			message.setFrom(new InternetAddress(from));
-
-			// Set To: header field of the header.
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-
-			// Set Subject: header field
 			message.setSubject("Testing Subject");
-
-			// Now set the actual message
-			message.setText("Hello, this is sample for to check send " + "email using JavaMailAPI ");
+			message.setText("<H1>Hello, this is sample</H1> for to check send " + "email using JavaMailAPI ");
+			message.setContent(mimeMultipart);
 
 			// Send message
 			Transport.send(message);
-
 			System.out.println("Sent message successfully....");
 
 		} catch (MessagingException e) {
