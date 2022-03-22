@@ -1,8 +1,8 @@
 package tw.idv.hunterchen.utility;
 
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -10,10 +10,11 @@ import lombok.extern.slf4j.Slf4j;
 public class SftpClientTest { 
 //	private static final Logger log = LoggerFactory.getLogger(SftpClientTest.class);
 	static final String mDivider = StringTool.genDivider();
-
 	
-	@Test
-	public void testAtHomeLan() {
+	static SftpClient sftpClient;
+	
+	@BeforeClass
+	public static void beforeClass() {
 		String host;
 		String username;
 		String password;
@@ -35,32 +36,44 @@ public class SftpClientTest {
 				host = "127.0.0.1";
 				username = "developer";
 				password = "developer";
-				port = 22;
-				remotePath="/";
+				port = 2222;
+				remotePath="~/upload";
 				localPath="d:/temp/sftpClientRoot/";
 				break;
 			default:
 				host = "127.0.0.1";
 				username = "developer";
 				password = "developer";
-				port = 22;
+				port = 2222;
 				remotePath="/";
 				localPath="d:/temp/sftpClientRoot/";
 		}
 		
-		SftpClient sftpClient = new  SftpClient(host, username, password, port);
-
-		DevTool.showMessages("----test ----");
+		sftpClient = new  SftpClient(host, username, password, port);
 		DevTool.showMessages("connect...");
 		sftpClient.connect();
-		sftpClient.ls(remotePath);
-		sftpClient.lsFileNames(remotePath);
+	
+	}
+	
+	@Test
+	public void testAtHomeLan() {
+		DevTool.showMessages("----test ----");
+		sftpClient.ls("/");
+		sftpClient.ls("/upload");
+//		sftpClient.mv("/upload/sample.properties", "/upload/dd/sample.properties");
+		sftpClient.mv("/upload/sample.json", "/sample.json");
+		sftpClient.lsFileNames("/upload/dd");
 		DevTool.showMessages("connect complete, and disconnect...");
-		sftpClient.disconnect();
-		DevTool.showMessages("disconnect");
 		
 	}
 	
+	@AfterClass
+	public static void afterClass() {
+		if (sftpClient!=null) {
+			DevTool.showMessages("disconnect");
+			sftpClient.disconnect();
+		}
+	}
 	/*
 	@Before
 	public void beforeEveryTest() {

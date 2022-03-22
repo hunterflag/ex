@@ -151,6 +151,21 @@ public class SftpClient{
 		} 
 		return result;
 	}
+	
+	public void mv(String srcFile,String destFile) {
+		boolean result=false;
+		try {
+			channelSftp.rename(srcFile, destFile);
+			result=true;
+		} catch (SftpException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+//		return result;
+	}
+	
+	
 	// 關閉連線
 	public void disconnect() {
 		if (this.sshSession != null) {

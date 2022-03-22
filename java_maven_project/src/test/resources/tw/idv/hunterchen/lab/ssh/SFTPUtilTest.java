@@ -5,7 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class SFTPUtilTest {
-
+	@Before
+	
 	@Test
 	public void testSFTPUtilStringStringStringInt() {
 		fail("Not yet implemented");

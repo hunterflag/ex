@@ -7,6 +7,7 @@ import java.util.Vector;
 
 import org.junit.Test;
 
+import tw.idv.hunterchen.lab.sftp.SftpUtils;
 import tw.idv.hunterchen.utility.DevTool;
 
 public class SftpUtilsTest {

@@ -1,4 +1,4 @@
-package tw.idv.hunterchen.lab.ssh;
+package tw.idv.hunterchen.lab.sftp;
 
 import java.io.File;
 import java.io.FileInputStream;

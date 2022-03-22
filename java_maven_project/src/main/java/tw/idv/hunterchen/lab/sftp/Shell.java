@@ -1,4 +1,4 @@
-package tw.idv.hunterchen.lab.ssh;
+package tw.idv.hunterchen.lab.sftp;
 
 /* -*-mode:java; c-basic-offset:2; indent-tabs-mode:nil -*- */
 /**

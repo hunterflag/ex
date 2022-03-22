@@ -1,4 +1,4 @@
-package tw.idv.hunterchen.lab.ssh;
+package tw.idv.hunterchen.lab.sftp;
 
 import java.util.Properties;
 
