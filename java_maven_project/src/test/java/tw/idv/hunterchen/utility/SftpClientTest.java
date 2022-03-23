@@ -1,5 +1,8 @@
 package tw.idv.hunterchen.utility;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -58,10 +61,17 @@ public class SftpClientTest {
 	@Test
 	public void testAtHomeLan() {
 		DevTool.showMessages("----test ----");
+		
+		assertTrue(sftpClient.isExist("/"));
+		assertFalse(sftpClient.isExist("/dd"));
+		assertTrue(sftpClient.isExist("/upload"));
+		assertTrue(sftpClient.isExist("/upload/"));
+		
+		sftpClient.ensureDirExist("/upload/cc");
 		sftpClient.ls("/");
 		sftpClient.ls("/upload");
 //		sftpClient.mv("/upload/sample.properties", "/upload/dd/sample.properties");
-		sftpClient.mv("/upload/sample.json", "/sample.json");
+//		sftpClient.mv("/upload/sample.json", "/sample.json");
 		sftpClient.lsFileNames("/upload/dd");
 		DevTool.showMessages("connect complete, and disconnect...");
 		

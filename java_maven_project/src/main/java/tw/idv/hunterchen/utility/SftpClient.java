@@ -158,11 +158,44 @@ public class SftpClient{
 			channelSftp.rename(srcFile, destFile);
 			result=true;
 		} catch (SftpException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-//		return result;
+	}
+	
+	public boolean isExist(String path) {
+		boolean isExist = false;
+		try {
+			  SftpATTRS attrs = channelSftp.stat(path);
+			  isExist = true;
+		} catch (SftpException e) {
+//			e.printStackTrace();
+			log.info("{} is not exist" , path);
+		}
+		return isExist;
+	}
+	
+	/**
+	 * 
+	 * @param path 
+	 * @return 
+	 * 	1:新建目錄成功
+	 *	0:目錄已經存在 
+	 *	-1:目錄不存在(新建目錄失敗)
+	 */
+	public int ensureDirExist(String path) {
+		int isNewDir = -1;
+		if(!isExist(path)) {
+			try {
+				channelSftp.mkdir(path);
+				isNewDir = 1;
+			} catch (SftpException e) {
+//				e.printStackTrace();
+				log.info("{} create fail" , path);
+			}
+		}else {
+			isNewDir=0;
+		}
+		return isNewDir;
 	}
 	
 	
