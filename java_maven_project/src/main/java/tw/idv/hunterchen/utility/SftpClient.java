@@ -94,7 +94,8 @@ public class SftpClient{
 			// 首先要取得連線(不然怎麼通訊, 此時只能驗證而已)
 			sshSession = jsch.getSession(username, host, port);	
 			// 取得連線之後, 才能驗證密碼、進行設定
-			sshSession.setPassword(password);					
+			sshSession.setPassword(password);	
+			
 			Properties sshConfig = new Properties();
 			sshConfig.put("StrictHostKeyChecking", "no");
 			sshSession.setConfig(sshConfig);

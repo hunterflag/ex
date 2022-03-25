@@ -3,6 +3,7 @@ package tw.idv.hunterchen.utility;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
+import java.util.Collection;
 import java.util.Properties;
 
 import org.slf4j.Logger;
@@ -16,9 +17,9 @@ public class DevTool {
 	private static String mDivider = StringTool.genDivider();
 	
 	public static boolean showAllMembers(Object obj) {
-		DevTool.showMessages("套件.類別全名", obj.getClass().getCanonicalName());
-		return (	showAllFields(obj)
-			     && showAllMethods(obj)
+		DevTool.showMessages("套件.類別全名", obj.getClass().getCanonicalName()
+					, obj.hashCode()+"("+Integer.toHexString(obj.hashCode()) +")", obj.toString());
+		return (	showAllFields(obj)  && showAllMethods(obj)
 			   );
 	}
 
@@ -26,10 +27,8 @@ public class DevTool {
 		boolean isSuccess = true;
 		try {
 			DevTool.showMessages(mDivider
-					, obj.getClass().getName()
-					, obj.toString()
+					, "套件.類別全名 " + obj.getClass().getName() + " 之屬性"
 					, mDivider);
-			DevTool.showMessages(mDivider, "fields", mDivider );
 			Field[] fields = obj.getClass().getDeclaredFields();
 			for(Field field : fields) {
 				field.setAccessible(true);
@@ -109,7 +108,7 @@ public class DevTool {
 		if ((messages!=null) && (messages.length>0)) {
 			System.out.printf("<=MBH=>");
 			for (int i=0; i<messages.length; i++) {
-				System.out.printf(": %-20s", messages[i]);
+				System.out.printf(": %20s", messages[i]);
 			}
 			System.out.printf("%n");
 		}
@@ -138,6 +137,9 @@ public class DevTool {
 		return result;
 	}
 
+//	 public static void showAllElements(Collection elements) {
+//		elements.forEach(element -> {showMessages(element.toString());});
+//	}
 	public static void main(String[] arg) {
 		showMessages(getOsName());
 	}
