@@ -48,7 +48,7 @@ public class Ex_PathsAndPath {
 		DevTool.showMessages("原始路徑中的層數",	"getNameCount()", String.valueOf(nameCount = path.getNameCount()));
 		DevTool.showMessages("是絕對路徑?",			"isAbsolute()"  , String.valueOf(path.isAbsolute()));
 		DevTool.showMessages("絕對路徑path(相對路徑時為null)", (path=path.toAbsolutePath()).toString());
-		DevTool.showMessages("從根算到絕對路徑的層數",	"getNameCount()", String.valueOf(nameCount = path.getNameCount()));
+		DevTool.showMessages("從根算到絕對	路徑的層數",	"getNameCount()", String.valueOf(nameCount = path.getNameCount()));
 		DevTool.showMessages("取得根路徑",			"getRoot()"   , String.valueOf(path.getRoot()));
 		for (int i=0; i<nameCount; i++) {
 			DevTool.showMessages("取得絕對路徑中的第n個Path的名稱",			"getName("+i+")"   , String.valueOf(path.getName(i)));
