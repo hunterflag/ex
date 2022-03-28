@@ -10,11 +10,12 @@ public class Ex_JSch {
 	
 	public static void main(String[] args) {
 		JSch jsch = new JSch();
+		DevTool.showAllMembers(jsch);
 		String host = "127.0.0.1";
 		try {
 			Session session = jsch.getSession(host);
 	
-			session.getUserName()
+			session.getUserName();
 		} catch (JSchException e) {
 			e.printStackTrace();
 		}
@@ -22,10 +23,6 @@ public class Ex_JSch {
 		
 	}
 
-	private void showJSch() {
-		DevTool.showAllMembers(jsch);
-	}
-	
 	
 	
 
