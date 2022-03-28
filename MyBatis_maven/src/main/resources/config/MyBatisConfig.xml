@@ -3,12 +3,14 @@
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias alias="Member" type="tw.idv.hunterchen.lab.model.Member" />
-		<typeAlias alias="User" type="tw.idv.hunterchen.lab.model.User" />
+		<typeAlias alias="Member"
+			type="tw.idv.hunterchen.lab.model.Member" />
+		<typeAlias alias="User"
+			type="tw.idv.hunterchen.lab.model.User" />
 	</typeAliases>
-	
+
 	<environments default="localhostMySQL">
-		
+
 		<environment id="localhostMySQL">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
@@ -19,7 +21,7 @@
 				<property name="password" value="developer" />
 			</dataSource>
 		</environment>
-		
+
 		<environment id="development">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
@@ -30,14 +32,27 @@
 				<property name="password" value="hunter" />
 			</dataSource>
 		</environment>
+
+		<!-- JNDI mybatis 环境的配置 -->
+		<environment id="jndiLocalhostMysql">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="JNDI">
+				<property name="data_source" value="java:comp/env/jdbc/ssm" />
+				<!-- name 是固定的 keyword  
+					value="java:comp/env/jdbc/ssm" 中,
+					java:comp/env/ 是固定寫法, jdbc/ssm 則是 數據源名稱, 必須與 定義區的名稱 一致
+					
+				-->
+			</dataSource>
+		</environment>
+
 	</environments>
 
 	<mappers>
 		<!-- // power by http://www.gitbook.net -->
-		<mapper resource="tw/idv/hunterchen/lab/mapper/MemberMapper.xml" />
-		<!--  
-		<mapper resource="tw/idv/hunterchen/lab/mapper/UserMapper.xml" />
-		-->
+		<mapper
+			resource="tw/idv/hunterchen/lab/mapper/MemberMapper.xml" />
+		<!-- <mapper resource="tw/idv/hunterchen/lab/mapper/UserMapper.xml" /> -->
 		<package name="tw.idv.hunterchen.lab.dao" />
 	</mappers>
 </configuration>

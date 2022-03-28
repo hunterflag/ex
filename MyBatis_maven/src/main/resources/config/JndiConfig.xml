@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+<!--
+	JNDI data source 真正的相關設定都在此處
+ <Resource
+    name="jdbc/ssm"                             	data source.數據源的名稱, 要使用哪個資料源, 就是藉此名稱來識別
+    type="javax.sql.DataSource"                  	数据源类型
+    auth="Container"                             	数据源提供者
+    maxActive="20"                               	最大活动数
+    maxWait="10000"                              	最大等待时间
+    maxIdle="5"                                  	最大空闲数
+    username="waggag"                            	用户名
+    password="225514"                            	密码
+    driverClassName="com.mysql.cj.jdbc.Driver"   	驱动类
+    url="jdbc:mysql://localhost:3306/ssm"        	连接url字符串
+ />
+ -->
+    <Resource
+            name="jdbc/ssm"
+            type="javax.sql.DataSource"
+            auth="Container"
+            maxActive="20"
+            maxWait="10000"
+            maxIdle="5"
+            username="waggag"
+            password="225514"
+            driverClassName="com.mysql.cj.jdbc.Driver"
+            <!--新版的数据库驱动需要加上时区-->
+            url="jdbc:mysql://localhost:3306/ssm?serverTimezone=UTC"  
+    />
+</Context>

@@ -1,6 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>tw.idv.hunterchen.maven</groupId>
 	<artifactId>dependencies</artifactId>
@@ -16,7 +14,6 @@
 		3. OS環境變數: ${env.PATH}
 		4. 用 System.getProperty("...") 可以取得的名稱: ${os.name}、${user.name}
 		5. settings.xml 檔內的標籤: ${settings.localRepository}
-		 
 	</description>
 
 	<properties>
@@ -40,12 +37,35 @@
 		<jsp.version>2.3.1</jsp.version>
 		<junit.version>4.13.2</junit.version>
 		<junit-jupiter.version>5.8.2</junit-jupiter.version>
-		<mail.version>1.4.7</mail.version>
+		<lombok.version>1.18.22</lombok.version>
+		<MyBatis.version>3.4.6</MyBatis.version>
+		<MySQL.version>8.0.21</MySQL.version>
 		<servlet.version>3.1.0</servlet.version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${MySQL.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+				<version>${MyBatis.version}</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombok.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
 			<!-- https://mvnrepository.com/artifact/org.json/json -->
 			<dependency>
 				<groupId>org.json</groupId>
@@ -155,6 +175,7 @@
 		<developer>
 			<name>Hunter Chen</name>
 			<email>hunterflag@gmail.com</email>
+			<url>https://hunterchen.tplinkddns.com</url>
 			<organization>Subway PC Studio</organization>
 			<organizationUrl>https://www.hunterchen.idv.tw</organizationUrl>
 		</developer>
@@ -162,7 +183,6 @@
 	<organization>
 		<name>Subway PC Studio</name>
 		<url>https://www.hunterchen.idv.tw</url>
-
 	</organization>
 
 </project>
