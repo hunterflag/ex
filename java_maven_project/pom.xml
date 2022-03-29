@@ -92,7 +92,6 @@
 					<include>**/*.xml</include>
 					<include>**/*.properties</include>
 				</includes>
-				
 			</resource>
 		</resources>
 		<plugins>
