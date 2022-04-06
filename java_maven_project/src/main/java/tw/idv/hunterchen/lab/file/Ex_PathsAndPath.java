@@ -13,6 +13,7 @@ import tw.idv.hunterchen.utility.StringTool;
 public class Ex_PathsAndPath {
 
 	public static void main(String[] args) throws URISyntaxException {
+		String localBase=".";
 		Path path = null;
 
 		// 使用 Paths, 以 String 建立 Path 的方法 x2:
@@ -22,13 +23,22 @@ public class Ex_PathsAndPath {
 		DevTool.showMessages(StringTool.genDivider("|=>", 10)
 				, "使用 Paths 建立 Path .a.路徑字串法"
 				// 法.a
-				, String.valueOf(path = Paths.get("."))						// 相對路徑: 專案資料夾
+				, String.valueOf(path = Paths.get(localBase))						// 相對路徑: 專案資料夾
 //				, String.valueOf(path = Paths.get("src"))					
 //				, String.valueOf(path = Paths.get(".").toAbsolutePath())
 				// 法.b
 //				, String.valueOf(path = Paths.get("d:", "temp")) 			
 				);
 		showPath(path);
+		
+		Files.createTempDirectory(path, "temp_");
+		try {
+//			Files.createDirectory(path);
+//			showPath(tempPath);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		// others	
 //		path.getFileSystem().getFileStores();
@@ -48,6 +58,7 @@ public class Ex_PathsAndPath {
 		DevTool.showMessages("原始路徑中的層數",	"getNameCount()", String.valueOf(nameCount = path.getNameCount()));
 		DevTool.showMessages("是絕對路徑?",			"isAbsolute()"  , String.valueOf(path.isAbsolute()));
 		DevTool.showMessages("絕對路徑path(相對路徑時為null)", (path=path.toAbsolutePath()).toString());
+		DevTool.showMessages("絕對路徑path(相對路徑時為null)", (path=path.normalize()).toString());
 		DevTool.showMessages("從根算到絕對	路徑的層數",	"getNameCount()", String.valueOf(nameCount = path.getNameCount()));
 		DevTool.showMessages("取得根路徑",			"getRoot()"   , String.valueOf(path.getRoot()));
 		for (int i=0; i<nameCount; i++) {

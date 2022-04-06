@@ -1,3 +1,7 @@
+# / root 是指此 .gitignore檔 所在的資料夾, 
+# 
+# *.副檔名
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -11,6 +15,7 @@ Desktop.ini
 # Package Files #
 *.war
 *.ear
+*.jar
 /target
 /.settings
 /.classpath
@@ -25,7 +30,7 @@ out
 .project
 .classpath
 .settings
-.factorypath
+	.factorypath
 .metadata
 .idea
 *.iml
@@ -34,3 +39,4 @@ out
 *.log
 
 /build/
+#./temp_*/

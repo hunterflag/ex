@@ -8,6 +8,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.util.stream.Stream;
+
+import org.dom4j.util.StringUtils;
 
 import tw.idv.hunterchen.utility.DevTool;
 
@@ -31,7 +34,11 @@ public class FileUtility {
 		result = fileName.substring(pos + 1);
 		return result;
 	}
-	
+	/**
+	 * 
+	 * @param folder
+	 * @return
+	 */
 	public static boolean forceRemoveFolder(String folder) {
 		boolean isClean = false;
 		folder = (folder!=null) ? folder : "";
@@ -91,5 +98,39 @@ public class FileUtility {
 		}
 		return result;
 	}
-
+	/**
+	 * @return 0+ 總共刪除檔案數量
+	 * 			null 未傳參數
+	 * 			-1 檔案不存在
+	 */
+	public FileUtilityMessage deleteAllFilesInFolder(String folder) {
+		FileUtilityMessage result = null;
+		if(folder==null) {
+			result = FileUtilityMessage.NO_PARAMETER;
+		} else if(folder.isEmpty()) {
+			result = FileUtilityMessage.INVALID_PARAMETER;
+		} else{
+			Path folderPath = Paths.get(folder);
+			if (Files.isRegularFile(folderPath)){
+				result = FileUtilityMessage.NOT_FOLDER;	
+			} else {
+				try {
+					Stream<Path> pathList = Files.list(folderPath);
+					pathList.forEach(path -> {
+						try {
+							Files.delete(path);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					});
+					pathList.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+//				pathList.forEach(path -> {;});
+			result = FileUtilityMessage.FINISHED;
+			}
+		}
+		return result;
+	}
 }
