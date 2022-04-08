@@ -117,12 +117,12 @@ public class FileUtility {
 				try {
 					Stream<Path> pathList = Files.list(folderPath);
 					pathList.forEach(path -> {
-						try {
-							Files.delete(path);
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
-					});
+							try {
+								Files.delete(path);
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+						});
 					pathList.close();
 				} catch (IOException e) {
 					e.printStackTrace();

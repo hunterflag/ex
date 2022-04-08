@@ -31,12 +31,15 @@ public class Ex_PathsAndPath {
 				);
 		showPath(path);
 		
-		Files.createTempDirectory(path, "temp_");
 		try {
+			// 建立暫存資料夾
+			Path tempPath = Files.createTempDirectory(path, "temp_");
 //			Files.createDirectory(path);
-//			showPath(tempPath);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			showPath(tempPath);
+			Thread.sleep(5000);
+			// 清除暫存資料夾
+			Files.delete(tempPath);
+		} catch (IOException | InterruptedException e) {
 			e.printStackTrace();
 		}
 		
@@ -58,7 +61,7 @@ public class Ex_PathsAndPath {
 		DevTool.showMessages("原始路徑中的層數",	"getNameCount()", String.valueOf(nameCount = path.getNameCount()));
 		DevTool.showMessages("是絕對路徑?",			"isAbsolute()"  , String.valueOf(path.isAbsolute()));
 		DevTool.showMessages("絕對路徑path(相對路徑時為null)", (path=path.toAbsolutePath()).toString());
-		DevTool.showMessages("絕對路徑path(相對路徑時為null)", (path=path.normalize()).toString());
+		DevTool.showMessages("正規化後的絕對路徑path(相對路徑時為null)", (path=path.normalize()).toString());
 		DevTool.showMessages("從根算到絕對	路徑的層數",	"getNameCount()", String.valueOf(nameCount = path.getNameCount()));
 		DevTool.showMessages("取得根路徑",			"getRoot()"   , String.valueOf(path.getRoot()));
 		for (int i=0; i<nameCount; i++) {

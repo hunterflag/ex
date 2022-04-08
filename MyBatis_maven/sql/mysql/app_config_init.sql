@@ -4,50 +4,86 @@
 */
 use labDB;
 
--- 建立主表.xxx
+-- 1. 建立主表.xxx
 create table if not exists app_config (
     key_name		varchar(100) 	not null 	unique,
     key_value		varchar(100)	not null	default "",
 
     id 				Integer 		primary key auto_increment,		
-    createdTime		datetime 		DEFAULT CURRENT_TIMESTAMP,
-    modifiedTime	timestamp		DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    createdTime		datetime 		not null DEFAULT CURRENT_TIMESTAMP,
+    modifiedTime	timestamp		not null DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
+insert into app_config (key_name, key_value) values("key", "123");
+insert into app_config (key_name, key_value) values("app.user", "123");
+insert into app_config (key_name, key_value) values("app.password", "123");
+insert into app_config (key_name, key_value) values("app.passw", "123");
+
+select * from app_config;
+
+truncate app_config; 
 drop table if exists app_config;
 
 commit;
 
-insert into app_config (key_name, key_value) values("key", "123");
-
-select * from app_config;
-
-
-
 update app_config 
-set key_value = "12345"
+set key_value = "1234567"
 where key_name = "key"
 ;
 
-
 select now();
 
--- 建立歷史表.xxx_history
--- 同時複製 資料表的結構、紀錄
-create table if not exists app_config_history
+/* 
+-- 2. 建立歷史表.xxx_history
+-- 2.1. 同時複製 主表 的 結構、紀錄
+-- 2.2. 修改 歷史表 的 結構: 
+-- 2.2.1. 移除原主表欄位中的 PK、unique 限制
+-- 2.2.2. 在 歷史表中加入 PK 限制
+*/
+
+-- 2.1. 同時複製 主表 的 結構、紀錄
+create table if not exists app_config_history 
+select * from app_config
+;
+
+select * from app_config_history;	
+
+-- 2.2. 修改 歷史表 的 結構: 
+-- 2.2.1. 移除原主表欄位中的 PK、unique 限制
 alter table app_config_history 
-	column id 
-;  
-select * from app_config;	
+drop primary key, 
+drop constraint key_name 
+;
 
-select * from app_config_history;
+-- 2.2.2. 在 歷史表中加入序號欄位、並加上 PK 限制
+alter table app_config_history
+add `serial_no` int primary key  auto_increment
+;
 
-delimiter ||;
-create trigger if not exists app_config_after_insert
-after insert on app_config
-for each row 
+drop table if exists app_config_history;
+
+-- 3. 主表異動時, 同時將新紀錄, 從主表複製到歷史表內
+
+drop trigger if exists app_config_after_insert;
+delimiter ||
+create trigger app_config_after_insert
+after insert
+on app_config for each row
 begin
-	insert into app_config_history (
+	insert into app_config_history (key_name, key_value, id, createdTime, modifiedTime)
+		values (NEW.key_name, NEW.key_value, NEW.id, NEW.createdTime, NEW.modifiedTime);
+end
+||
+delimiter ;
+
+delimiter ||
+drop trigger if exists app_config_after_update ||
+create trigger app_config_after_update
+after update
+on app_config for each row
+begin
+	insert into app_config_history (key_name, key_value, id, createdTime, modifiedTime)
+		values (NEW.key_name, NEW.key_value, NEW.id, NEW.createdTime, NEW.modifiedTime);
 end
 ||
 delimiter ;
