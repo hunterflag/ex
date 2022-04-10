@@ -1,5 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	
 	<groupId>tw.idv.hunterchen.maven</groupId>
 	<artifactId>dependencies</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -17,13 +18,13 @@
 	</description>
 
 	<properties>
-		<!-- 依主題分組 -->
+		<!-- 依主題分組、依字母排序 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
 
-		<!-- 版本依字母排序 -->
+		<!-- 版本.依字母排序 -->
 		<dom4j.version>2.1.3</dom4j.version>
 		<fastjson.version>1.2.75</fastjson.version>
 		<log4j.version>1.2.17</log4j.version>
@@ -43,6 +44,7 @@
 		<servlet.version>3.1.0</servlet.version>
 	</properties>
 
+<!-- 接受版本統一管理之 dependency -->
 	<dependencyManagement>
 		<dependencies>
 			<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
@@ -171,6 +173,10 @@
 		</dependencies>
 	</dependencyManagement>
 	
+	<!-- 真正要導入之 dependency 
+		若是已經接受統一版本管理者, 不宜再使用 <version>; 但若要加 <version> 也可以, 此時會以此版號為主 (Eclipse 會出現版號overwrite的警告, 但不會管結果是否相同)
+		
+	-->
 	<dependencies>
 		<!-- Slf4j + Log4j -->
 		<dependency>

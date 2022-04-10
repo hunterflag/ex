@@ -37,11 +37,12 @@ select now();
 -- 2. 建立歷史表.xxx_history
 -- 2.1. 同時複製 主表 的 結構、紀錄
 -- 2.2. 修改 歷史表 的 結構: 
--- 2.2.1. 移除原主表欄位中的 PK、unique 限制
--- 2.2.2. 在 歷史表中加入 PK 限制
+-- 2.2.1. 移除原主表欄位中的 PK、unique 限制 (其實不需要, 因為複製時, auto_increment、primary、unique 都不會複製)
+-- 2.2.2. 在 歷史表中加入所需欄位、並加入 PK 限制
 */
 
 -- 2.1. 同時複製 主表 的 結構、紀錄
+
 create table if not exists app_config_history 
 select * from app_config
 ;

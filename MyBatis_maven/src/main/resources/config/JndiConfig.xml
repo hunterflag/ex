@@ -22,10 +22,10 @@
             maxActive="20"
             maxWait="10000"
             maxIdle="5"
-            username="waggag"
-            password="225514"
+            username="developer"
+            password="developer"
             driverClassName="com.mysql.cj.jdbc.Driver"
-            <!--新版的数据库驱动需要加上时区-->
-            url="jdbc:mysql://localhost:3306/ssm?serverTimezone=UTC"  
+            url="jdbc:mysql://localho	st:3306/ssm?serverTimezone=UTC"  
     />
+            <!--新版的数据库驱动需要加上时区-->
 </Context>
