@@ -14,22 +14,20 @@
 		<environment id="localhostMySQL">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
-				<property name="driver" value="com.mysql.cj.jdbc.Driver" />
-				<property name="url"
-					value="jdbc:mysql://localhost:3306/labDB" />
-				<property name="username" value="developer" />
-				<property name="password" value="developer" />
+				<property name="driver" 	value="com.mysql.cj.jdbc.Driver" />
+				<property name="url" 		value="jdbc:mysql://localhost:3306/labDB" />
+				<property name="username" 	value="developer" />
+				<property name="password" 	value="developer" />
 			</dataSource>
 		</environment>
 
 		<environment id="development">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
-				<property name="driver" value="com.mysql.cj.jdbc.Driver" />
-				<property name="url"
-					value="jdbc:mysql://192.168.100.195:3306/labDB" />
-				<property name="username" value="hunter" />
-				<property name="password" value="hunter" />
+				<property name="driver" 	value="com.mysql.cj.jdbc.Driver" />
+				<property name="url" 		value="jdbc:mysql://192.168.100.195:3306/labDB" />
+				<property name="username" 	value="hunter" />
+				<property name="password" 	value="hunter" />
 			</dataSource>
 		</environment>
 
@@ -38,21 +36,36 @@
 			<transactionManager type="JDBC"></transactionManager>
 			<dataSource type="JNDI">
 				<property name="data_source" value="java:comp/env/jdbc/ssm" />
-				<!-- name 是固定的 keyword  
+				<!-- 
+					name="data_source" 是固定的 keyword  
 					value="java:comp/env/jdbc/ssm" 中,
-					java:comp/env/ 是固定寫法, jdbc/ssm 則是 數據源名稱, 必須與 定義區的名稱 一致
-					
+						java:comp/env/ 是固定寫法, 
+						jdbc/ssm 則是 數據源名稱, 必須與 定義區的名稱 一致
 				-->
 			</dataSource>
 		</environment>
 
 	</environments>
 
+	<!-- 映射區 : 
+		每個 <mapper> 表示 1 個 DAO
+		有哪些 XxxMapper.xml? 
+	 -->
 	<mappers>
+		
 		<!-- // power by http://www.gitbook.net -->
-		<mapper
-			resource="tw/idv/hunterchen/lab/mapper/MemberMapper.xml" />
+		<!-- 寫法.a. 逐一表列每個 XxxMapper.xml 
+			根路徑為 classpath
+			根路徑實際位置: 專案資料夾/src/main/java/  
+		-->
+		<mapper	resource="tw/idv/hunterchen/lab/mapper/MemberMapper.xml" />
 		<!-- <mapper resource="tw/idv/hunterchen/lab/mapper/UserMapper.xml" /> -->
+		
+		<!-- 寫法.b. 說明擁有 XxxMapper.java 的套件
+			會自動掃描該套件下的 class, 
+			依照格式寫的 class, 均會自動建立 DAO 
+		-->
+		
 		<package name="tw.idv.hunterchen.lab.dao" />
 	</mappers>
 </configuration>

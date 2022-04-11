@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="tw.idv.hunterchen.lab.mapper.AppConfigMapper">
+	<select id="getAllElements" resultType="AppConfigModel">
+		select * from `app_config`;
+    </select>
+	<select id="getValueByKey" parameterType="String" resultType="AppConfigModel">
+		select key_value from `app_config` where key_name = #{keyName};
+    </select>
+</mapper>
