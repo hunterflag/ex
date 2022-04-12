@@ -7,13 +7,15 @@ use labDB;
 -- 1. 建立主表.xxx
 drop table if exists app_config;
 create table if not exists app_config (
-    id 				integer 		primary key auto_increment,		
     key_name		varchar(100) 	not null 	unique,
     key_value		varchar(100)	not null	default "",
 
+    id 				Integer 		primary key auto_increment,		
     created_time	datetime 		not null DEFAULT CURRENT_TIMESTAMP,
     modified_time	timestamp		not null DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+alter table app_config modify column id int first;
+alter table app_config modify column id Integer comment 'int first';
 
 insert into app_config (key_name, key_value) values("key", "123");
 insert into app_config (key_name, key_value) values("app.user", "123");
@@ -22,11 +24,16 @@ insert into app_config (key_name, key_value) values("app.passw", "123");
 
 select * from app_config;
 
+truncate app_config; 
+
+commit;
+
 update app_config 
 set key_value = "1234567"
 where key_name = "key"
 ;
 
+select now();
 
 /* 
 -- 2. 建立歷史表.xxx_history
@@ -42,21 +49,31 @@ create table if not exists app_config_history
 select * from app_config
 ;
 
-
 select * from app_config_history;	
 
 -- 2.2. 修改 歷史表 的 結構: 
 -- 2.2.1. 移除原主表欄位中的 PK、unique 限制
-/*
 alter table app_config_history 
 drop primary key, 
 drop constraint key_name 
 ;
-*/
+
 -- 2.2.2. 在 歷史表中加入序號欄位、並加上 PK 限制
 alter table app_config_history
-add `serial_no` integer primary key  auto_increment first
+add `serial_no` int primary key  auto_increment first
 ;
+
+alter table app_config_history
+modify column id int first
+;
+
+alter table app_config_history
+modify column serial_no int after id
+;
+alter table app_config_history
+modify column id int after created_time
+;
+
 
 -- 3. 主表異動時, 同時將新紀錄, 從主表複製到歷史表內
 
