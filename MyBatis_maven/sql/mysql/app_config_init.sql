@@ -60,19 +60,19 @@ add `serial_no` integer primary key  auto_increment first
 
 -- 3. 主表異動時, 同時將新紀錄, 從主表複製到歷史表內
 
-drop trigger if exists app_config_after_insert;
 delimiter ||
+drop trigger if exists app_config_after_insert ||
 create trigger app_config_after_insert
 after insert
 on app_config for each row
 begin
 	insert into app_config_history (key_name, key_value, id, created_time, modified_time)
 		values (NEW.key_name, NEW.key_value, NEW.id, NEW.created_time, NEW.modified_time);
-end
+end 
 ||
-delimiter ;
+-- delimiter ;
 
-delimiter ||
+-- delimiter ||
 drop trigger if exists app_config_after_update ||
 create trigger app_config_after_update
 after update
@@ -83,3 +83,5 @@ begin
 end
 ||
 delimiter ;
+select now() ;
+select now() ||
