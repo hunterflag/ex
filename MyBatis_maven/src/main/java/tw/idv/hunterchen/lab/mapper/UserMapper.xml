@@ -6,6 +6,7 @@
 	<select id="selectOneById" parameterType="int" resultType="User">
 		select * from `user` where id = #{id}
     </select>
+    
     <insert id="insert" >
     	INSERT INTO user (name) values (#{name})
     	<selectKey keyColumn="name" keyProperty="name" resultType="int" order="AFTER">

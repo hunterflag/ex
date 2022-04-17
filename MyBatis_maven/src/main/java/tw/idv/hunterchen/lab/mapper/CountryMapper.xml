@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="tw.idv.hunterchen.lab.mapper.CountryMapper">
+	<resultMap type="tw.idv.hunterchen.lab.model.Country" id="CountryMap">
+		<id 	property="id" 			column="id"/>
+		<result property="countryName" 	column="country_name" />
+		<result property="countryCode" 	column="country_code" />
+	</resultMap>
+	<!-- 
+	<resultMap type="tw.idv.hunterchen.lab.model.Country" id="CountryMap">
+		<id 	property="id" 			javaType="java.lang.Long" 	column="id" 			jdbcType="integer"/>
+		<result property="countryName" 	javaType="java.lang.String" 	column="country_name" 	jdbcType="varchar"/>
+		<result property="countryCode" 	javaType="java.lang.String" 	column="country_code" 	jdbcType="varchar"/>
+	</resultMap>
+	<select id="selectAll" resultType="Country">
+	 -->
+	<select id="selectAll" resultMap="CountryMap">
+		select id, country_name, country_code from country
+    </select>
+    
+</mapper>

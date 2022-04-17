@@ -2,18 +2,18 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<settings>
-		<setting name="logImpl" value="LOG4J2" />
-	</settings>
 	<!-- 略寫法 x2 擇一 -->
 	<typeAliases>
-		<!-- a.統一套件法 -->	
 		<package name="tw.idv.hunterchen.lab.model"/>
+		<!-- a.統一套件法 -->	
+		<!-- 
+		<package name="tw.idv.hunterchen.model"/>
+		 -->
 
 		<!-- b.個別命名法 -->
 		<!-- 
-		<typeAlias alias="Member"
-			type="tw.idv.hunterchen.lab.model.Member" />
+		<typeAlias alias="Country" type="tw.idv.hunterchen.lab.model.Country" />
+		<typeAlias alias="Member" type="tw.idv.hunterchen.lab.model.Member" />
 		<typeAlias alias="User"
 			type="tw.idv.hunterchen.lab.model.User" />
 		 -->		
@@ -68,14 +68,11 @@
 			根路徑為 classpath
 			根路徑實際位置: 專案資料夾/src/main/java/  
 		-->
-
-		<mapper	resource="tw/idv/hunterchen/lab/mapper/AppConfigMapper.xml" />
+		<mapper	resource="tw/idv/hunterchen/lab/mapper/CountryMapper.xml" />
 		
 		<!-- 寫法.b. 說明擁有 XxxMapper.java 的套件
 			會自動掃描該套件下的 class, 
 			依照格式寫的 class, 均會自動建立 DAO 
-		<package name="tw.idv.hunterchen.lab.dao" />
 		-->
-		
 	</mappers>
 </configuration>

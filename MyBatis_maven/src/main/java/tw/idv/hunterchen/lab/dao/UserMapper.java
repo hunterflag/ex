@@ -1,5 +1,7 @@
 package tw.idv.hunterchen.lab.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -8,6 +10,12 @@ import org.apache.ibatis.annotations.Update;
 import tw.idv.hunterchen.lab.model.User;
 
 public interface UserMapper {
+	@Select(value="select * freo user")
+	public static List<User> getAllRecords() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	@Select("SELECT * FROM user WHERE id = #{id}")
 	public User selectOneById(Integer id);
 	

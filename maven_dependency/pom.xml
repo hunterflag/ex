@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<groupId>tw.idv.hunterchen.maven</groupId>
 	<artifactId>dependencies</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -21,13 +21,12 @@
 		${propertyCommon} 
 		${propertyParentOnly} 
 		${propertyChildOnly}
-
 	</description>
 
 	<properties>
 		<propertycommon>commonProperty in Parent.pom</propertycommon>
 		<propertyParentOnly>parentOnlyProperty in Parent.pom</propertyParentOnly>
-	
+
 		<!-- 依主題分組、依字母排序 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -54,7 +53,7 @@
 		<servlet.version>3.1.0</servlet.version>
 	</properties>
 
-<!-- 接受版本統一管理之 dependency -->
+	<!-- 接受版本統一管理之 dependency -->
 	<dependencyManagement>
 		<dependencies>
 			<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
@@ -124,8 +123,9 @@
 				<artifactId>log4j-core</artifactId>
 				<version>${log4j2.version}</version>
 			</dependency>
+			<!-- log4j2 -->
 
-			<!-- slf4j + log4j -->
+			<!-- slf4j (+ log4j2) -->
 			<dependency>
 				<groupId>org.apache.logging.log4j</groupId>
 				<artifactId>log4j-slf4j-impl</artifactId>
@@ -182,12 +182,23 @@
 
 		</dependencies>
 	</dependencyManagement>
-	
+
 	<!-- 真正要導入之 dependency 
 		若是已經接受統一版本管理者, 不宜再使用 <version>; 但若要加 <version> 也可以, 此時會以此版號為主 (Eclipse 會出現版號overwrite的警告, 但不會管結果是否相同)
-		
 	-->
 	<dependencies>
+		<dependency>
+		<groupId>tw.idv.hunterchen.lab</groupId>
+		<artifactId>test</artifactId>
+		<version>${project.version}</version>
+		</dependency>
+	
+	
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+
 		<!-- Slf4j + Log4j -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>

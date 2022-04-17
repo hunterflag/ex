@@ -3,10 +3,13 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="tw.idv.hunterchen.lab.mapper.AppConfigMapper">
-	<select id="getAllElements" resultType="AppConfigModel">
-		select * from `app_config`;
+	<select id="getRecordByKey" parameterType="java.lang.String" resultType="AppConfigModel">
+		select * from `app_config` where 1=1 and key_name = #{keyName};
     </select>
-	<select id="getValueByKey" parameterType="String" resultType="AppConfigModel">
+    
+	<select id="getValueByKey" parameterType="java.lang.String" resultType="java.lang.String">
 		select key_value from `app_config` where key_name = #{keyName};
     </select>
+
+
 </mapper>
