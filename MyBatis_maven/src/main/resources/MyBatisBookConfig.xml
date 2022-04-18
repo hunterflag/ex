@@ -2,6 +2,9 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<settings>
+		<setting  name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
 	<!-- 略寫法 x2 擇一 -->
 	<typeAliases>
 		<package name="tw.idv.hunterchen.lab.model"/>
