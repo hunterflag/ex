@@ -69,7 +69,7 @@
 			根路徑實際位置: 專案資料夾/src/main/java/  
 		-->
 
-		<mapper	resource="tw/idv/hunterchen/lab/mapper/AppConfigMapper.xml" />
+		<mapper	resource="tw/idv/hunterchen/persistence/mapper/AppConfigMapper.xml" />
 		
 		<!-- 寫法.b. 說明擁有 XxxMapper.java 的套件
 			會自動掃描該套件下的 class, 

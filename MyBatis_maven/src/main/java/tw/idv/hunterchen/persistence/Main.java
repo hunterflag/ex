@@ -1,4 +1,4 @@
-package tw.idv.hunterchen.lab;
+package tw.idv.hunterchen.persistence;
 
 import java.io.Reader;
 
@@ -7,9 +7,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import tw.idv.hunterchen.lab.dao.UserMapper;
-import tw.idv.hunterchen.lab.model.Member;
-import tw.idv.hunterchen.lab.model.User;
+import tw.idv.hunterchen.persistence.dao.UserMapper;
+import tw.idv.hunterchen.persistence.model.Member;
+import tw.idv.hunterchen.persistence.model.User;
 
 public class Main {
 	private static SqlSessionFactory sqlSessionFactory;

@@ -1,4 +1,4 @@
-package tw.idv.hunterchen.lab;
+package tw.idv.hunterchen.persistence;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -12,9 +12,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import lombok.extern.slf4j.Slf4j;
-import tw.idv.hunterchen.lab.dao.UserMapper;
-import tw.idv.hunterchen.lab.model.AppConfigModel;
-import tw.idv.hunterchen.lab.model.User;
+import tw.idv.hunterchen.persistence.dao.UserMapper;
+import tw.idv.hunterchen.persistence.model.AppConfigModel;
+import tw.idv.hunterchen.persistence.model.User;
 import tw.idv.hunterchen.utility.DevTool;
 
 @Slf4j
@@ -38,7 +38,21 @@ public class AppConfigMapperTest {
 	}
 	
 	@Test()
-	public void AppConfigMapperTest() {
+	public void getValueByKeyTest() {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			String key = "key";
+			String value = sqlSession.selectOne("getValueByKey", key);
+			DevTool.showMessages(key, value);
+			log.info("the value of key {} is {}", key, value);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		
+		
+	}
+	@Test()
+	public void getRecordByKeyTest() {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
 			String key = "key";
