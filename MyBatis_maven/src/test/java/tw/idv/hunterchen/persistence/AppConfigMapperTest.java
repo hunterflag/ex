@@ -39,8 +39,23 @@ public class AppConfigMapperTest {
 	}
 	
 	@Test()
-	public void AppConfigMapperTest() {
-		log.info("{} ...", "AppConfigMapperTest()");
+	public void getValueByKeyTest() {
+		log.info("{} ...", "");
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			String key = "key";
+			String value = sqlSession.selectOne("getValueByKey", key);
+			DevTool.showMessages(key, value);
+			log.info("the value of key {} is {}", key, value);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		
+		
+	}
+	@Test()
+	public void getRecordByKeyTest() {
+		log.info("{} ...", "");
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
 			String key = "key";

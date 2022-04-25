@@ -18,7 +18,13 @@
 	<modules>
 		<module>maven_web</module>
 	</modules>
-
+	
+	<properties>
+		<propertyChildOnly>Hello Father</propertyChildOnly>
+		<propertyCommon>commonProperty in Child.pom</propertyCommon>
+		
+	</properties>
+	
 	<developers>
 		<developer>
 			<name>HunterFlag</name>
