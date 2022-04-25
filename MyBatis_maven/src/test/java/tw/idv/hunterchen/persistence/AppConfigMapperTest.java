@@ -50,9 +50,8 @@ public class AppConfigMapperTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
-		
-		
 	}
+		
 	@Test()
 	public void getRecordByKeyTest() {
 		log.info("{} ...", "");
@@ -67,9 +66,6 @@ public class AppConfigMapperTest {
 				DevTool.showMessages(key, record.getKeyName(), record.getKeyValue() );
 				log.info("the value of key {} is {}", record.getKeyName(), record.getKeyValue());
 			});
-			String value = sqlSession.selectOne("getValueByKey", key);
-			DevTool.showMessages(key, value);
-			log.info("the value of key {} is {}", key, value);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
