@@ -1,3 +1,4 @@
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -16,7 +17,7 @@
 		4. 用 System.getProperty("...") 可以取得的名稱: ${os.name}、${user.name}
 		5. settings.xml 檔內的標籤: ${settings.localRepository}
 		6. 共同 ${commonProperty}
-		${version} 
+		${project.version} 
 		${propertyNoExist} 
 		${propertyCommon} 
 		${propertyParentOnly} 
@@ -154,14 +155,6 @@
 				<scope>test</scope>
 			</dependency>
 
-			<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-			<dependency>
-				<groupId>org.projectlombok</groupId>
-				<artifactId>lombok</artifactId>
-				<version>${lombok.version}</version>
-				<scope>provided</scope>
-			</dependency>
-
 			<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
 			<dependency>
 				<groupId>javax.mail</groupId>
@@ -186,12 +179,15 @@
 	<!-- 真正要導入之 dependency 
 		若是已經接受統一版本管理者, 不宜再使用 <version>; 但若要加 <version> 也可以, 此時會以此版號為主 (Eclipse 會出現版號overwrite的警告, 但不會管結果是否相同)
 	-->
+	
 	<dependencies>
+	<!-- 遞迴參考錯誤: 因為在該模組.pom中已設.pom為<parent> 
 		<dependency>
 		<groupId>tw.idv.hunterchen.lab</groupId>
 		<artifactId>test</artifactId>
 		<version>${project.version}</version>
 		</dependency>
+	-->
 	
 	
 		<dependency>

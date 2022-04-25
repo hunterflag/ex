@@ -4,29 +4,23 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+	<groupId>tw.idv.hunterchen.lab</groupId>
+	<artifactId>test</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
 	<parent>
 		<groupId>tw.idv.hunterchen.maven</groupId>
 		<artifactId>dependencies</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<groupId>tw.idv.hunterchen.lab</groupId>
-	<artifactId>test</artifactId>
-	<packaging>jar</packaging>
 
 	<properties>
-		<propertyCommon>commonProperty in Child.pom</propertyCommon>
-		<propertyChildOnly>childOnlyProperty in Child.pom</propertyChildOnly>
-		<propertyParentOnly>parentOnlyProperty in Child.pom</propertyParentOnly>
 	</properties>	
 	
 	<!-- MBH -->
 	<description>
-		${version} 
-		${propertyNoExist} 
-		${propertyCommon} 
-		${propertyParentOnly} 
-		${propertyChildOnly} 
 	</description>
 
 	<dependencies>

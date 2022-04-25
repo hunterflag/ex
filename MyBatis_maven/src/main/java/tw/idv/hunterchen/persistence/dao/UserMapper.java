@@ -1,4 +1,4 @@
-package tw.idv.hunterchen.lab.dao;
+package tw.idv.hunterchen.persistence.dao;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import tw.idv.hunterchen.lab.model.User;
+import tw.idv.hunterchen.persistence.model.User;
 
 public interface UserMapper {
 	@Select(value="select * freo user")

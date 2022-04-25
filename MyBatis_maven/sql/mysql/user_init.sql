@@ -9,3 +9,5 @@ create table user (
     password	varchar(100)	not null	default "0000"
 
 );
+
+select * from user;

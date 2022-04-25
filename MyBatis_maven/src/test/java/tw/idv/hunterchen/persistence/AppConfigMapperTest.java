@@ -1,4 +1,4 @@
-package tw.idv.hunterchen.lab;
+package tw.idv.hunterchen.persistence;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -12,9 +12,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import lombok.extern.slf4j.Slf4j;
-import tw.idv.hunterchen.lab.dao.UserMapper;
-import tw.idv.hunterchen.lab.model.AppConfigModel;
-import tw.idv.hunterchen.lab.model.User;
+import tw.idv.hunterchen.persistence.dao.UserMapper;
+import tw.idv.hunterchen.persistence.model.AppConfigModel;
+import tw.idv.hunterchen.persistence.model.User;
 import tw.idv.hunterchen.utility.DevTool;
 
 @Slf4j
@@ -23,6 +23,7 @@ public class AppConfigMapperTest {
 	
 	@BeforeClass
 	public static void beforeClass() {
+		log.info("beforeClass() ...");
 		try {
 			/* MBH.mark: Resources 是 system path, 
 			 * system path: "./config/MyBatisConfig.xml" 或 "config/MyBatisConfig.xml"
@@ -39,6 +40,7 @@ public class AppConfigMapperTest {
 	
 	@Test()
 	public void AppConfigMapperTest() {
+		log.info("{} ...", "AppConfigMapperTest()");
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
 			String key = "key";

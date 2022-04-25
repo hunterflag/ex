@@ -1,4 +1,4 @@
-package tw.idv.hunterchen.lab;
+package tw.idv.hunterchen.persistence;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -12,7 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import lombok.extern.slf4j.Slf4j;
-import tw.idv.hunterchen.lab.model.Country;
+import tw.idv.hunterchen.persistence.model.Country;
 
 @Slf4j
 public class MyBatisBookTest {

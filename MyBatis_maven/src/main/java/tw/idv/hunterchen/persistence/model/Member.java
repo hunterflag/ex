@@ -1,4 +1,4 @@
-package tw.idv.hunterchen.lab.model;
+package tw.idv.hunterchen.persistence.model;
 
 public class Member {
 	private Integer serialNo;
