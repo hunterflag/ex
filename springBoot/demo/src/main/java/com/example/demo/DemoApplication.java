@@ -19,20 +19,11 @@ import tw.idv.hunterchen.utility.DevTool;
 //        },
 //        factory = YamlPropertySourceFactory.class // <-- 指定為自訂的PropertySourceFactory類別
 //)
-@RestController
+//@RestController
 @SpringBootApplication
-@PropertySource(value="classpath:application2.properties")
+@PropertySource(value="classpath:application.yml")
 public class DemoApplication {
-	@Value("${company.name}")
-	String companyName;
 	
-	@RequestMapping("/")
-	String index(@RequestParam(value="param", defaultValue ="<H1>empty</H1>", required=false) String param) {
-		param = param==null ? "" : param ;
-		DevTool.showMessages("param", param);
-		DevTool.showMessages("company.name", companyName);
-		return "Hello Spring Boot!" + param + companyName;
-	}
 	
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);

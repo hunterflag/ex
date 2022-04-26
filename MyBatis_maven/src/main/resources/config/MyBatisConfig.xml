@@ -6,19 +6,20 @@
 		<setting name="mapUnderscoreToCamelCase" value="true" />
 		<setting name="logImpl" value="LOG4J2" />
 	</settings>
-	<!-- 略寫法 x2 擇一 -->
+	<!-- 略寫法 x2
+	 	同時使用, 但有順序要求 
+	 -->
 	<typeAliases>
-		<!-- a.統一套件法 
-		<package name="tw.idv.hunterchen.persistence.model"/>
+		<!-- a.個別命名法 
+		<typeAlias alias="Member" 		type="tw.idv.hunterchen.lab.model.Member" />
+		<typeAlias alias="User"			type="tw.idv.hunterchen.lab.model.User" />
+		-->
+		<typeAlias alias="AppConfig" 	type="tw.idv.hunterchen.persistence.model.AppConfigModel" />
+		<!-- b.統一套件法 
+		<package name="tw.idv.hunterchen.persistence.modelB"/>
 		-->	
-
-		<typeAlias alias="AppConfig" type="tw.idv.hunterchen.persistence.model.AppConfigModel" />
-		<!-- b.個別命名法 -->
-		<!-- 
-		<typeAlias alias="Member" type="tw.idv.hunterchen.lab.model.Member" />
-		<typeAlias alias="User"
-			type="tw.idv.hunterchen.lab.model.User" />
-		 -->		
+		<package name="tw.idv.hunterchen.persistence.model"/>
+		<package name="tw.idv.hunterchen.persistence.modelA"/>
 	</typeAliases>
 
 	<environments default="localhostMySQL">
@@ -26,7 +27,7 @@
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
 				<property name="driver" 	value="com.mysql.cj.jdbc.Driver" />
-				<property name="url" 		value="jdbc:mysql://localhost:3306/labDB" />
+				<property name="url" 		value="jdbc:mysql://localhost:3306/labDB?serverTimezone=UTC" />
 				<property name="username" 	value="developer" />
 				<property name="password" 	value="developer" />
 			</dataSource>

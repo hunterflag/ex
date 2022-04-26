@@ -26,7 +26,7 @@ public class MyBatisBookTest {
 			 * classpath: "/config/MyBatisConfig.xml"
 			 * FQDN: "/mybatis/src/main/resources/config/MyBatisConfig.xml"
 			 */
-			Reader reader = Resources.getResourceAsReader("./MyBatisBookConfig.xml");
+			Reader reader = Resources.getResourceAsReader("./config/MyBatisConfig.xml");
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
 			reader.close();
 		} catch (IOException e) {

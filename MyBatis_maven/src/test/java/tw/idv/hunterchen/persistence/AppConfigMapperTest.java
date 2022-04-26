@@ -46,7 +46,7 @@ public class AppConfigMapperTest {
 			String key = "key";
 			String value = sqlSession.selectOne("getValueByKey", key);
 			DevTool.showMessages(key, value);
-			log.info("the value of key {} is {}", key, value);
+			log.info("<=MBH=>\n\tthe value of key {} is {}", key, value);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
@@ -61,10 +61,9 @@ public class AppConfigMapperTest {
 			List<AppConfigModel> models = sqlSession.selectList("getRecordByKey", key);
 			DevTool.showMessages(""+models.size());
 			AppConfigModel appConfigModel = models.get(0);
-			DevTool.showMessages(appConfigModel.getKeyName(), appConfigModel.getKeyValue());
+//			DevTool.showMessages(appConfigModel.getKeyName(), appConfigModel.getKeyValue());
 			models.forEach(record -> {
-				DevTool.showMessages(key, record.getKeyName(), record.getKeyValue() );
-				log.info("the value of key {} is {}", record.getKeyName(), record.getKeyValue());
+				log.info("<=MBH=>\n\tthe value of key {} is {}", record.getKeyName(), record.getKeyValue());
 			});
 		} catch (Exception e) {
 			e.printStackTrace();
