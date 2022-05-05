@@ -8,13 +8,14 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import lombok.extern.slf4j.Slf4j;
-import tw.idv.hunterchen.persistence.dao.UserMapper;
 import tw.idv.hunterchen.persistence.model.AppConfigModel;
-import tw.idv.hunterchen.persistence.model.User;
 import tw.idv.hunterchen.utility.DevTool;
 
 @Slf4j
@@ -23,7 +24,7 @@ public class AppConfigMapperTest {
 	
 	@BeforeClass
 	public static void beforeClass() {
-		log.info("beforeClass() ...");
+		log.info("...");
 		try {
 			/* MBH.mark: Resources 是 system path, 
 			 * system path: "./config/MyBatisConfig.xml" 或 "config/MyBatisConfig.xml"
@@ -36,6 +37,18 @@ public class AppConfigMapperTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	@AfterClass
+	public static void afterClass() {
+		log.info("...");
+	}
+	@After
+	public void after() {
+		log.info("...");
+	}
+	@Before
+	public void before() {
+		log.info("...");
 	}
 	
 	@Test()
@@ -70,15 +83,5 @@ public class AppConfigMapperTest {
 		} 
 		
 		
-	}
-	
-	public void UserTest() {
-//		UserMapper userMapper = new UserMapper();
-		try {
-			List<User> models = UserMapper.getAllRecords();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
 	}
 }

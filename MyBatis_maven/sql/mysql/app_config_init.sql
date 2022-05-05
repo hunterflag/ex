@@ -4,23 +4,37 @@
 */
 use labDB;
 
+select * from app_config;
+
 -- 1. 建立主表.xxx
 drop table if exists app_config;
 create table if not exists app_config (
-    id 				integer 		primary key auto_increment,		
-    key_name		varchar(100) 	not null 	unique,
-    key_value		varchar(100)	not null	default "",
+    id 				integer 		not null primary key auto_increment,		
+    key_name		varchar(100) 	not null unique,
+    key_value		varchar(100)	not null default "",
 
     created_time	datetime 		not null DEFAULT CURRENT_TIMESTAMP,
     modified_time	timestamp		not null DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
+alter table app_config
+	  drop primary key
+	, add constraint primary key (id)
+	, add constraint unique (key_name)
+    , change column id id integer not null comment '識別碼'
+	, comment 'appＡ設定參數表'
+;
+show table status;
+
+
+
 
 insert into app_config (key_name, key_value) values("key", "123");
 insert into app_config (key_name, key_value) values("app.user", "123");
 insert into app_config (key_name, key_value) values("app.password", "123");
 insert into app_config (key_name, key_value) values("app.passw", "123");
 
-select * from app_config;
+
 
 update app_config 
 set key_value = "1234567"
@@ -83,5 +97,5 @@ begin
 end
 ||
 delimiter ;
+
 select now() ;
-select now() ||

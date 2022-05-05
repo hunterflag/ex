@@ -7,9 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import tw.idv.hunterchen.persistence.dao.UserMapper;
 import tw.idv.hunterchen.persistence.model.Member;
-import tw.idv.hunterchen.persistence.model.User;
 
 public class Main {
 	private static SqlSessionFactory sqlSessionFactory;
@@ -44,26 +42,8 @@ public class Main {
 				}
 				
 				// 4. 從 sqlSession 取得 Mapper
-				UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-				User user = userMapper.selectOneById(1);
-				if (user != null) {
-					System.out.println(user);
-				}else {
-					System.out.println("user is null");
-					
-				}
 					
 				
-				String userName="java";
-				user = userMapper.selectOneByName(userName);
-				if (user != null) {
-					System.out.println("====>"+user);
-				}
-
-				Integer insertedId = userMapper.update("java14", 1);
-				if (insertedId != null) {
-					System.out.println(insertedId);
-				}
 				
 				
 				

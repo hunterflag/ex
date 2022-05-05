@@ -11,15 +11,15 @@
 	 -->
 	<typeAliases>
 		<!-- a.個別命名法 
-		<typeAlias alias="Member" 		type="tw.idv.hunterchen.lab.model.Member" />
-		<typeAlias alias="User"			type="tw.idv.hunterchen.lab.model.User" />
+		<typeAlias alias="Member" 		type="tw.idv.hunterchen.persistence.model.Member" />
 		-->
-		<typeAlias alias="AppConfig" 	type="tw.idv.hunterchen.persistence.model.AppConfigModel" />
+		<typeAlias alias="UserModel"	type="tw.idv.hunterchen.persistence.model.UserModel" />
+		<typeAlias alias="AppConfigModel" 	type="tw.idv.hunterchen.persistence.model.AppConfigModel" />
 		<!-- b.統一套件法 
 		<package name="tw.idv.hunterchen.persistence.modelB"/>
+		<package name="tw.idv.hunterchen.persistence.mapper"/>
 		-->	
 		<package name="tw.idv.hunterchen.persistence.model"/>
-		<package name="tw.idv.hunterchen.persistence.modelA"/>
 	</typeAliases>
 
 	<environments default="localhostMySQL">
@@ -70,6 +70,7 @@
 			根路徑實際位置: 專案資料夾/src/main/java/  
 		-->
 
+		<mapper	resource="tw/idv/hunterchen/persistence/mapper/UserMapper.xml" />
 		<mapper	resource="tw/idv/hunterchen/persistence/mapper/AppConfigMapper.xml" />
 		
 		<!-- 寫法.b. 說明擁有 XxxMapper.java 的套件
