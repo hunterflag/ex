@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!-- 指定連線資料庫時所需要的JDBC driver的檔案位置 <classPathEntry location="C:/Thinkpower/ojdbc6/ojdbc6.jar" 
+		/> -->
+	<context 
+		id="mbg" 
+		targetRuntime="MyBatis3Simple"
+		defaultModelType="flat">
+		<commentGenerator>
+			<property name="suppressDate" value="false" />
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<!-- 資料庫連線設定 -->
+		<!-- 資料庫連線設定.Oracle <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" 
+			connectionURL="jdbc:oracle:thin:@//172.20.10.1:1521/xe" userId="itp" password="1234" 
+			/> -->
+
+		<!-- 資料庫連線設定.MySql -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/mbgDB" userId="developer"
+			password="deeloper">
+		</jdbcConnection>
+
+		<!-- 要產生的model位置，targetProject的值為專案的Source folder，所以是gm/src/main/java -->
+		<javaModelGenerator
+			targetPackage="tw.idv.hunterchen.mybatis.generator.model"
+			targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!-- 要產生的MyBatis Mapper位置 -->
+		<sqlMapGenerator
+			targetPackage="tw.idv.hunterchen.mybatis.generator.mapper"
+			targetProject="src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- 要產生的MyBatis Dao位置 -->
+		<javaClientGenerator
+			targetPackage="tw.idv.hunterchen.mybatis.generator.dao"
+			targetProject="src/main/java" type="XMLMAPPER">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<!-- 要生成的資料表 -->
+		<table tableName="%">
+			<generatedKey column="id" sqlStatement="" />
+		</table>
+	</context>
+</generatorConfiguration>
