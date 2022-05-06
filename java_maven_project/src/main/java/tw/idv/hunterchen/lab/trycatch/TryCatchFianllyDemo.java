@@ -1,10 +1,15 @@
 /*
  * 注意: 
- * try-catch-fianlly{} 做多有 3 調執行就是最後了, 之後的 code 不會執行, 都是 unreachable code
+ * try-catch-fianlly{} 有3個執行區塊, 
+ * 若有 return, 之後的 code 不會執行, 都是 unreachable code
+ * 
+ * 曾經混淆的觀點:
  * 原以為 finally{} 只是 try-catch 的終點塊, {} 後面的 code 會繼續做 
  * 殊不知, 也是 method() 的終點塊!
  * 
- * code 順序 			--> try --> catch --> finally --> end
+ * 1.標準控制流
+ * start --> try --> catch --> finally --> end
+ * 2.有無 return 會改變控制流
  * 無finally、正常		--> try ------------------------> end
  * 無finally、例外		--> try --> catch
  * 有finally、正常		--> try ------------> finally
@@ -23,7 +28,9 @@ import lombok.extern.slf4j.Slf4j;
 public class TryCatchFianllyDemo {
 
 	public static void main(String[] args) {
-		log.info("start....");
+		log.trace("start....");
+		log.info("tryCatchStandardNormal(): "); tryCatchStandardNormal();
+		log.info("tryCatchStandardException(): "); tryCatchStandardException();
 		log.info("tryCatchNormal(): " + tryCatchNormal());
 		log.info("tryCatchException(): " + tryCatchException());
 		log.info("tryCatchFinallyNormal(): " + tryCatchFinallyNormal());
@@ -31,6 +38,40 @@ public class TryCatchFianllyDemo {
 		log.info("end....");
 	}
 	
+	private static void tryCatchStandardNormal() {
+		log.info("start{}");
+		try {
+			log.info("try{}");
+		}
+		catch(Exception e) {
+			log.error("catch{}");
+			e.printStackTrace();
+//			, 但沒有用, 因為真正的 return 是 finally{}
+		}
+		finally {
+			log.info("finally{}");
+			
+		}
+		 log.info("end{}....");
+	}
+	private static void tryCatchStandardException() {
+		log.info("start{}");
+		try {
+			log.info("try{}");
+			throw new Exception();
+		}
+		catch(Exception e) {
+			log.info("catch{}");
+			e.printStackTrace();
+//			, 但沒有用, 因為真正的 return 是 finally{}
+		}
+		finally {
+			log.info("finally{}");
+			
+		}
+		log.info("end{}....");
+	}
+
 	private static String tryCatchNormal() {
 		log.info("正常結束 start....");
 		try {
@@ -43,8 +84,8 @@ public class TryCatchFianllyDemo {
 			return "from catch{}";	
 //			, 但沒有用, 因為真正的 return 是 finally{}
 		}
-		 log.info("end....");
-		 return "from method()";
+		log.info("end....");
+		return "from method()";
 	}
 	
 	private static String tryCatchException() {

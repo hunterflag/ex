@@ -4,8 +4,10 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-	<!-- 指定連線資料庫時所需要的JDBC driver的檔案位置 <classPathEntry location="C:/Thinkpower/ojdbc6/ojdbc6.jar" 
-		/> -->
+	<!-- 指定連線資料庫時所需要的JDBC driver的檔案位置 
+	<classPathEntry location="C:/Thinkpower/ojdbc6/ojdbc6.jar" 
+		/> 
+		-->
 	<context 
 		id="mbg" 
 		targetRuntime="MyBatis3Simple"
