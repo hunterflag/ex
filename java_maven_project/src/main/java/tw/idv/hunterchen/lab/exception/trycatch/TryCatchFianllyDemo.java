@@ -18,8 +18,9 @@
  */
 
  
-package tw.idv.hunterchen.lab.trycatch;
+package tw.idv.hunterchen.lab.exception.trycatch;
 
+import java.awt.geom.IllegalPathStateException;
 import java.io.IOException;
 
 import lombok.extern.slf4j.Slf4j;
@@ -28,48 +29,50 @@ import lombok.extern.slf4j.Slf4j;
 public class TryCatchFianllyDemo {
 
 	public static void main(String[] args) {
-		log.trace("start....");
-		log.info("tryCatchStandardNormal(): "); tryCatchStandardNormal();
-		log.info("tryCatchStandardException(): "); tryCatchStandardException();
-		log.info("tryCatchNormal(): " + tryCatchNormal());
-		log.info("tryCatchException(): " + tryCatchException());
-		log.info("tryCatchFinallyNormal(): " + tryCatchFinallyNormal());
-		log.info("tryCatchFinallyException(): " + tryCatchFinallyException());
-		log.info("end....");
+		log.info("==== start....");
+		log.info("==== tryCatchStandardNormal(): "); tryCatchStandardNormal();
+		log.info("==== tryCatchStandardException(): "); tryCatchStandardException();
+		log.info("==== tryCatchNormal(): " + tryCatchNormal());
+		log.info("==== tryCatchException(): " + tryCatchException());
+		log.info("==== tryCatchFinallyNormal(): " + tryCatchFinallyNormal());
+		log.info("==== tryCatchFinallyException(): " + tryCatchFinallyException());
+		log.info("==== end....");
 	}
 	
-	private static void tryCatchStandardNormal() {
-		log.info("start{}");
+ 	private static void tryCatchStandardNormal() {
+		log.info("1.start{}"); 
 		try {
-			log.info("try{}");
+			log.info("2.try{}");
 		}
 		catch(Exception e) {
-			log.error("catch{}");
+			log.error("3.catch{}");
 			e.printStackTrace();
-//			, 但沒有用, 因為真正的 return 是 finally{}
+			log.info("3.此處也是會執行");
 		}
 		finally {
-			log.info("finally{}");
-			
+			log.info("4.finally{}");
 		}
-		 log.info("end{}....");
+		 log.info("5.end{}....");
 	}
-	private static void tryCatchStandardException() {
-		log.info("start{}");
+
+ 	private static void tryCatchStandardException() throws IOException {
+		log.info("1.start{}");
 		try {
-			log.info("try{}");
-			throw new Exception();
+			throw new RuntimeException();	// 要放 Exception, 就要處理_
+//			log.info("2.try{}");
+//			throw new Exception();
+//			log.info("發生 Exception 之後的 code 不會執行");
 		}
-		catch(Exception e) {
-			log.info("catch{}");
+		catch(ArithmeticException e) {
+			log.info("3.catch{}");
 			e.printStackTrace();
-//			, 但沒有用, 因為真正的 return 是 finally{}
+			log.info("3.此處也是會執行");
 		}
 		finally {
-			log.info("finally{}");
+			log.info("4.finally{}");
 			
 		}
-		log.info("end{}....");
+		log.info("5.end{}....");
 	}
 
 	private static String tryCatchNormal() {

@@ -24,6 +24,11 @@ public class Ex_Exceprion {
 		result =  true;
 		return result;
 	}
+	/*
+	 * unreachable code: 走不到的程式碼
+	 * dead code: 出不去的程式碼 
+	 * 
+	 */
 	
 	/*
 	public boolean unReachableCode1(){
