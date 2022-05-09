@@ -55,7 +55,7 @@ public class TryCatchFianllyDemo {
 		 log.info("5.end{}....");
 	}
 
- 	private static void tryCatchStandardException() throws IOException {
+ 	private static void tryCatchStandardException(){
 		log.info("1.start{}");
 		try {
 			throw new RuntimeException();	// 要放 Exception, 就要處理_
