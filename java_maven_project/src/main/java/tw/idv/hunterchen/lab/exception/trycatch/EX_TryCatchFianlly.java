@@ -26,9 +26,13 @@ import java.io.IOException;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class TryCatchFianllyDemo {
+public class EX_TryCatchFianlly {
 
 	public static void main(String[] args) {
+		log.trace("==== start....");
+		log.debug("==== start....");
+		log.warn("==== start....");
+		log.error("==== start....");
 		log.info("==== start....");
 		log.info("==== tryCatchStandardNormal(): "); tryCatchStandardNormal();
 		log.info("==== tryCatchStandardException(): "); tryCatchStandardException();

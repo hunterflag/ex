@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
-	<groupId>tw.idv.hunterchen.lab</groupId>
-	<artifactId>test</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
 
 	<parent>
 		<groupId>tw.idv.hunterchen.maven</groupId>
@@ -15,13 +8,15 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
+	<groupId>tw.idv.hunterchen.lab</groupId>
+	<artifactId>test</artifactId>
+	<packaging>jar</packaging>
 
-	<properties>
-	</properties>	
-	
+
+	<properties></properties>
+
 	<!-- MBH -->
-	<description>
-	</description>
+	<description></description>
 
 	<dependencies>
 		<dependency>
@@ -83,6 +78,13 @@
 		<dependency>
 			<groupId>com.sun.mail</groupId>
 			<artifactId>javax.mail</artifactId>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.github.krraghavan/xeger -->
+		<dependency>
+			<groupId>com.github.krraghavan</groupId>
+			<artifactId>xeger</artifactId>
+			<version>1.0.0-RELEASE</version>
 		</dependency>
 
 	</dependencies>
