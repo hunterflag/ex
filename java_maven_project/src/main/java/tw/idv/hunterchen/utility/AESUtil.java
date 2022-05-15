@@ -19,6 +19,8 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
+import org.apache.commons.codec.binary.Hex;
+
 import lombok.extern.slf4j.Slf4j;
 import tw.idv.hunterchen.utility.DevTool;
 
@@ -28,28 +30,49 @@ import tw.idv.hunterchen.utility.DevTool;
 
 @Slf4j
 public class AESUtil {
+	private final static Integer DEFAULT_SEED=128;
+	private static String salt="salt";
+	private static String algorithm="AES/CBC/PKCS5Padding";				// 要採用的演算法
+	private static IvParameterSpec iv = generateIv();
+	private static SecretKey secretKey = generateSecretKey();									// 密鑰
 	
 	 // 產生 SecretKey 的方式.a
-	public static SecretKey generateSecretKey(int seed) {
-		SecretKey key = null;
-//		if(!(n==128 || n==192 || n==256 )){
-//			log.info("長度是 {}, 僅可以是 128、192、或256");			
-//		} else {
+	public static SecretKey generateSecretKey() {
+		return generateSecretKey(DEFAULT_SEED);
+	}
+	public static SecretKey generateSecretKey(Integer seed) {
+		SecretKey result = null;
+		if(seed==128 || seed==192 || seed==256){
 			log.info("產生長度 {} 的SecreKey", seed );
-			KeyGenerator keyGenerator;
-			try {
-				keyGenerator = KeyGenerator.getInstance("AES");
-				keyGenerator.init(seed);
-				key = keyGenerator.generateKey();
-//				byte[] encodedKey = key.getEncoded();
-//				log.info("SecreKey={}", bytesToHexString(encodedKey));
-//				log.info("SecreKey={}", key.getEncoded());
-//				DevTool.showAllFields(key);
-			} catch (NoSuchAlgorithmException e) {
-				e.printStackTrace();
-			}
-//		}
-	    return key;
+		}else {
+			log.warn("輸入長度為 {}, 已自動修正為 {}; 此值僅可為 128、192、或 256 ", seed, DEFAULT_SEED);			
+			seed = DEFAULT_SEED;
+		}
+		
+		try {
+			KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+			keyGenerator.init(seed);
+//			keyGenerator.init(new SecureRandom());
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+	
+	public static String generateSecretKeyString() {
+		String result = null;
+		try {
+			KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+			keyGenerator.init(new SecureRandom());
+			SecretKey secretKey = keyGenerator.generateKey();
+			byte[] byteKey = secretKey.getEncoded();
+			result = Hex.encodeHexString(byteKey);
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 	
 	// 產生 SecretKey 的方式.b
@@ -58,10 +81,10 @@ public class AESUtil {
 	    SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
 	    KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt.getBytes(), 65536, 256);
 	    SecretKey key = new SecretKeySpec(factory.generateSecret(keySpec).getEncoded(), "AES");
-	    byte[] encodedKey = key.getEncoded();
-	    log.info("SecreKey={}", bytesToHexString(encodedKey));
-	    log.info("SecreKey={}", key.getEncoded());
-	    DevTool.showAllFields(key);
+//	    byte[] encodedKey = key.getEncoded();
+//	    log.info("SecreKey={}", bytesToHexString(encodedKey));
+//	    log.info("SecreKey={}", key.getEncoded());
+//	    DevTool.showAllFields(key);
 	    return key;
 	}
 	
@@ -109,19 +132,15 @@ public class AESUtil {
 		    return new String(plainText);
 		}
 
-	public static void main(String[] args) {
-		String algorithm="AES/CBC/PKCS5Padding";				// 要採用的演算法
+	public static void main(String[] args) throws InvalidKeySpecException {
 		String plainText="1234567890";		// 明文
-		String password="qwert";
-		SecretKey secretKey;				// 密鑰
-		IvParameterSpec iv;
-		String cipherText;					// 使用密鑰加密明碼、產生的密文
+		String cipherText;					// 密文: 在明文上, 使用 密鑰+密(明)碼 所產生的
+		String password="qwert";			// 加密用的密碼			
 		String decryptedCipherText;					// 使用密鑰加密明碼、產生的密文	s s
-		String salt="salt";
 		
 		try {
-			secretKey = generateSecretKey(12);
-			secretKey = getSecretKeyFromPassword(password, salt);
+			secretKey = generateSecretKey();
+//			secretKey = getSecretKeyFromPassword(password, salt);
 			iv = generateIv();
 			cipherText = encrypt(algorithm, plainText, secretKey, iv);
 			decryptedCipherText=decrypt(algorithm, cipherText, secretKey, iv);
@@ -129,9 +148,6 @@ public class AESUtil {
 			log.info("cipherText={}", cipherText);
 			log.info("decryptedCipherText={}",  decryptedCipherText);
 		} catch (NoSuchAlgorithmException e) {
-			log.error("產生SecreKeyg失敗!!!");
-			e.printStackTrace();
-		} catch (InvalidKeySpecException e) {
 			log.error("產生SecreKeyg失敗!!!");
 			e.printStackTrace();
 		} catch (InvalidKeyException e) {

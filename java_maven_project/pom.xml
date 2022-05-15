@@ -79,7 +79,7 @@
 			<groupId>com.sun.mail</groupId>
 			<artifactId>javax.mail</artifactId>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/com.github.krraghavan/xeger -->
 		<dependency>
 			<groupId>com.github.krraghavan</groupId>
@@ -87,6 +87,11 @@
 			<version>1.0.0-RELEASE</version>
 		</dependency>
 
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
