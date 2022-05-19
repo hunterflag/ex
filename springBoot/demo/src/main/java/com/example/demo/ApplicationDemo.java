@@ -22,11 +22,14 @@ import tw.idv.hunterchen.utility.DevTool;
 //@RestController
 @SpringBootApplication
 @PropertySource(value="classpath:application.yml")
-public class DemoApplication {
+public class ApplicationDemo {
 	
-	
+	/*
+	 * Web Container 已經啟用
+	 */
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(ApplicationDemo.class, args);
 	}
+
 
 }
