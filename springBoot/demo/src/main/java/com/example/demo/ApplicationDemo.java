@@ -1,16 +1,8 @@
 package com.example.demo;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.boot.system.SystemProperties;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import tw.idv.hunterchen.utility.DevTool;
+import org.springframework.context.annotation.ComponentScan;
 
 //@EnableConfigurationProperties(SystemProperties.class)
 //@PropertySource(
@@ -21,7 +13,8 @@ import tw.idv.hunterchen.utility.DevTool;
 //)
 //@RestController
 @SpringBootApplication
-@PropertySource(value="classpath:application.yml")
+@ComponentScan(basePackages = "com.example.demo")
+//@PropertySource(value="classpath:application.yml")
 public class ApplicationDemo {
 	
 	/*

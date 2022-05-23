@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@PropertySource(value="classpath:application2.properties")
+@PropertySource(value="classpath:ApiController.properties")
 public class ApiController {
 	private Logger logger = LoggerFactory.getLogger(ApiController.class);
 //	@Value("Hello")
