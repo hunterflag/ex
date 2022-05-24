@@ -1,0 +1,14 @@
+spring:
+#  profiles:
+#    active: test
+  config:
+    activate:
+      on-profile: ymltest    
+company:
+  name: Subway PC Studio in default block in yml
+  
+---
+spring:
+  profiles: ymltest
+company:
+  name: Subway PC Studio in test block in yml
