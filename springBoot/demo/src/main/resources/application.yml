@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active:
+    - testyml
+company:
+  name: New Subway PC Studio in common block in application.yml
+---
+spring:
+
+company:
+  name: New Subway PC Studio in test block in application.yml

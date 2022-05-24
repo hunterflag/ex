@@ -3,6 +3,7 @@ package tw.idv.hunterchen.lab.SpringBatchdemo.config;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
+import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.FlatFileItemWriter;
 import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder;
@@ -28,11 +29,12 @@ public class HelloWorldJobConfig {
 	}
 
 	// 新建 Step，使用 StepBuilderFactory 建立
+	@SuppressWarnings("unchecked")
 	@Bean
 	public Step helloWorldStep(StepBuilderFactory stepBuilders) {
 		return stepBuilders.get("helloWorldStep").<Person, String>chunk(10)
 				.reader(reader())
-				.processor((Function<? super Person, ? extends String>) processor())
+				.processor((ItemProcessor<? super Person, ? extends String>) processor())
 				.writer(writer())
 				.build();
 	}
