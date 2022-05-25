@@ -23,12 +23,11 @@ public class DevTool {
 			   );
 	}
 
+	@SuppressWarnings("finally")
 	public static boolean showAllFields(Object obj) {
 		boolean isSuccess = true;
 		try {
-			DevTool.showMessages(mDivider
-					, "套件.類別全名 " + obj.getClass().getName() + " 之屬性"
-					, mDivider);
+			DevTool.showMessages("套件.類別全名.屬性", obj.getClass().getName());
 			Field[] fields = obj.getClass().getDeclaredFields();
 			for(Field field : fields) {
 				field.setAccessible(true);
@@ -36,11 +35,7 @@ public class DevTool {
 						, String.valueOf(field.get(obj))
 						);
 			}
-
-			System.out.printf("==== class: %s ==== end ....\n"
-					, obj.getClass()
-					, obj.toString()
-					);
+			System.out.println(StringTool.genDivider(100));
 		}catch(Exception ex) {
 			isSuccess=false;
 			ex.printStackTrace();
@@ -49,15 +44,11 @@ public class DevTool {
 		}
 	}
 	
+	@SuppressWarnings("finally")
 	public static boolean showAllMethods(Object obj) {
 		boolean isSuccess = true;
 		try {
-			DevTool.showMessages(mDivider
-					, obj.getClass().getName()
-					, obj.toString()
-					, mDivider);
-			
-			System.out.printf("-------- methods -----------\n");
+			DevTool.showMessages("套件.類別全名.方法()", obj.getClass().getName());
 			Method[] methods = obj.getClass().getDeclaredMethods();
 			for(Method method : methods) {
 				method.setAccessible(true);
@@ -67,11 +58,7 @@ public class DevTool {
 						, getParamStringOfMethod(method)
 						);
 			}
-			
-			System.out.printf("==== class: %s ==== end ....\n"
-					, obj.getClass()
-					, obj.toString()
-					);
+			System.out.println(StringTool.genDivider(100));
 		}catch(Exception ex) {
 			isSuccess=false;
 			ex.printStackTrace();
