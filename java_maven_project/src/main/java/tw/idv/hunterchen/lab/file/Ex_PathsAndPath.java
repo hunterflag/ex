@@ -2,23 +2,38 @@ package tw.idv.hunterchen.lab.file;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.LinkOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import lombok.extern.slf4j.Slf4j;
 import tw.idv.hunterchen.utility.DevTool;
 import tw.idv.hunterchen.utility.StringTool;
 
+@Slf4j
 public class Ex_PathsAndPath {
 
 	public static void main(String[] args) throws URISyntaxException {
 		String localBase=".";
-		Path path = null;
+//		String classPath = "/D:";
+		String classPath = Ex_File.class.getResource(localBase).getPath().replaceFirst("^/[\\w]{1}:/", "/");
+//		Path path = Paths.get("./src/main/resources/log4j2.properties");
+		Path path = Paths.get(classPath + "log4j2.properties");
+//		Path path = Paths.get(classPath);
 
 		// 使用 Paths, 以 String 建立 Path 的方法 x2:
 		
 		
+		if(Files.exists(path)) {
+			log.info("{} Exist", path.toString());
+		} else {
+			log.info("{} NOT Exist", path.toString());
+		}
+		
+		URL url = Ex_File.class.getResource(localBase);
+		DevTool.showAllFields(url);
 		
 		DevTool.showMessages(StringTool.genDivider("|=>", 10)
 				, "使用 Paths 建立 Path .a.路徑字串法"
