@@ -42,7 +42,10 @@ insert into app_config (scope, key_name, key_value) values("developer.hunter", "
 insert into app_config (scope, key_name, key_value) values("developer.hunter", "app.password", "123");
 
 
-select * from app_config;
+select * 
+from app_config
+-- order by serial_no
+;
 
 
 update app_config 
