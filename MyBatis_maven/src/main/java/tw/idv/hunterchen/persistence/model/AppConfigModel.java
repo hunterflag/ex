@@ -6,7 +6,8 @@ import lombok.Data;
 
 @Data
 public class AppConfigModel{
-	private Long	 	id;				// 識別碼
+	private Integer	 	serialNo;		// 流水號
+	private String 		scope;			// 使用範圍
 	private String 		keyName;		// 鍵名
 	private String 		keyValue;		// 鍵值
 	
