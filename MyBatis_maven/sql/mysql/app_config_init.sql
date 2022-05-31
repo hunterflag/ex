@@ -4,17 +4,21 @@
 */
 use labDB;
 
-select * from app_config;
+show table status;
+
 
 -- 1. 建立主表.xxx
 drop table if exists app_config;
 create table if not exists app_config (
-    id 				integer 		not null primary key auto_increment,		
-    key_name		varchar(100) 	not null unique,
+    serial_no 		integer 		not null unique auto_increment,		
+    scope			varchar(100)	default "",
+	key_name		varchar(100) 	not null,
     key_value		varchar(100)	not null default "",
-
+    
     created_time	datetime 		not null DEFAULT CURRENT_TIMESTAMP,
-    modified_time	timestamp		not null DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    modified_time	timestamp		not null DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	
+    constraint primary_key primary key (scope, key_name)
 );
 
 alter table app_config
@@ -24,23 +28,32 @@ alter table app_config
     , change column id id integer not null comment '識別碼'
 	, comment 'appＡ設定參數表'
 ;
-show table status;
 
 
 
 
-insert into app_config (key_name, key_value) values("key", "123");
+insert into app_config (key_name, key_value) values("app.db.user", "developer");
+insert into app_config (key_name, key_value) values("app.db.password", "developer");
 insert into app_config (key_name, key_value) values("app.user", "123");
 insert into app_config (key_name, key_value) values("app.password", "123");
-insert into app_config (key_name, key_value) values("app.passw", "123");
+insert into app_config (scope, key_name, key_value) values("developer.hunter", "app.db.user", "developer");
+insert into app_config (scope, key_name, key_value) values("developer.hunter", "app.db.password", "developer");
+insert into app_config (scope, key_name, key_value) values("developer.hunter", "app.user", "123");
+insert into app_config (scope, key_name, key_value) values("developer.hunter", "app.password", "123");
 
+
+select * from app_config;
 
 
 update app_config 
-set key_value = "1234567"
-where key_name = "key"
+set key_value = "1234567", scope="email"
+where 1=1
+	and scope = "email"
+    and key_name = "key"
 ;
 
+select * from app_config;
+select * from app_config_history;
 
 /* 
 -- 2. 建立歷史表.xxx_history
@@ -57,6 +70,12 @@ select * from app_config
 ;
 
 
+select * 
+from app_config_history
+where 1=1
+-- 	and scope="email"
+    and key_name="key"
+;	
 select * from app_config_history;	
 
 -- 2.2. 修改 歷史表 的 結構: 
@@ -80,8 +99,8 @@ create trigger app_config_after_insert
 after insert
 on app_config for each row
 begin
-	insert into app_config_history (key_name, key_value, id, created_time, modified_time)
-		values (NEW.key_name, NEW.key_value, NEW.id, NEW.created_time, NEW.modified_time);
+	insert into app_config_history (scope, key_name, key_value, serial_no, created_time, modified_time)
+		values (NEW.scope, NEW.key_name, NEW.key_value, NEW.serial_no, NEW.created_time, NEW.modified_time);
 end 
 ||
 -- delimiter ;
@@ -92,8 +111,8 @@ create trigger app_config_after_update
 after update
 on app_config for each row
 begin
-	insert into app_config_history (key_name, key_value, id, created_time, modified_time)
-		values (NEW.key_name, NEW.key_value, NEW.id, NEW.created_time, NEW.modified_time);
+	insert into app_config_history (scope, key_name, key_value, serial_no, created_time, modified_time)
+		values (NEW.scope, NEW.key_name, NEW.key_value, NEW.serial_no, NEW.created_time, NEW.modified_time);
 end
 ||
 delimiter ;
