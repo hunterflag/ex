@@ -21,14 +21,37 @@ import tw.idv.hunterchen.utility.DevTool;
 @ComponentScan(basePackages = "com.example.demo")
 //@PropertySource(value="classpath:application.yml")
 public class ApplicationDemo implements CommandLineRunner{
-	@Value("${company.name: unknown}")
-	String companyName;
-//	@Value("${server.address: unknown}")
-//	@Value("${debug: undedfined}")
-//	@Value("undedfined")
-	@Value("'undedfined'")
-	String debug;
+//	@Value("${company.name: unknown}")
+	@Value("${same.name.different.value: unknown}")
+	String sameName;
 
+	@Value("${only.name.value: unknown}")
+	String onlyNameValue;
+	@Value("${only.name.default.value: unknown}")
+	String onlyNameDefaultValue;
+	@Value("${only.name.test.value: unknown}")
+	String onlyNameTestValue;
+	
+//	@Value("${server.address: unknown}")
+//	String serverAddress;
+//	
+//	@Value("${debug: defaultString}")
+//	String debug;
+
+//	@Value(true)	// 非字串
+//	@Value(123)		// 非字串
+//	@Value("undedfined")
+//	@Value("'undedfined'")
+//	String directAssignString;
+	@Value("true")
+//	Boolean isOn;
+	boolean isOn;
+
+	@Value("123")
+//	int amount;
+	Integer amount;
+
+	
 	/*
 	 * Web Container 已經啟用
 	 */
@@ -38,8 +61,15 @@ public class ApplicationDemo implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		DevTool.showMessages("company.name", companyName);
-		DevTool.showMessages("degug", debug);
+		DevTool.showMessages("same.name", sameName);
+		DevTool.showMessages("only.name.value", onlyNameValue);
+		DevTool.showMessages("only.name.default.value", onlyNameDefaultValue);
+		DevTool.showMessages("only.name.test.value", onlyNameTestValue);
+		DevTool.showMessages("boolean", String.valueOf(isOn));
+		DevTool.showMessages("int", String.valueOf(amount));
+//		DevTool.showMessages("server.address", serverAddress);
+//		DevTool.showMessages("degug", debug);
+//		DevTool.showMessages("directAssignString", directAssignString);
 	}
 
 
