@@ -2,6 +2,7 @@ package tw.idv.hunterchen.persistence;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -31,6 +32,7 @@ public class AppConfigMapperTest {
 			 * classpath: "/config/MyBatisConfig.xml"
 			 * FQDN: "/mybatis/src/main/resources/config/MyBatisConfig.xml"
 			 */
+			// 讀取設定檔, 建立連線
 			Reader reader = Resources.getResourceAsReader("./config/MyBatisConfig.xml");
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
 			reader.close();
@@ -52,20 +54,25 @@ public class AppConfigMapperTest {
 	}
 	
 	@Test()
-	public void getValueByKeyTest() {
+	public void getValueOfKeyTest() {
 		log.info("{} ...", "");
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
-			String key = "key";
-			String value = sqlSession.selectOne("getValueByKey", key);
-			DevTool.showMessages(key, value);
-			log.info("<=MBH=>\n\tthe value of key {} is {}", key, value);
+			String key = "app.db.user";
+			HashMap<String, String> parameters = new HashMap<String, String>();
+			parameters.put("keyName", "app.db.user");
+			parameters.put("scope", "");
+			
+			String value = sqlSession.selectOne("getValueOfKey", parameters);
+			
+//			DevTool.showMessages(key, value);
+			log.info("<=MBH=>\n\tthe value of key {} is {}", parameters, value);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
 	}
 		
-	@Test()
+//	@Test()
 	public void getRecordByKeyTest() {
 		log.info("{} ...", "");
 		SqlSession sqlSession = sqlSessionFactory.openSession();

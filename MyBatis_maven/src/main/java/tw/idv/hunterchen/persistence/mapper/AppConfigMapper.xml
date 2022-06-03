@@ -3,16 +3,18 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="tw.idv.hunterchen.lab.mapper.AppConfigMapper">
-	<select id="getRecordByKey" parameterType="java.lang.String" resultType="tw.idv.hunterchen.persistence.model.AppConfigModel">
-		select * from `app_config` where 1=1 and key_name = #{keyName};
+	<select id="getValueOfKey" parameterType="java.lang.String" resultType="java.lang.String">
+		select key_value from `app_config` where key_name = #{keyName} and scope = #{scope};
     </select>
     
-	<select id="getValueByKey" parameterType="java.lang.String" resultType="java.lang.String">
-		select key_value from `app_config` where key_name = #{keyName};
+	<!-- 
+	<select id="getKeyList" parameterType="java.lang.String" resultType="tw.idv.hunterchen.persistence.model.AppConfigModel">
+		select key_name from `app_config` where 1=1 and key_name like= #{keyName};
     </select>
     
     <insert id="insertAppConfig">
     	insert into app_config(key_name, key_value) values(#{keyName}, #{keyValue})
     </insert>
+	 -->
 
 </mapper>
