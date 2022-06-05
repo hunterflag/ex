@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Data
-public class Duck {
+public abstract class AbstractDuck{
 	FlyBehavior flyBehavior;
 	QuackBehavior quackBehavior;
 	
@@ -15,6 +15,8 @@ public class Duck {
 	public void performQuack() {
 		quackBehavior.quack();
 	}
+	
+	public abstract void display();
 	
 	
 }

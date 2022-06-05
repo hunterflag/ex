@@ -9,24 +9,24 @@ import org.junit.Test;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class MainTest {
+public class StrategyTest {
 	
-	@Test
-	public void duckTest() {
-		log.info(null);
-		Duck duck = new Duck();
+//	@Test
+//	public void abstractDuckTest() {
+//		log.info(null);
+//		AbstractDuck duck = new AbstractDuck();
 		
 //		duck.setFlyBehavior(new FlyWithWings());
-		duck.performFly();
-		duck.performQuack();
+//		duck.performFly();
+//		duck.performQuack();
 //		duck.setFlyBehavior(new FlyWithNoWay());
 //		duck.performFly();
-	}
+//	}
 		
 	@Test
 	public void rubberDuckTest() {
 		log.info(null);
-		Duck duck = new RubberDuck();
+		RubberDuck duck = new RubberDuck();
 		
 		duck.performFly();
 		duck.performQuack();
@@ -36,7 +36,7 @@ public class MainTest {
 	@Test
 	public void mallardDuckTest() {
 		log.info(null);
-		Duck duck = new MallardDuck();
+		MallardDuck duck = new MallardDuck();
 		
 		duck.performFly();
 		duck.performQuack();
