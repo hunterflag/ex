@@ -29,6 +29,22 @@ public class Ex_String {
 		DevTool.showMessages("toUpperCase()", "轉大寫" , 		   str.toUpperCase());
 		DevTool.showMessages("toLowerCase()", "轉小寫" , 		   str.toLowerCase());
 		DevTool.showMessages("()", "" , str.toUpperCase(new Locale("中文"+str)));
+
+		String unicodeStr = "567四五六";
+		DevTool.showMessages(""+unicodeStr.length());
+		for(int index=0; index < unicodeStr.length(); index++) {
+			DevTool.showMessages(""+index, ""+unicodeStr.charAt(index));
+			DevTool.showMessages(""+index, ""+unicodeStr.codePointAt(index));
+		}
+		DevTool.showMessages(unicodeStr,unicodeStr,"內容、長度都相同"+unicodeStr.compareTo(unicodeStr));
+		DevTool.showMessages(unicodeStr,"0","內容相同、原字串長度>比較字串長度"+unicodeStr.compareTo("0"));
+		DevTool.showMessages(unicodeStr,"012","內容相同、原字串長度>比較字串長度"+unicodeStr.compareTo("012"));
+		DevTool.showMessages(unicodeStr,unicodeStr+"七","內容相同、原字串長度<比較字串長度"+unicodeStr.compareTo(unicodeStr+"七"));
+		DevTool.showMessages(unicodeStr,"1","有不同, 碼位差是 0-1 ="+unicodeStr.compareTo("1"));
+		DevTool.showMessages(unicodeStr,"782","有不同, 碼位差是 1-2 = "+unicodeStr.compareTo("782"));
+		DevTool.showMessages(unicodeStr,"12","有不同, 碼位差是 0-1 = "+unicodeStr.compareTo("12"));
+		DevTool.showMessages(unicodeStr,"2","有不同, 碼位差是 0-2 = "+unicodeStr.compareTo("2"));
+		DevTool.showMessages(unicodeStr,"六","有不同, 碼位差是 0-六 = "+unicodeStr.compareTo("六"));
 	}
 
 }
