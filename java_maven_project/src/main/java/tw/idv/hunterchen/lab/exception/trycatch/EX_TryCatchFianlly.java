@@ -21,12 +21,78 @@
 package tw.idv.hunterchen.lab.exception.trycatch;
 
 import java.awt.geom.IllegalPathStateException;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.SQLException;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class EX_TryCatchFianlly {
+	//受檢例外, 必須處理.a 往外拋
+	public static void noTryBlock() throws Exception{
+			throw new Exception();	// 例外發生點
+			// 例外發生點後面的程式就中斷、不會繼續執行
+	}
+	
+	// 受檢例外, 必須處理.b 
+	public static void oneTryMultiCatch() {
+		try {
+			throw new Exception();	// 例外發生點, 跳到捕捉點處理
+			// 包在 try 內
+			// 例外發生點後面的程式就中斷、不會繼續執行
+		}catch(Exception e){
+			//遇到 指定例外的處理...
+		}
+		// catch(其他例外 e) ...{ //遇到 指定例外的處理...
+		finally {
+			// 不管是否發生例外, 都要執行的部分
+		}
+	}
+
+	// 受檢例外, 必須處理.b 
+	public static void nestTry() {
+		try {
+			try {
+				throw new Exception();	// 例外發生點, 跳到捕捉點處理
+			}catch(Exception e){
+			}
+			throw new SQLException();
+			// 包在 try 內
+			// 例外發生點後面的程式就中斷、不會繼續執行
+		}catch(Exception e){
+			//遇到 指定例外的處理...
+		}
+		// catch(其他例外 e) ...{ //遇到 指定例外的處理...
+		finally {
+			// 不管是否發生例外, 都要執行的部分
+		}
+	}
+	
+	// 受檢例外, 必須處理.b 
+	public static void TryCatchAndPass() throws Exception{
+		try {
+			try {
+				throw new Exception();	// 例外發生點, 跳到捕捉點處理
+			}catch(Exception e){
+			}
+			throw new SQLException();
+			// 包在 try 內
+			// 例外發生點後面的程式就中斷、不會繼續執行
+		}catch(Exception e){
+			throw e;
+			//遇到 指定例外的處理...
+		}
+		// catch(其他例外 e) ...{ //遇到 指定例外的處理...
+		finally {
+			// 不管是否發生例外, 都要執行的部分
+		}
+	}
+	
+	
+	
+	
+	
 
 	public static void main(String[] args) {
 		log.trace("==== start....");
