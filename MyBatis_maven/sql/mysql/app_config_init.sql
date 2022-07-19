@@ -1,20 +1,16 @@
 use labDB;
-show table status;
 
-/*
-	1. 關鍵字不區分大小寫, 慣用小寫
-    2. 自訂欄位名稱: 全小寫, 以 _ 分隔 (搭配 myBatis)
-*/
 
 
 -- 1. 建立主表.xxx
 drop table if exists app_config;
 create table if not exists app_config (
-    serial_no 		integer 		not null unique auto_increment,		
+    
     scope			varchar(100)	default "",
 	key_name		varchar(100) 	not null,
     key_value		varchar(100)	not null default "",
     
+    serial_no 		integer 		not null unique auto_increment,		
     created_time	datetime 		not null DEFAULT CURRENT_TIMESTAMP,
     modified_time	timestamp		not null DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	
@@ -77,7 +73,7 @@ select *
 from app_config_history
 where 1=1
 -- 	and scope="email"
-    and key_name="key"
+--     and key_name="key"
 ;	
 select * from app_config_history;	
 
