@@ -1,7 +1,7 @@
 USE lab_db;
 
 /*
-1.建立主表 demo_create_ttable.sql
+1.建立主表 demo_create_table.sql
 2.建立異動紀錄表(歷史紀錄表) _history _log
 3. 主表異動時, 同時將新紀錄, 從主表複製到歷史表內
 
@@ -77,7 +77,6 @@ END
 DELIMITER ;
 
 /* test
-*/
 INSERT INTO table_name () value ();
 SELECT * FROM table_name;
 SELECT * FROM table_name_history;
@@ -93,9 +92,11 @@ SELECT * FROM table_name_history;
 
 SELECT * 
 FROM table_name_history
--- WHERE serial_no >= 2 
+-- WHERE serial_no = 7  
 ORDER BY serial_no, modified_time
 ;
 
 SELECT * FROM table_name;
 DELETE FROM table_name WHERE data_column = "default";
+DELETE FROM table_name WHERE data_column = "upaadaddste";
+*/
