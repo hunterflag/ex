@@ -25,7 +25,7 @@ public class AppConfigMapperTest {
 	
 	@BeforeClass
 	public static void beforeClass() {
-		log.info("...");
+		log.trace("...");
 		try {
 			/* MBH.mark: Resources 是 system path, 
 			 * system path: "./config/MyBatisConfig.xml" 或 "config/MyBatisConfig.xml"
@@ -42,15 +42,15 @@ public class AppConfigMapperTest {
 	}
 	@AfterClass
 	public static void afterClass() {
-		log.info("...");
+		log.trace("...");
 	}
 	@After
 	public void after() {
-		log.info("...");
+		log.trace("...");
 	}
 	@Before
 	public void before() {
-		log.info("...");
+		log.trace("...");
 	}
 	
 	@Test()

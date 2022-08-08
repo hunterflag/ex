@@ -33,7 +33,7 @@ public class Main {
 		try {
 				// 4. 以 sqlSession 調用 Mapper (DAO) 中的方法、在DB中執行SQL述句, 並將結果從DB放到DVO
 				Member member = (Member) sqlSession.selectOne("tw.idv.hunterchen.lab.mapper.MemberMapper.getMemberById", 3);
-				sqlSession .selectOne("tw.idv.hunterchen.lab.mapper.MemberMapper.getMemberById", 3);
+				sqlSession.selectOne("tw.idv.hunterchen.lab.mapper.MemberMapper.getMemberById", 3);
 				// 5. 在 DVO中操作資料
 				if (member!=null) {
 					System.out.println(member.getAccount());

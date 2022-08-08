@@ -7,14 +7,17 @@
 		<setting name="logImpl" value="LOG4J2" />
 	</settings>
 	<!-- 略寫法 x2
-	 	同時使用, 但有順序要求 
+	 	可同時使用, 但有順序要求 
 	 -->
 	<typeAliases>
 		<!-- a.個別命名法 
 		<typeAlias alias="Member" 		type="tw.idv.hunterchen.persistence.model.Member" />
+		<typeAlias alias="AccountModel" 	type="tw.idv.hunterchen.persistence.model.AccountModel" />
 		-->
-		<typeAlias alias="UserModel"	type="tw.idv.hunterchen.persistence.model.UserModel" />
+		
+		<typeAlias alias="UserModel"		type="tw.idv.hunterchen.persistence.model.UserModel" />
 		<typeAlias alias="AppConfigModel" 	type="tw.idv.hunterchen.persistence.model.AppConfigModel" />
+		
 		<!-- b.統一套件法 
 		<package name="tw.idv.hunterchen.persistence.modelB"/>
 		<package name="tw.idv.hunterchen.persistence.mapper"/>
