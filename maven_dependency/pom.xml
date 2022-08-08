@@ -16,7 +16,7 @@
 		4. 用 System.getProperty("...") 可以取得的名稱: ${os.name}、${user.name}
 		5. settings.xml 檔內的標籤: ${settings.localRepository}
 		6. 共同 ${commonProperty}
-		7. ${project.version} 
+		7. ${project.version} ${project.version} 
 		8. ${propertyNoExist} 
 		9. ${propertyCommon} 
 		10. ${propertyParentOnly} 

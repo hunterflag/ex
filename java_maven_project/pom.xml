@@ -12,7 +12,7 @@
 	<artifactId>test</artifactId>
 	<packaging>jar</packaging>
 
-
+	<package>tw.idv.hunterchen</package>
 	<properties></properties>
 
 	<!-- MBH -->

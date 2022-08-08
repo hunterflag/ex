@@ -10,7 +10,7 @@ create table if not exists app_config (
 	key_name		varchar(100) 	not null,
     key_value		varchar(100)	not null default "",
     
-    serial_no 		integer 		not null unique auto_increment,		
+    serial_no 		integer 		not null UNIQUE auto_increment,		
     created_time	datetime 		not null DEFAULT CURRENT_TIMESTAMP,
     modified_time	timestamp		not null DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	
