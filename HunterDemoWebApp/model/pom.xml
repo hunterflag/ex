@@ -6,25 +6,27 @@
 		<version>${main.version}</version>
 		<relativePath>../main/pom.xml</relativePath>
 	</parent>
-	<artifactId>web</artifactId>
-	<packaging>war</packaging>
-
-	<properties></properties>
-
+	<artifactId>model</artifactId>
+	<packaging>jar</packaging>
+	
 	<dependencies>
-		<!-- Servlet & JSP -->
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet.jsp</groupId>
-			<artifactId>javax.servlet.jsp-api</artifactId>
-			<scope>provided</scope>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
-
 
 </project>
