@@ -2,9 +2,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>tw.idv.hunterchen.demoWebApp</groupId>
-		<artifactId>main</artifactId>
-		<version>${main.version}</version>
-		<relativePath>../main/pom.xml</relativePath>
+		<artifactId>root</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>model</artifactId>
 	<packaging>jar</packaging>
