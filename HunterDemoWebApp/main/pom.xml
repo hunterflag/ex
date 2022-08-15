@@ -3,12 +3,24 @@
 
   <groupId>tw.idv.hunterchen.demoWebApp</groupId>
   <artifactId>main</artifactId>
-  <version>${main.version}</version>
+  <version>${mainVersion}</version>
   <packaging>pom</packaging>
-  
+ 	
+  <description> ffff 
+  	${version}:
+  	${pom.version}:
+  	${project.version}:
+  	${basedir}
+  	${buildNumber}
+	${maven.build.timestamp}
+	${maven.build.timestamp.format}
+  	
+  	${project.basedir}
+  	${project.modules}
+  </description>
    
   <properties>
- 	<main.version>0.0.1-SNAPSHOT</main.version>
+ 	<mainVersion>0.0.1-SNAPSHOT</mainVersion>
   </properties>
   
   <dependencyManagement>
@@ -25,6 +37,7 @@
   
   	<modules>
   		<module>web</module>
+  		<module>model</module>
   	</modules>
 
   
