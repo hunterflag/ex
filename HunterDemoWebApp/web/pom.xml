@@ -3,11 +3,14 @@
 	<parent>
 		<groupId>tw.idv.hunterchen.demoWebApp</groupId>
 		<artifactId>root</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>${revision}-${changelist}</version>
 	</parent>
 	<artifactId>web</artifactId>
 	<packaging>war</packaging>
 
+	<description>
+		${env.OS}
+	</description>
 	<dependencies>
 		<!-- Servlet & JSP -->
 		<dependency>
@@ -26,16 +29,19 @@
 	<build>
 		<plugins>
 		<!-- 
+		-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.3.1</version>
 			</plugin>
-		-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<!-- 
 				<version>${maven-compiler-plugin.version}</version>
+				-->
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
