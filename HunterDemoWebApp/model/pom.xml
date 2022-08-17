@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>tw.idv.hunterchen.demoWebApp</groupId>
 		<artifactId>root</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>${revision}-${changelist}</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>model</artifactId>
