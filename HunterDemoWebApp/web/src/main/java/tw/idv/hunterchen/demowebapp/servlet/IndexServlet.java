@@ -28,14 +28,17 @@ public class IndexServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		logger.info("IndexServlet");
+
+		String lAccount = request.getParameter("account");
+		String lPathInfo = request.getPathInfo();
+		
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("utf-8");
-		PrintWriter writer = response.getWriter();
-		writer.append("Served at: ")
-			  .append(request.getContextPath())
-			  .append("\n path: ")
-			  .append(request.getPathInfo())
-			  ;
+		PrintWriter lwriter = response.getWriter();
+		request.getServletContext();
+		lwriter.append("U R " + lAccount)
+			   .append(", \n path: " + lPathInfo )
+			   ;
 	}
 
 	/**

@@ -3,14 +3,17 @@
 	<parent>
 		<groupId>tw.idv.hunterchen.demoWebApp</groupId>
 		<artifactId>root</artifactId>
-		<version>${revision}-${changelist}</version>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>web</artifactId>
 	<packaging>war</packaging>
+	
+	<!-- 
+	<properties>
+		<root.version>0.0.1-SNAPSHOT</root.version>
+	</properties>	-->
 
-	<description>
-		${env.OS}
-	</description>
+
 	<dependencies>
 		<!-- Servlet & JSP -->
 		<dependency>

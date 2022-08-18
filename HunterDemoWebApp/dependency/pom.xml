@@ -1,29 +1,29 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>tw.idv.hunterchen.maven</groupId>
-	<artifactId>dependencies</artifactId>
+	<groupId>tw.idv.hunterchen.demoWebApp</groupId>
+	<artifactId>dependency</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<description>
-		<![CDATA[ 
-			${os.name}
-		]]>
-		1. pom.xml 檔內, 在 &lt;properties&gt; 中設定的名稱:${java.version}
-		2. pom.xml 檔內的逐層標籤名稱標籤:${project.version}、${project.build.plugins.plugin.groupId}
+		1. pom.xml 檔內, 在 &lt; properties&gt; 中設定的名稱:
+		2. pom.xml 檔內的逐層標籤名稱標籤:${project.version}
 		3. OS環境變數: ${env.PATH}
 		4. 用 System.getProperty("...") 可以取得的名稱: ${os.name}、${user.name}
 		5. settings.xml 檔內的標籤: ${settings.localRepository}
-		6. 共同 ${commonProperty}
-		7. ${project.version} ${project.version} 
-		8. ${propertyNoExist} 
-		9. ${propertyCommon} 
-		10. ${propertyParentOnly} 
-		11. ${propertyChildOnly}
+		6. ${maven.build.timestamp} 
+		7. ${project.version} 
+		8. ${os.name} 
+		9. ${basedir}
+		10. ${java.version} 
+		10. ${java} 
+		10. ${javaVersion} 
 	</description>
 
 	<properties>
+		<rootGroupId>tw.idv.hunterchen.demoWebApp</rootGroupId>
+		<rootVersion>0.0.1-SNAPSHOT</rootVersion>
 		<propertyCommon>commonProperty in Parent.pom</propertyCommon>
 		<propertyParentOnly>parentOnlyProperty in Parent.pom</propertyParentOnly>
 
@@ -40,7 +40,7 @@
 		<log4j.version>1.2.17</log4j.version>
 		<log4j2.version>2.17.1</log4j2.version>
 		<lombok.version>1.18.22</lombok.version>
-		<java.version>1.8</java.version>
+		<javaVersion>1.8</javaVersion>
 		<javax.mail-api.version>1.5.6</javax.mail-api.version>
 		<javax.mail.version>1.6.2</javax.mail.version>
 		<jsch.version>0.1.54</jsch.version>

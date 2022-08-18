@@ -2,25 +2,20 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>tw.idv.hunterchen.maven</groupId>
-		<artifactId>dependencies</artifactId>
+		<groupId>tw.idv.hunterchen.demoWebApp</groupId>
+		<artifactId>root</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-
-	<groupId>tw.idv.hunterchen.persistence</groupId>
-	<artifactId>mybatis</artifactId>
+	<artifactId>persistence</artifactId>
 	<packaging>jar</packaging>
 
+	<!-- 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
-
-		<junit.version>4.12</junit.version>
-		<MySQL.version>8.0.21</MySQL.version>
-		<MyBatis.version>3.4.6</MyBatis.version>
-		<lombok.version>1.18.22</lombok.version>
 	</properties>
+	-->
 
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->

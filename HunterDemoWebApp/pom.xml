@@ -5,39 +5,74 @@
 	<artifactId>root</artifactId>
 	<version>${revision}-${changelist}</version>
 	<packaging>pom</packaging>
-	
+
+	<description>
+		${basedir}
+		${project.baseUri}
+		${maven.build.timestamp}
+		${java.version}
+	</description>
+
 	<properties>
 		<revision>0.0.1</revision>
 		<changelist>SNAPSHOT</changelist>
-		<common.version>${project.version}</common.version>
+
 		<!-- 依主題分組、依字母排序 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+
+		<!-- 解決: maven update 會將 JRE 版本還原到 1.5 -->
+		<java.version>1.8</java.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
-		<java.version>1.8</java.version>
+
 	</properties>
-	
+
+	<!-- 
+	-->
+	<modules>
+		<module>dependency</module>
+		<module>persistence</module>
+		<module>web</module>
+	</modules>
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>common</artifactId>
-				<version>${common.version}</version>
+				<artifactId>dependency</artifactId>
+				<version>${project.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-	
-	<modules>
-		<module>common</module>
-		<module>model</module>
-		<module>web</module>
-	</modules>
-	
-<!-- 
+
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+
+		<!-- Slf4j + Log4j -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+		</dependency>
+	</dependencies>
+	<!-- 
 	<profiles>
 		<profile>
 			<id>common</id>
