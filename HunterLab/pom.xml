@@ -3,9 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>tw.idv.hunterchen.maven</groupId>
-		<artifactId>dependencies</artifactId>
+		<groupId>tw.idv.hunterchen</groupId>
+		<artifactId>dependency</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../HunterDependency</relativePath>
 	</parent>
 
 	<groupId>tw.idv.hunterchen.lab</groupId>

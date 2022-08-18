@@ -15,33 +15,20 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Ex_NetworkInterface {
 	
-	public static void showAllNIC(String[] args) {
+	public static void showAllNIC() {
 		Enumeration<NetworkInterface> niList=null;
 		try {
 			niList = NetworkInterface.getNetworkInterfaces();
 		} catch (SocketException e) {
 			e.printStackTrace();
 		}
-		Iterator<NetworkInterface> iterator = niList.asIterator();
-		iterator.forEachRemaining(ni->{
-			log.info("{}:{}", ni.getIndex(), ni.toString());
-		});
 		
-		
+		while(niList.hasMoreElements()) {
+			NetworkInterface lNextElement = niList.nextElement();
+			log.info("{}:{}", lNextElement.getIndex(), lNextElement.toString());
+		}
 	}
 	public static void main(String[] args) {
-		Enumeration<NetworkInterface> niList=null;
-		try {
-			niList = NetworkInterface.getNetworkInterfaces();
-		} catch (SocketException e) {
-			e.printStackTrace();
-		}
-		Iterator<NetworkInterface> iterator = niList.asIterator();
-		iterator.forEachRemaining(ni->{
-			log.info("{}:{}", ni.getIndex(), ni.toString());
-		});
-		
-	
+		showAllNIC();
 	}
-
 }
