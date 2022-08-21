@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-//@ComponentScan(basePackages="tw.idv.hunterchen.springboot")
+//@ComponentScan(basePackages="tw.idv.hunterchen")
 public class SimpleWebApplication {
 
 	public static void main(String[] args) {

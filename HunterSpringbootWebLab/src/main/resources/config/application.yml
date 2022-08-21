@@ -1,12 +1,35 @@
+# ref v2.x https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html#appendix.application-properties
 spring:
+  application:
+    name: springbootDemoWeb
   profiles:
-    active:
-      - testyml
-company:
-  name: New Subway PC Studio in common block in application.yml
+    default: default
+    active: dev
+server:
+  port: 8080
+  tomcat:
+    session-timeout: 30
+
 ---
 spring:
-  profiles:
-    active:
-company:
-  name: New Subway PC Studio in test block in application.yml
+  profile: default    
+
+---
+spring:
+  profile: dev
+  application:
+    name: springbootDemoWeb on DEV mode
+  banner:
+    charset: UTF-8
+    location: classpath:hunterBanner.txt
+    
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/labdb
+    username: developer
+    password: developer
+server:
+  port: 9090
+  tomcat:
+    session-timeout: 30
+

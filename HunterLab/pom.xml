@@ -2,21 +2,33 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>tw.idv.hunterchen</groupId>
-		<artifactId>dependency</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../HunterDependency</relativePath>
-	</parent>
-
 	<groupId>tw.idv.hunterchen.lab</groupId>
 	<artifactId>test</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<properties></properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 
-	<!-- MBH -->
-	<description></description>
+		<!-- 解決: maven update 會將 JRE 版本還原到 1.5 -->
+		<java.version>1.8</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>tw.idv.hunterchen</groupId>
+				<artifactId>dependency</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<dependencies>
 		<dependency>
@@ -91,7 +103,7 @@
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
 		</dependency>
-		
+
 	</dependencies>
 
 	<build>

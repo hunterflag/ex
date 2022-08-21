@@ -1,4 +1,4 @@
-package tw.idv.hunterchen.api;
+package tw.idv.hunterchen.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,4 +1,4 @@
-package tw.idv.hunterchen.api;
+package tw.idv.hunterchen.controller;
 
 import java.util.Locale;
 
@@ -14,15 +14,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
 import tw.idv.hunterchen.persistence.model.AppConfigModel;
+import tw.idv.hunterchen.service.IndexService;
 import tw.idv.hunterchen.service.TestService;
 import tw.idv.hunterchen.persistence.mapper.AppConfigMapper;
 import tw.idv.hunterchen.utility.DevTool;
 
 @RestController
+@RequestMapping("/")
 @PropertySource(value="classpath:IndexController.properties")
 @Slf4j
 public class IndexController {
-//	@Value("${spring.application.name}")
 	@Value("${app.info.author}")
 	private String appName;
 	
@@ -30,8 +31,7 @@ public class IndexController {
 	IndexService service;	
 	TestService testService = new TestService();	
 	
-	@RequestMapping(value={"/", "/hello"})
-//	@ResponseBody
+	@RequestMapping(value={"/hello"})
 	public String index(
 				  @RequestParam(defaultValue = "none") 	String name
 				, @RequestHeader("Accept-Language") 	String acceptLanguage
@@ -39,7 +39,6 @@ public class IndexController {
 			) {
 		log.info("\n<=MBH=> Hello, 我收到了! \n {} and {} ", name, appName);
 		
-//		TODO AppConfigMapper appConfigMapper = new AppConfigMapper();
 		AppConfigModel appConfigModel;
 		
 		log.info("\n<=MBH=> 從 service 取得 {} ", service.getMyAuthor());

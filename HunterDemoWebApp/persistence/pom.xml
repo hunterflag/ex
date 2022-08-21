@@ -9,15 +9,6 @@
 	<artifactId>persistence</artifactId>
 	<packaging>jar</packaging>
 
-	<!-- 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<java.version>1.8</java.version>
-	</properties>
-	-->
-
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>

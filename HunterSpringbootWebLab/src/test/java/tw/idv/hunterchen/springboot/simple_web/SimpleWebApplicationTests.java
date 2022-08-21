@@ -16,7 +16,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import lombok.extern.slf4j.Slf4j;
-import tw.idv.hunterchen.api.IndexController;
+import tw.idv.hunterchen.controller.IndexController;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
