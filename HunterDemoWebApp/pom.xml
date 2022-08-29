@@ -8,7 +8,10 @@
 
 	<description>
 		${basedir}
+		${project.basedir}
+		${project.baseDir}
 		${project.baseUri}
+		${baseUri}
 		${maven.build.timestamp}
 		${java.version}
 	</description>

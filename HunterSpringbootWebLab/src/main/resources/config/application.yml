@@ -1,15 +1,23 @@
+---
 # ref v2.x https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html#appendix.application-properties
 #debug: true
 spring:
   application:
     name: springbootDemoWeb
   profiles:
-    default: default
     active: dev
+#    default: default
+#    include: common2,common1
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/labdb
+    username: developer
+    password: developer
   servlet:
     context-path: demo
   banner:
     charset: UTF-8
+    location: classpath:config/banner/defaultBanner.txt
 server:
   port: 8080
   servlet:
@@ -19,30 +27,30 @@ server:
 app:
   banner: Hunter's banner for SpringBoot
 developer:
-  name: Hunter Chen
+  name: main common Hunter Chen
   mail: hunterflag@gmail.com
   mobile: +886 918 367 286
----
-spring:
-  profile: default    
-  banner:
-    location: classpath:config/banner/hunterBanner.txt
-
+...
 ---
 spring:
   profile: dev
   application:
     name: springbootDemoWeb on DEV mode
-  banner:
-    location: classpath:config/banner/devBanner.txt
-    
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/labdb
-    username: developer
-    password: developer
+#  banner:
+#    location: classpath:config/banner/devBanner.txt
 server:
   port: 9090
-  tomcat:
-    session-timeout: 30
-
+developer:
+  name: main dev Hunter Chen
+...
+---
+spring:
+  profile: default    
+#  banner:
+#    location: classpath:config/banner/devBanner.txt
+developer:
+  name: main default Hunter Chen
+  mail: hunterflag@gmail.com
+  mobile: +886 918 367 286
+---
+...

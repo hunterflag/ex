@@ -1,0 +1,26 @@
+server:
+  port: 6060
+developer:
+  name: common2 common Hunter Chen
+  mail: hunterflag@gmail.com
+  mobile: +886 918 367 286
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/labdb
+    username: developer
+    password: developer
+---
+spring:
+  profile: dev
+  application:
+    name: springbootDemoWeb on DEV mode
+developer:
+  name: common2 dev Hunter Chen
+...
+---
+spring:
+  profile: default
+developer:
+  name: common2 default Hunter Chen
+...  
