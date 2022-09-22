@@ -4,8 +4,8 @@
 spring:
   application:
     name: springbootDemoWeb
-  profiles:
-    active: dev
+#  profiles:
+#    active: dev
 #    default: default
 #    include: common2,common1
   datasource:
@@ -13,8 +13,6 @@ spring:
     url: jdbc:mysql://localhost:3306/labdb
     username: developer
     password: developer
-  servlet:
-    context-path: demo
   banner:
     charset: UTF-8
     location: classpath:config/banner/defaultBanner.txt
@@ -23,11 +21,22 @@ server:
   servlet:
     session:
       timeout: 30  
+    contextPath: /demoyml
 
 app:
   banner: Hunter's banner for SpringBoot
 developer:
-  name: main common Hunter Chen
+  name: main common Hunter Chen ${spring.application.name}
+  mail: hunterflag@gmail.com
+  mobile: +886 918 367 286
+...
+---
+spring:
+  profile: default    
+  banner:
+    location: classpath:config/banner/devBanner.txt
+developer:
+  name: main default Hunter Chen ${spring.application.name}
   mail: hunterflag@gmail.com
   mobile: +886 918 367 286
 ...
@@ -38,19 +47,11 @@ spring:
     name: springbootDemoWeb on DEV mode
 #  banner:
 #    location: classpath:config/banner/devBanner.txt
+  config:
+    import: classpath:config/application-common1.yml
+
 server:
   port: 9090
 developer:
-  name: main dev Hunter Chen
-...
----
-spring:
-  profile: default    
-#  banner:
-#    location: classpath:config/banner/devBanner.txt
-developer:
-  name: main default Hunter Chen
-  mail: hunterflag@gmail.com
-  mobile: +886 918 367 286
----
+  name: main dev Hunter Chen ${spring.application.name}
 ...

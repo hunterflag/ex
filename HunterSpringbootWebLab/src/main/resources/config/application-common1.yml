@@ -1,2 +1,5 @@
 server:
-  port: 7070
+  port: 3030
+  servlet:
+    contextPath: /common1
+  
