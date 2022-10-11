@@ -10,14 +10,23 @@
 	 	可同時使用, 但有順序要求 
 	 -->
 	<typeAliases>
+		<typeAlias alias="AccountModel"	type="tw.idv.hunterchen.persistence.model.AccountModel" />
+
 		<!-- a.個別命名法 
 		<typeAlias alias="Member" 		type="tw.idv.hunterchen.persistence.model.Member" />
+<<<<<<< HEAD:HunterDemoWebApp/persistence/src/main/resources/config/MyBatisConfig.xml
 		<typeAlias alias="AccountModel" 	type="tw.idv.hunterchen.persistence.model.AccountModel" />
 		-->
 		
 		<typeAlias alias="UserModel"		type="tw.idv.hunterchen.persistence.model.UserModel" />
 		<typeAlias alias="AppConfigModel" 	type="tw.idv.hunterchen.persistence.model.AppConfigModel" />
 		
+=======
+		<typeAlias alias="UserModel"	type="tw.idv.hunterchen.persistence.model.UserModel" />
+		<typeAlias alias="AppConfigModel" 	type="tw.idv.hunterchen.persistence.model.AppConfigModel" />
+		-->
+
+>>>>>>> origin/master:MyBatis_maven/src/main/resources/config/MyBatisConfig.xml
 		<!-- b.統一套件法 
 		<package name="tw.idv.hunterchen.persistence.modelB"/>
 		<package name="tw.idv.hunterchen.persistence.mapper"/>
@@ -30,7 +39,7 @@
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
 				<property name="driver" 	value="com.mysql.cj.jdbc.Driver" />
-				<property name="url" 		value="jdbc:mysql://localhost:3306/labDB?serverTimezone=UTC" />
+				<property name="url" 		value="jdbc:mysql://localhost:3306/lab_db?serverTimezone=UTC" />
 				<property name="username" 	value="developer" />
 				<property name="password" 	value="developer" />
 			</dataSource>
@@ -40,25 +49,26 @@
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
 				<property name="driver" 	value="com.mysql.cj.jdbc.Driver" />
-				<property name="url" 		value="jdbc:mysql://192.168.100.195:3306/labDB" />
+				<property name="url" 		value="jdbc:mysql://192.168.100.195:3306/lab_db" />
 				<property name="username" 	value="hunter" />
 				<property name="password" 	value="hunter" />
 			</dataSource>
 		</environment>
 
-		<!-- JNDI mybatis 环境的配置 -->
+		<!-- JNDI mybatis 环境的配置 
 		<environment id="jndiLocalhostMysql">
 			<transactionManager type="JDBC"></transactionManager>
 			<dataSource type="JNDI">
 				<property name="data_source" value="java:comp/env/jdbc/ssm" />
+			</dataSource>
+		</environment>
+		-->
 				<!-- 
 					name="data_source" 是固定的 keyword  
 					value="java:comp/env/jdbc/ssm" 中,
 						java:comp/env/ 是固定寫法, 
 						jdbc/ssm 則是 數據源名稱, 必須與 定義區的名稱 一致
 				-->
-			</dataSource>
-		</environment>
 	</environments>
 
 	<!-- 映射區 : 
@@ -71,10 +81,11 @@
 		<!-- 寫法.a. 逐一表列每個 XxxMapper.xml 
 			根路徑為 classpath
 			根路徑實際位置: 專案資料夾/src/main/java/  
+		<mapper	resource="tw/idv/hunterchen/persistence/mapper/AppConfigMapper.xml" />
+		<mapper	resource="tw/idv/hunterchen/persistence/mapper/UserMapper.xml" />
 		-->
 
-		<mapper	resource="tw/idv/hunterchen/persistence/mapper/UserMapper.xml" />
-		<mapper	resource="tw/idv/hunterchen/persistence/mapper/AppConfigMapper.xml" />
+		<mapper	resource="tw/idv/hunterchen/persistence/mapper/AccountMapper.xml" />
 		
 		<!-- 寫法.b. 說明擁有 XxxMapper.java 的套件
 			會自動掃描該套件下的 class, 

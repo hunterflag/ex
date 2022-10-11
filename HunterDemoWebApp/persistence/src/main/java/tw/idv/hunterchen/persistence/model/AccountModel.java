@@ -1,30 +1,22 @@
 package tw.idv.hunterchen.persistence.model;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import lombok.RequiredArgsConstructor;
 
-@Slf4j
 @Data
+@RequiredArgsConstructor
 public class AccountModel {
 	private Integer id;
-	private String name;
-	private String password;
-	private Boolean deletedFlag;
-	private Boolean modifiableFlag;
-	private Date createdTime;
+	private final String name;
+	private final String password;
+	private Timestamp createdTime;
 	private Timestamp modifiedTime;
-
-	public AccountModel(String name) {
-		this.name		= name;
-		this.password 	= name;
-//		new AccountModel(name, name); 	// 建構式不能像一般方法的疊套使用, 因為此時還沒建立物件, 所以自然也沒有建構這個方法也不存在
-	};
+	/*
 	public AccountModel(String name, String password) {
-		this.name		= name;
-		this.password 	= password;
+		this.name = name;
+		this.password=password;
 	};
+	*/
 }

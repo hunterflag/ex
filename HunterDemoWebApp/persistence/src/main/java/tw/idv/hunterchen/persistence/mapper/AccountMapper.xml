@@ -2,33 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="tw.idv.hunterchen.lab.mapper.AccountMapper">
-	<insert id="addNewAccountByName" parameterType="String">
-		INSERT INTO `account` (name, password) 
-		VALUES (#{name}, #{password})
-    </insert>
-    
-	<select id="getAccountById" parameterType="int" resultType="AccountModel">
-		SELECT * 
-		FROM `account` 
-		WHERE id = #{id}
+<mapper namespace="tw.idv.hunterchen.persistence.mapper.AccountMapper">
+	<insert id="insert" parameterType="tw.idv.hunterchen.persistence.model.AccountModel">
+		INSERT INTO account (name, password) VALUES (name, password) ;
+	</insert>
+	
+	<insert id="insert" parameterType="tw.idv.hunterchen.persistence.model.AccountModel">
+		INSERT INTO account (name, password) VALUES (name, password) ;
+	</insert>
+	
+	<select id="selectAll" resultType="AccountModel">
+		SELECT * FROM `account`;
+    </select>
+	<select id="selectOneById" parameterType="Integer" resultType="AccountModel">
+		SELECT * FROM `account` WHERE id = #{id} ;
+    </select>
+	<select id="selectOneByName" parameterType="String" resultType="AccountModel">
+		SELECT * FROM `account` WHERE name = #{name} ;
     </select>
     
-    <select id="getAccountByName" parameterType="String" resultType="AccountModel">
-		SELECT * 
-		FROM `account` 
-		WHERE name = #{name}
-    </select>
-
-    <update id="updatePasswordByName" parameterType="String">
-		UPDATE `account` \
-		SET password = #{password} 
-		WHERE name = #{name}
-    </update>
-    
-    <delete id="deleteAccountByName">
-    	DELETE 'account' 
-    	WHERE = #{name}
+    <delete id="deleteOneByName" parameterType="String" returnType="Integer">
+    	DELETE FROM account WHERE name= #{name} ;
     </delete>
-    
 </mapper>
