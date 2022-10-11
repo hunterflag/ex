@@ -3,12 +3,24 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="tw.idv.hunterchen.persistence.mapper.AccountMapper">
-	<insert id="insert" parameterType="tw.idv.hunterchen.persistence.model.AccountModel">
-		INSERT INTO account (name, password) VALUES (name, password) ;
+	<!-- 
+	<insert id="insert" 
+			parameterType="tw.idv.hunterchen.persistence.model.AccountModel"
+			useGeneratedKeys="true"
+			keyColumn="id"
+			keyProperty="id"
+			>
+		INSERT INTO account (name, password) VALUES (#{name}, #{password}) ;
 	</insert>
+	 -->
 	
-	<insert id="insert" parameterType="tw.idv.hunterchen.persistence.model.AccountModel">
-		INSERT INTO account (name, password) VALUES (name, password) ;
+	<insert id="insert" 
+			parameterType="tw.idv.hunterchen.persistence.model.AccountModel"
+			useGeneratedKeys="true"
+			keyColumn="id"
+			keyProperty="id"
+			>
+		INSERT INTO account (name, password) VALUES (#{name}, #{password}) ;
 	</insert>
 	
 	<select id="selectAll" resultType="AccountModel">
@@ -21,7 +33,9 @@
 		SELECT * FROM `account` WHERE name = #{name} ;
     </select>
     
+    <!-- 
     <delete id="deleteOneByName" parameterType="String" returnType="Integer">
     	DELETE FROM account WHERE name= #{name} ;
     </delete>
+     -->
 </mapper>

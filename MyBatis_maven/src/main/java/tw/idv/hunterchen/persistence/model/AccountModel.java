@@ -2,10 +2,12 @@ package tw.idv.hunterchen.persistence.model;
 
 import java.sql.Timestamp;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 @Data
+@AllArgsConstructor
 @RequiredArgsConstructor
 public class AccountModel {
 	private Integer id;

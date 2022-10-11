@@ -53,9 +53,10 @@ public class AccountMapperTest {
 	
 	@Test
 	public void insertTest() {
+		log.info("insertTest()");
 		String name = "test";
 		String password = "test";
-		accountMapper.insert(name, password);
+//		accountMapper.insert(name, password);
 		
 		name = "test1";
 		password = "test1";
