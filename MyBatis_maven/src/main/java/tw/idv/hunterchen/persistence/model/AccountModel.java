@@ -4,15 +4,17 @@ import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @Data
 @AllArgsConstructor
-@RequiredArgsConstructor
+@NoArgsConstructor
+//@RequiredArgsConstructor
 public class AccountModel {
 	private Integer id;
-	private final String name;
-	private final String password;
+	private String name="";
+	private String password="1234";
 	private Timestamp createdTime;
 	private Timestamp modifiedTime;
 	/*

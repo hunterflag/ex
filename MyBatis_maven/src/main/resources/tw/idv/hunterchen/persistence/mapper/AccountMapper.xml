@@ -18,18 +18,22 @@
 			parameterType="tw.idv.hunterchen.persistence.model.AccountModel"
 			useGeneratedKeys="true"
 			keyColumn="id"
-			keyProperty="id"
-			>
-		INSERT INTO account (name, password) VALUES (#{name}, #{password}) ;
+			keyProperty="id" >
+		INSERT INTO `account` (name, password) VALUES (#{name}, #{password}) ;
 	</insert>
 	
-	<select id="selectAll" resultType="AccountModel">
+	<select id="selectAll" 
+			resultType="tw.idv.hunterchen.persistence.model.AccountModel">
 		SELECT * FROM `account`;
     </select>
-	<select id="selectOneById" parameterType="Integer" resultType="AccountModel">
+	<select id="selectOneById" 
+			parameterType="java.lang.Integer" 
+			resultType="tw.idv.hunterchen.persistence.model.AccountModel">
 		SELECT * FROM `account` WHERE id = #{id} ;
     </select>
-	<select id="selectOneByName" parameterType="String" resultType="AccountModel">
+	<select id="selectOneByName" 
+			parameterType="java.lang.String" 
+			resultType="tw.idv.hunterchen.persistence.model.AccountModel">
 		SELECT * FROM `account` WHERE name = #{name} ;
     </select>
     

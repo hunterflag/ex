@@ -40,7 +40,7 @@ public class AccountMapperTest {
 			e.printStackTrace();
 		}
 
-		if (sqlSessionFactory != null) sqlSession = sqlSessionFactory.openSession();			
+		if (sqlSessionFactory != null) sqlSession = sqlSessionFactory.openSession(true);			
 	}
 
 	@Before
@@ -58,10 +58,15 @@ public class AccountMapperTest {
 		String password = "test";
 //		accountMapper.insert(name, password);
 		
-		name = "test1";
-		password = "test1";
-		AccountModel accountModel = new AccountModel(name, password);
+		name = "test11";
+		password = "test11";
+		AccountModel accountModel = new AccountModel();
+		accountModel.setName(name);
+		accountModel.setPassword(password);
+		
+		log.info(accountModel.toString());
 		accountMapper.insert(accountModel);
+		log.info(accountModel.toString());
 	}
 	
 	@Test
@@ -72,19 +77,32 @@ public class AccountMapperTest {
 			log.info("size={}", accountModels.size());			
 			
 			accountModels.forEach((accountModel) -> {
-				log.info("\n\tid={}\n\tname={}\n\tpassword={}\n\tcreatedTime={}\n\tmodiifiedTime={}"
-						, accountModel.getId()
-						, accountModel.getName() 
-						, accountModel.getPassword() 
-						, accountModel.getCreatedTime() .toLocalDateTime()
-						, accountModel.getModifiedTime().toLocaleString()
-						);	
+				log.info(accountModel.toString());
+//				showModelDetail(accountModel);
 			});
 		
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test
+	public void selectOneByNameTest() {
+		log.info("selectOneByNameTest");
+		log.info(accountMapper.selectOneByName("developer").toString());
+	}
+
+	public void showModelDetail(AccountModel accountModel) {
+		log.info("\n\tid={}\n\tname={}\n\tpassword={}\n\tcreatedTime={}\n\tmodiifiedTime={}"
+				, accountModel.getId()
+				, accountModel.getName() 
+				, accountModel.getPassword() 
+				, accountModel.getCreatedTime() .toLocalDateTime()
+				, accountModel.getModifiedTime().toLocaleString()
+				);	
+	}
+
+	
 	
 	@After
 	public void afterTest() {

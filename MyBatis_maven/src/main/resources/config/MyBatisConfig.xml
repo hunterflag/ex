@@ -13,13 +13,13 @@
 		<typeAlias alias="AccountModel"	type="tw.idv.hunterchen.persistence.model.AccountModel" />
 
 		<!-- a.個別命名法 
-		<typeAlias alias="Member" 		type="tw.idv.hunterchen.persistence.model.Member" />
-		<typeAlias alias="UserModel"	type="tw.idv.hunterchen.persistence.model.UserModel" />
+		<typeAlias alias="Member" 			type="tw.idv.hunterchen.persistence.model.Member" />
+		<typeAlias alias="UserModel"		type="tw.idv.hunterchen.persistence.model.UserModel" />
 		<typeAlias alias="AppConfigModel" 	type="tw.idv.hunterchen.persistence.model.AppConfigModel" />
 		-->
 
 		<!-- b.統一套件法 
-		<package name="tw.idv.hunterchen.persistence.modelB"/>
+		<package name="tw.idv.hunterchen.persistence.model"/>
 		<package name="tw.idv.hunterchen.persistence.mapper"/>
 		-->	
 		<package name="tw.idv.hunterchen.persistence.model"/>
@@ -73,9 +73,9 @@
 			根路徑為 classpath
 			根路徑實際位置: 專案資料夾/src/main/java/  
 		<mapper	resource="tw/idv/hunterchen/persistence/mapper/AppConfigMapper.xml" />
-		<mapper	resource="tw/idv/hunterchen/persistence/mapper/UserMapper.xml" />
 		-->
 
+		<mapper	resource="tw/idv/hunterchen/persistence/mapper/UserMapper.xml" />
 		<mapper	resource="tw/idv/hunterchen/persistence/mapper/AccountMapper.xml" />
 		
 		<!-- 寫法.b. 說明擁有 XxxMapper.java 的套件

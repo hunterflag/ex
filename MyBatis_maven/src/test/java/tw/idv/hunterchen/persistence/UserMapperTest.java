@@ -18,7 +18,10 @@ import tw.idv.hunterchen.persistence.model.UserModel;
 
 @Slf4j
 public class UserMapperTest {
-	private static SqlSessionFactory sqlSessionFactory;
+	private static SqlSessionFactory mSqlSessionFactory;
+	private static SqlSession mSqlSession;
+	private static UserMapper mUserMapper = mSqlSession.getMapper(UserMapper.class);
+	
 	@BeforeClass
 	public static void beforeClass() {
 		log.info("");
@@ -29,7 +32,9 @@ public class UserMapperTest {
 			 * FQDN: "/mybatis/src/main/resources/config/MyBatisConfig.xml"
 			 */
 			Reader reader = Resources.getResourceAsReader("./config/MyBatisConfig.xml");
-			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+			mSqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+			mSqlSession = mSqlSessionFactory.openSession();
+			mUserMapper = mSqlSession.getMapper(UserMapper.class);
 			reader.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -38,10 +43,8 @@ public class UserMapperTest {
 	}
 	@Test
 	public void selectAllTest() {
-		log.info("");
-		SqlSession sqlSession = sqlSessionFactory.openSession();
-		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-		List<UserModel> userModels = userMapper.selectAll();
+		log.info("selectAllTest()");
+		List<UserModel> userModels = mUserMapper.selectAll();
 		log.info("size={}", userModels.size());
 		userModels.forEach((userModel) -> {
 			log.info("\n\tid={}\n\tname={}"
@@ -50,10 +53,17 @@ public class UserMapperTest {
 					);
 		});
 	}
+	
+	@Test
+	public void insertTest() {
+		log.info("insertTest()");
+		mUserMapper.insert("Hunter");
+		
+	}
 
 	@AfterClass
 	public static void afterClass() {
-		log.info("");
+		log.info("afterClass()");
 //		sqlSessionFactory.get
 	}
 
