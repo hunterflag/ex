@@ -1,0 +1,40 @@
+spring:
+  profiles:
+    active: "dev"
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    username: guest
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+  port: 8080
+  servlet:
+    session:
+      timeout: 1800
+    application-display-name: default 
+
+---
+spring:
+  config:
+    activate:
+      on-profile: "dev"
+  
+server:
+  port: 8090
+  servlet:
+    application-display-name: dev 
+
+name: dev.hunterchen.idv.tw
+
+---
+spring:
+  config:
+    activate:
+      on-profile: "test"
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    username: developer
+    password: developer
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+name: dev.hunterchen.idv.tw

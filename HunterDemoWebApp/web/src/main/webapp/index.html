@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hunter's Demo</title>
+</head>
+<body>
+	<table>
+	<tr><td>1. Hello World! 這表示 http server 正常運作!
+	<tr><td>2. 試試 Servlet 
+		<td><a href="/IndexServlet/otherpath?account=John&password=Mary" >IndexServlet</a>
+	<tr><td>3. 試試 Servlet 用 url 傳參 (明碼)
+		<td><form action="/LoginServlet?account=John&password=Mary" method="post" >
+	  			<input type="hidden" name="account" value="Ken" /> 
+	  			<input type="hidden" name="password" value="Frank" /> 
+	  			<a onclick="this.parentNode.submit();">LoginServlet</a>
+			</form>
+	<tr><td>4. 試試 Servlet 用 form 傳參()
+		<td><form action="/LoginServlet" method="post" >
+	  			<input type="hidden" name="account" value="Ken" /> 
+	  			<input type="hidden" name="password" value="Frank" /> 
+	  			<a onclick="this.parentNode.submit();">LoginServlet</a>
+			</form>
+	</table>
+</body>
+</html>

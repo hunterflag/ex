@@ -1,0 +1,37 @@
+{"properties": [
+  {
+    "name": "company.name",
+    "type": "java.lang.String",
+    "description": "A description for 'company.name'"
+  },
+  {
+    "name": "spring.servlet.context-path",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.servlet.context-path'"
+  },
+  {
+    "name": "spring.profile",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.profile'"
+  },
+  {
+    "name": "developer.name",
+    "type": "java.lang.String",
+    "description": "A description for 'developer.name'"
+  },
+  {
+    "name": "developer.mail",
+    "type": "java.lang.String",
+    "description": "A description for 'developer.mail'"
+  },
+  {
+    "name": "developer.mobile",
+    "type": "java.lang.String",
+    "description": "A description for 'developer.mobile'"
+  },
+  {
+    "name": "app.banner",
+    "type": "java.lang.String",
+    "description": "A description for 'app.banner'"
+  }
+]}
