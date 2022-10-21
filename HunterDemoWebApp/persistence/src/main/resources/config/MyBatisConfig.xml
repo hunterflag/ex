@@ -14,19 +14,12 @@
 
 		<!-- a.個別命名法 
 		<typeAlias alias="Member" 		type="tw.idv.hunterchen.persistence.model.Member" />
-<<<<<<< HEAD:HunterDemoWebApp/persistence/src/main/resources/config/MyBatisConfig.xml
 		<typeAlias alias="AccountModel" 	type="tw.idv.hunterchen.persistence.model.AccountModel" />
-		-->
-		
 		<typeAlias alias="UserModel"		type="tw.idv.hunterchen.persistence.model.UserModel" />
 		<typeAlias alias="AppConfigModel" 	type="tw.idv.hunterchen.persistence.model.AppConfigModel" />
-		
-=======
-		<typeAlias alias="UserModel"	type="tw.idv.hunterchen.persistence.model.UserModel" />
-		<typeAlias alias="AppConfigModel" 	type="tw.idv.hunterchen.persistence.model.AppConfigModel" />
 		-->
-
->>>>>>> origin/master:MyBatis_maven/src/main/resources/config/MyBatisConfig.xml
+		
+		
 		<!-- b.統一套件法 
 		<package name="tw.idv.hunterchen.persistence.modelB"/>
 		<package name="tw.idv.hunterchen.persistence.mapper"/>
