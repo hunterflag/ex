@@ -92,6 +92,7 @@ public class AccountMapperTest {
 		log.info(accountMapper.selectOneByName("developer").toString());
 	}
 
+	@SuppressWarnings("deprecation")
 	public void showModelDetail(AccountModel accountModel) {
 		log.info("\n\tid={}\n\tname={}\n\tpassword={}\n\tcreatedTime={}\n\tmodiifiedTime={}"
 				, accountModel.getId()
