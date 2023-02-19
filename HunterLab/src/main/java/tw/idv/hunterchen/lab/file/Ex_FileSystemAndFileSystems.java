@@ -16,11 +16,11 @@ public class Ex_FileSystemAndFileSystems {
 	public static void main(String[] args) throws URISyntaxException{
 		FileSystem fileSystem;
 
-		DevTool.showMessages( StringTool.genDivider("|=>", 10)
-				, "使用 FileSystems 取得預設檔案系統"
-				, "getDefault()"
-				, String.valueOf(fileSystem = FileSystems.getDefault())
-				);
+		DevTool.showMessages(	StringTool.genDivider("|=>", 10)
+							  , "使用 FileSystems 取得預設檔案系統"
+							  , "getDefault()"
+							  , String.valueOf(fileSystem = FileSystems.getDefault())
+							);
 		showFileSystem(fileSystem);
 		showFileStores(fileSystem);
 		
@@ -45,7 +45,7 @@ public class Ex_FileSystemAndFileSystems {
 		DevTool.showMessages("取出所有根path",	"getRootDirectories()", String.valueOf(fileSystem.getRootDirectories()));
 		DevTool.showMessages("","", fileSystem.getSeparator());
 		DevTool.showMessages("","", fileSystem.getPath(".").toAbsolutePath().toString());
-	
+
 	}
 	
 	private static void showFileStores(FileSystem fileSystem) {

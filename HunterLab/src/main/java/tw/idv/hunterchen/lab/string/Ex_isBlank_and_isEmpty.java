@@ -2,7 +2,7 @@ package tw.idv.hunterchen.lab.string;
 
 import tw.idv.hunterchen.utility.DevTool;
 
-public class IsBlankVsIsEmpty {
+public class Ex_isBlank_and_isEmpty {
 	/*
 	 * isEmpty(): true = length=0  ""
 	 * isBlank(): true = length=0  "" 或 white space 都算  java 11 才有
