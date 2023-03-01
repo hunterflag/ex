@@ -3,6 +3,8 @@ package tw.idv.hunterchen.utility;
 import java.nio.charset.Charset;
 import java.util.Random;
 
+import javax.naming.directory.DirContext;
+
 import lombok.extern.slf4j.Slf4j;
 import nl.flotsam.xeger.Xeger;
 
@@ -28,4 +30,50 @@ public class StringUtil {
 		log.info("generatedString={}", result);
 		return result;
 	}
+	/**
+	 * 
+	 * @param originString		
+	 * @param paddedString		用來填充用的字串, 預設為半形空白字元
+	 * @param expectedLength	填補後的總長度
+	 * @param direction			
+	 * @return					填補後的字串
+	 * @since 2023-03-01
+	 * @author Hunter Chen
+	 */
+	public static String padding(String originString, String paddedString, Integer expectedLength, PaddingDirection direction) {
+		originString = (originString == null || originString.isEmpty()) ? "" : originString;
+		paddedString = (paddedString == null || paddedString.isEmpty()) ? " " : paddedString;
+		expectedLength = (expectedLength == null || expectedLength < 0 ) ? 8 : expectedLength;
+		direction = (direction == null) ? PaddingDirection.RIGHT : direction;
+		
+		String result=originString;
+		String appendString="";
+		// 不須處理的情況
+		if (originString.length() >= expectedLength) {	
+			//appendString = originString;
+		} else {
+			int quotient = (expectedLength-originString.length()) / paddedString.length();
+			int remainder = (expectedLength-originString.length()) % paddedString.length(); 
+			
+			for (int i=0; i<quotient; i++) {
+				appendString += paddedString;
+			}
+
+			char[] paddedChar = paddedString.toCharArray();
+			for (int i=0; i<remainder; i++) {
+				appendString += paddedChar[i];
+			}
+		}
+
+		if(direction==PaddingDirection.RIGHT) {
+			result = originString + appendString;
+		} else {
+			result = appendString + originString;
+		}
+		
+		log.info("generatedString= {}", result);
+		return result;
+	}
+	
+	
 }
