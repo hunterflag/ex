@@ -30,13 +30,15 @@ public class StringUtilTest {
 	@Test
 	public void paddingTest() {		
 		assertEquals("        ", StringUtil.padding(null, null, null, null));
-		assertEquals("00000123", StringUtil.padding("123", "0", null, PaddingDirection.LEFT));
 		assertEquals("abc     ", StringUtil.padding("abc", null, null, null));
 		assertEquals("abc_____", StringUtil.padding("abc", "_", null, null));
 		assertEquals("abcdeded", StringUtil.padding("abc", "de", null, null));
+		assertEquals("00000123", StringUtil.padding("123", "0", null, PaddingDirection.LEFT));
+		assertEquals("dededabc", StringUtil.padding("abc", "de", null, PaddingDirection.LEFT));
 		assertEquals("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890", 
-						StringUtil.padding(null, "1234567890", 100, null));
-		assertEquals("====================", StringUtil.padding(null, "=", 20, null));
+				StringUtil.padding(null, "1234567890", 100, null));
+		assertEquals("====================", 
+				StringUtil.padding(null, "=", 20, null));
 	}
 	
 	@Before

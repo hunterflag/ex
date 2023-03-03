@@ -33,17 +33,22 @@ public class StringUtil {
 	/**
 	 * 
 	 * @param originString		
-	 * @param paddedString		用來填充用的字串, 預設為半形空白字元
+	 * @param paddingString		用來填充用的字串, 預設為半形空白字元
 	 * @param expectedLength	填補後的總長度
 	 * @param direction			
 	 * @return					填補後的字串
 	 * @since 2023-03-01
 	 * @author Hunter Chen
 	 */
-	public static String padding(String originString, String paddedString, Integer expectedLength, PaddingDirection direction) {
-		originString = (originString == null || originString.isEmpty()) ? "" : originString;
-		paddedString = (paddedString == null || paddedString.isEmpty()) ? " " : paddedString;
-		expectedLength = (expectedLength == null || expectedLength < 0 ) ? 8 : expectedLength;
+	public static String padding(String originString, 
+								 String paddingString, 
+								 Integer expectedLength, 
+								 PaddingDirection direction) 
+	{
+		// 值檢、預設值
+		originString   = (originString == null || originString.isEmpty())   ? "" : originString;
+		paddingString  = (paddingString == null || paddingString.isEmpty()) ? " " : paddingString;
+		expectedLength = (expectedLength == null || expectedLength <= 0 )   ? 8 : expectedLength;
 		direction = (direction == null) ? PaddingDirection.RIGHT : direction;
 		
 		String result=originString;
@@ -52,14 +57,14 @@ public class StringUtil {
 		if (originString.length() >= expectedLength) {	
 			//appendString = originString;
 		} else {
-			int quotient = (expectedLength-originString.length()) / paddedString.length();
-			int remainder = (expectedLength-originString.length()) % paddedString.length(); 
+			int quotient = (expectedLength-originString.length()) / paddingString.length();
+			int remainder = (expectedLength-originString.length()) % paddingString.length(); 
 			
 			for (int i=0; i<quotient; i++) {
-				appendString += paddedString;
+				appendString += paddingString;
 			}
 
-			char[] paddedChar = paddedString.toCharArray();
+			char[] paddedChar = paddingString.toCharArray();
 			for (int i=0; i<remainder; i++) {
 				appendString += paddedChar[i];
 			}
