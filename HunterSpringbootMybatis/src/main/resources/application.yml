@@ -1,0 +1,26 @@
+#Servlet
+server:
+  port: 8080
+  #context-path: /
+  # for 2.x
+  servlet:
+    contextPath: /   
+  session:
+    timeout: 30
+  tomcat:
+    uri-encoding: UTF-8
+    #compression: off
+spring:
+  application:
+    name: Hunter's SpringBoot Web Site
+  datasource:
+    url: jdbc:mysql://localhost:3306/labdb
+    username: developer
+    password: developer
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  profiles:
+    active: default
+app:
+  info:
+  author: Hunter
+

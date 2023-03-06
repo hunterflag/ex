@@ -1,13 +1,13 @@
-package tw.idv.hunterchen.springboot.mysql_and._mybatis;
+package tw.idv.hunterchen.springboot.main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MysqlAndMybatisApplication {
+public class Main {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MysqlAndMybatisApplication.class, args);
+		SpringApplication.run(Main.class, args);
 	}
 
 }

@@ -45,8 +45,8 @@ spring:
   profile: dev
   application:
     name: springbootDemoWeb on DEV mode
-#  banner:
-#    location: classpath:config/banner/devBanner.txt
+  banner:
+    location: classpath:config/banner/devBanner.txt
   config:
     import: classpath:config/application-common1.yml
 
