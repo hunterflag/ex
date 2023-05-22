@@ -25,43 +25,62 @@ public class Ex_Exceprion {
 		return result;
 	}
 	/*
-	 * unreachable code: 走不到的程式碼
-	 * dead code: 出不去的程式碼 
+	 * unreachable code: 走不到的程式碼 (Error)
+	 * dead code: 出不去的程式碼 (Warn)
 	 * 
 	 */
 	
-	/*
-	public boolean unReachableCode1(){
-		while(true) {
-			return true;
+	public boolean unReachableCode(){
+		boolean cond=true;
+		while(cond) {
+			return true;	
 		}
+		return true;		// 執行時才會發現 unreachable; 編輯時有可能
+	}
+
+	public boolean unReachableCode10(){
+//		while(true) {
+//			return true;	
+//		}
+		return true;		// 不會走到此
+	}
+
+	public boolean unReachableCode11(){
+//		while(false) {
+//			return true;	// 不會走到此
+////		}
 		return true;
 	}
+
 	public boolean unReachableCode2(){
-		return true;
-		return false;
+//		return true;
+		return false;	// 第 2 個 return 一定走不到
 	}
 	// 拋出例外 給外層;用try-catch 自行處理
 	// test1x() 都是相同結果, 但 test11() 在語法上不被接受!
 	public boolean unReachableCode3(){
 		try {
-			throw new Exception();
+//			throw new Exception();
 		}catch(Exception ex) {
 			return false;
 		}
 		return true;
 	}
+	/*
 	*/
 	
-	public boolean deadCode(){
-		if(true) {
+	public static boolean deadCode(){
+		if(false) {
 			return true;
 		}
-		return true;
+//		if(true) {
+//			return true;
+//		}
+		return true;	// 不是 unreachable
 	}
 	
 	public static void main(String[] args) {
-
+		deadCode();
 	}
 
 }

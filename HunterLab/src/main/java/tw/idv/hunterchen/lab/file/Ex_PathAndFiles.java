@@ -195,7 +195,6 @@ public class Ex_PathAndFiles {
 		try {
 			DevTool.showMessages("檔案大小(資料夾固定為4096)", String.valueOf(Files.size(path)));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 //		DevTool.showMessages("可執行嗎?", "isExecutable()", 	String.valueOf((Files.getFileStore(path).)));

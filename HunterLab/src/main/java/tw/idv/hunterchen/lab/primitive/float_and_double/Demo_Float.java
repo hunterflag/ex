@@ -29,7 +29,6 @@ public class Demo_Float {
 	
 	public static void main(String[] args) {
 		new Demo_Float();
-		// TODO Auto-generated method stub
 
 	}
 

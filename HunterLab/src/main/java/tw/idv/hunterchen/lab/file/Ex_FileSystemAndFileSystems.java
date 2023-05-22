@@ -70,7 +70,6 @@ public class Ex_FileSystemAndFileSystems {
 			DevTool.showMessages("未配置容量",		"getUnallocatedSpace()",	NumberFormat.getNumberInstance().format(fileStore.getUnallocatedSpace()));
 			DevTool.showMessages("JVM可用容量",	"getUsableSpace()",			NumberFormat.getNumberInstance().format(fileStore.getUsableSpace()));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

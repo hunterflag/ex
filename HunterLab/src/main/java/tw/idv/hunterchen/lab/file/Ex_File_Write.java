@@ -44,7 +44,6 @@ public class Ex_File_Write {
 			bufferedWriter.close();
 			DevTool.showMessages("將", lineText, "加入", fileName, "中...");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -61,10 +60,8 @@ public class Ex_File_Write {
 			writer.println(lineText);
 			writer.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

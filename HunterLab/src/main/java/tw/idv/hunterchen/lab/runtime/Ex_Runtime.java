@@ -2,10 +2,12 @@ package tw.idv.hunterchen.lab.runtime;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.Writer;
 
 import tw.idv.hunterchen.utility.DevTool;
@@ -13,6 +15,47 @@ import tw.idv.hunterchen.utility.DevTool;
 public class Ex_Runtime {
 
 	public static void main(String[] args) {
+//		run(null);
+		run3(null);
+	}
+
+	
+	
+	static void run3(String[] args) {
+		String command="echo %CD%  %JAVA_HOME% %TESET% > test.txt";
+		String[] commands={"echo", "%CD%", "%JAVA_HOME%", "%TESET%", "> test.txt"};
+		command="d:\\temp\\sh\\test.cmd 123";	//必須是決對路徑、外部指令
+//		command="test.cmd 123";								// 非絕對路徑
+//		command="echo %CD%  %JAVA_HOME% %TESET% > test.txt";// 非外部指令
+		String envp[]= {"VAR_ENV_IN_JAVA=VAR_ENV_IN_JAVAsss"};
+		File workingDir=new File("d:\\temp\\sh");
+		
+		Process p=null;
+		OutputStream outputStream = null;
+		try {
+			p = Runtime.getRuntime().exec(command, envp, workingDir);
+//			p = Runtime.getRuntime().exec(command);
+			outputStream = p.getOutputStream();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		int i=999;
+		try {
+			i = p.waitFor();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		try {
+			outputStream.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		DevTool.showMessages("exit code = ", ""+i);
+		
+	}
+	
+	static void run(String[] args) {		
 		String commandLine = null;
 		commandLine =
 //				"echo %cd%"								// 內部指令: 這不是外部程式, 是外部程式 cmd.exe 的內部指令, 無法調用
@@ -64,7 +107,6 @@ public class Ex_Runtime {
 //			Runtime.getRuntime().exec(commandWithArgs);
 */
 		} catch (IOException | InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

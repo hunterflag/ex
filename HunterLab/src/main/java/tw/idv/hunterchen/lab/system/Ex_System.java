@@ -34,7 +34,6 @@ public class Ex_System {
 //		try {
 //			result = new File(".").getCanonicalPath();
 //		} catch (IOException e) {
-//			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
 

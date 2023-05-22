@@ -67,7 +67,6 @@ public class FileUtility {
 					      } //end of new()
 					   );
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			isClean = true;

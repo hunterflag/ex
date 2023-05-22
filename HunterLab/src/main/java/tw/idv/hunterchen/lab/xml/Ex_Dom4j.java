@@ -37,7 +37,6 @@ public class Ex_Dom4j {
 				System.out.println("============第" + (book_index) + "本結束==========");
 			}
 		} catch (DocumentException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

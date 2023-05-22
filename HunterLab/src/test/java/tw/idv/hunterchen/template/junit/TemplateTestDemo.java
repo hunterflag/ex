@@ -50,13 +50,11 @@ public class TemplateTestDemo {
 	 */
 	@BeforeClass
 	public static void beforeClass() {
-		//TODO
 		DevTool.showMessages(mDivider, "...before class", mDivider);
 	}
 	
 	@AfterClass
 	public static void afterClass() {
 		DevTool.showMessages(mDivider, "after class...", mDivider);
-		//TODO
 	}
 }

@@ -33,7 +33,6 @@ public class EX_InetAddress {
 				
 			}
 		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		log.info("本機 ip 為: {}", InetAddress.getLoopbackAddress().getHostAddress());

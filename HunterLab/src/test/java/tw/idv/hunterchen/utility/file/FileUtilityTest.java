@@ -32,7 +32,6 @@ public class FileUtilityTest {
 		try (Stream<Path> sp = Files.list(Paths.get(basePath))){
 //			Stream<Path> sp = Files.list(Paths.get(basePath));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

@@ -188,7 +188,6 @@ public class Ex_File {
 		try {
 			DevTool.showMessages("currentPath", new File(".").getCanonicalPath());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
