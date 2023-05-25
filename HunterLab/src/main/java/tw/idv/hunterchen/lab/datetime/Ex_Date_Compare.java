@@ -1,11 +1,11 @@
-package tw.idv.hunterchen.lab.time;
+package tw.idv.hunterchen.lab.datetime;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 
 import tw.idv.hunterchen.utility.DevTool;
 
-public class Ex_Time {
+public class Ex_Date_Compare {
 
 	public static void main(String[] args) {
 		DevTool.showMessages("時間、日期");

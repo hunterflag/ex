@@ -61,7 +61,7 @@ public class DevTool {
 			Method[] methods = obj.getClass().getDeclaredMethods();
 			for(Method method : methods) {
 				method.setAccessible(true);
-				System.out.printf("%s %s(%s)\n"
+				System.out.printf("%20s %s(%s)\n"
 						, method.getReturnType().getSimpleName()
 						, method.getName()
 						, getParamStringOfMethod(method)

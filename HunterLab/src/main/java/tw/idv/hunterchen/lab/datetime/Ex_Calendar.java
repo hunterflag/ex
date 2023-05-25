@@ -1,4 +1,4 @@
-package tw.idv.hunterchen.lab.time;
+package tw.idv.hunterchen.lab.datetime;
 
 import java.util.Calendar;
 
