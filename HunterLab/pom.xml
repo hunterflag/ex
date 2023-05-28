@@ -21,8 +21,8 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>tw.idv.hunterchen</groupId>
-				<artifactId>dependency</artifactId>
+				<groupId>tw.idv.hunterchen.common</groupId>
+				<artifactId>dependencies</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 				<type>pom</type>
 				<scope>import</scope>
