@@ -1,6 +1,8 @@
 package tw.idv.hunterchen.lab.string;
 
 import tw.idv.hunterchen.utility.DevTool;
+import tw.idv.hunterchen.utility.*;
+import tw.idv.hunterchen.utility.*;
 
 public class Ex_isBlank_and_isEmpty {
 	/*
