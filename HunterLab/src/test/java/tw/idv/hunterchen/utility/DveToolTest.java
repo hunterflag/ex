@@ -30,6 +30,7 @@ public class DveToolTest {
 		
 		File file = new File("");
 		assertTrue(DevTool.showAllFields(file));
+		assertTrue(DevTool.showAllMembers(file));
 
 
 		

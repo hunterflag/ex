@@ -31,16 +31,16 @@ public class AES {
 
 	public static void main(String[] args) {
 		String algorithm="AES/CBC/PKCS5Padding";				// 要採用的演算法
-		String plainText="1234567890";		// 明文
+		String plainText="1234567890";							// 明文
 		String password="qwert";
-		SecretKey secretKey;				// 密鑰
+		SecretKey secretKey;									// 密鑰
 		IvParameterSpec iv;
-		String cipherText;					// 使用密鑰加密明碼、產生的密文
-		String decryptedCipherText;					// 使用密鑰加密明碼、產生的密文
+		String cipherText;										// 使用密鑰加密明碼、產生的密文
+		String decryptedCipherText;								// 使用密鑰加密明碼、產生的密文
 		String salt="salt";
 
 		try {
-			secretKey = generateSecretKey(128);
+			secretKey = generateSecretKey(256);
 			secretKey = getSecretKeyFromPassword(password, salt);
 			iv = generateIv();
 			cipherText = encrypt(algorithm, plainText, secretKey, iv);
@@ -70,19 +70,19 @@ public class AES {
 		
 		
 	// 產生 SecretKey 的方式.a
-	public static SecretKey generateSecretKey(int n) throws NoSuchAlgorithmException {
+	public static SecretKey generateSecretKey(int length) throws NoSuchAlgorithmException {
 		SecretKey key = null;
-		if(n==128 || n==192 || n==256 ) {
-			log.info("產生長度 {} 的SecreKey", n );
+		if(length==128 || length==192 || length==256 ) {
+			log.info("產生長度 {} 的SecreKey", length );
 			KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
-			keyGenerator.init(n);
+			keyGenerator.init(length);
 			key = keyGenerator.generateKey();
 			byte[] encodedKey = key.getEncoded();
 			log.info("SecreKey={}", bytesToHexString(encodedKey));
 			log.info("SecreKey={}", key.getEncoded());
 			DevTool.showAllFields(key);
 		}else {
-			log.info("長度是 {}, 僅可以是 128、192、或256");			
+			log.info("長度是 {}, 僅可以是 128、192、或256", length);			
 		}
 	    return key;
 	}

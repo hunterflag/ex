@@ -21,7 +21,7 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>tw.idv.hunterchen.common</groupId>
+				<groupId>tw.idv.hunterchen</groupId>
 				<artifactId>dependencies</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 				<type>pom</type>
