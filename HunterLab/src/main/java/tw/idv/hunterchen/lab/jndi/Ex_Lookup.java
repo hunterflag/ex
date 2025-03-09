@@ -40,12 +40,12 @@ import java.util.Hashtable;
 class Ex_Lookup {
 	public static void main(String[] args) {
 		// Check that user has supplied name of file to lookup
-		if (args.length != 1) {
+		if (args.length != 0) {
 			System.err.println("usage: java Lookup <filename>");
 			System.exit(-1);
 		}
 
-		String name = args[0];
+		String name = "~/";
 
 		// Identify service provider to use
 		Hashtable env = new Hashtable(11);

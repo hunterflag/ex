@@ -9,13 +9,17 @@
 	<description>
 		${basedir}
 		${project.basedir}
-		${project.baseDir}
+		<!-- ${project.baseDir} -->
 		${project.baseUri}
 		${baseUri}
 		${maven.build.timestamp}
+		${build.timestamp}
 		${java.version}
+		${groupId}
+		${maven.groupId}
+		${project.groupId}
 	</description>
-
+			
 	<properties>
 		<revision>0.0.1</revision>
 		<changelist>SNAPSHOT</changelist>

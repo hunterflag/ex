@@ -1,11 +1,11 @@
 package tw.idv.hunterchen.lab.ssh;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.Test;
 
 import org.junit.Test;
 
 public class SFTPUtilTest {
-	@Before
+//	@Before
 	
 	@Test
 	public void testSFTPUtilStringStringStringInt() {

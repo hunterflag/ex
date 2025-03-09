@@ -8,7 +8,20 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/org/apache/logging/log4j/log4j-slf4j-impl/2.17.1/log4j-slf4j-impl-2.17.1.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/com/auth0/java-jwt/3.8.2/java-jwt-3.8.2.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/com/fasterxml/jackson/core/jackson-databind/2.9.9.3/jackson-databind-2.9.9.3.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/com/fasterxml/jackson/core/jackson-core/2.9.9/jackson-core-2.9.9.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/jsonwebtoken/jjwt/0.9.1/jjwt-0.9.1.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/jsonwebtoken/jjwt-api/0.10.7/jjwt-api-0.10.7.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/jsonwebtoken/jjwt-impl/0.10.7/jjwt-impl-0.10.7.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/jsonwebtoken/jjwt-jackson/0.10.7/jjwt-jackson-0.10.7.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/github/cdimascio/dotenv-java/2.2.0/dotenv-java-2.2.0.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/javax/mail/javax.mail-api/1.5.6/javax.mail-api-1.5.6.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/sun/mail/javax.mail/1.6.2/javax.mail-1.6.2.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/javax/activation/activation/1.1/activation-1.1.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/com/github/krraghavan/xeger/1.0.0-RELEASE/xeger-1.0.0-RELEASE.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/dk/brics/automaton/automaton/1.11-8/automaton-1.11-8.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/commons-codec/commons-codec/1.15/commons-codec-1.15.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="PLUGIN" id="org.eclipse.jst.ws.annotations.core" enabled="false" runInBatchMode="false"/>
 </factorypath>
